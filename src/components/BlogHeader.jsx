@@ -121,8 +121,8 @@ class BlogHeader extends Component {
                         />
                         <a onLoad={enableDarkReader({
                                 brightness: 100,
-                                contrast: 100,
-                                sepia: 15,
+                                contrast: 105,
+                                sepia: 25,
                             })}></a>
                     </Menu>
                     <Visibility

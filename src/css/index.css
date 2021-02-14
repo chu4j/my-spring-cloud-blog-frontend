@@ -4,14 +4,13 @@ body {
     /* font-family: 'Ubuntu', sans-serif; */
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
- 
 }
 
 code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
-.tagsCard {
 
+.tagsCard {
     margin-top: 4em;
 }
 
@@ -22,18 +21,24 @@ code {
     padding: 3px;
     display: 'inline-block';
     /* font-family: 'Ubuntu'; */
-    color:#202040;
+    color: #202040;
     display: inline-block;
 }
 
 .tagsWord:hover {
-    text-decoration:underline
+    text-decoration: underline
 }
-.postContainer{
+
+.postContainer {
     padding: 20px;
     border-radius: 0.2em;
     border: #e1e1e1 solid 1px;
 }
-.postHeader:hover{
-    text-decoration: underline blueviolet;
+
+.postTitle {
+    color: yellow;
+}
+
+.postTitle:hover {
+    color: yellowgreen;
 }

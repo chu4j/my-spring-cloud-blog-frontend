@@ -1,13 +1,10 @@
 import { React, useEffect, useState } from "react";
 import { useParams, useRouteMatch } from "react-router-dom";
-import { Container, Grid } from "semantic-ui-react";
 import '../css/App.css';
 import { ServerHost } from "./AppConfig";
-import BlogHeader from "./BlogHeader";
+import BlogLayout from "./BlogLayout";
 import CategoryComponent from "./CategoryComponent";
-import DivRow from "./Common";
-import ArchiveContent from "./Content";
-import BlogFooter from "./Footer";
+import ContentComponent from "./Content";
 import TagComponent from "./TagComponent";
 async function getArchive(path) {
   const axios = require('axios').default
@@ -74,32 +71,13 @@ export default function Home() {
       })
   }, [])
   return (
-    <Container fluid className="appContainer">
-      <Grid>
-        <Grid.Row width={16}> 
-          <Grid.Column>
-            <BlogHeader />
-          </Grid.Column>
-        </Grid.Row>
-        <Grid.Row>
-          <Grid.Column width={4}>
-            <CategoryComponent />
-            <DivRow />
-            <DivRow />
-            <DivRow />
-            <TagComponent />
-          </Grid.Column>
-          <Grid.Column width={12}>
-            <ArchiveContent response={response} activePage={activePage} pagePrefix={params.pagePrefix} />
-          </Grid.Column>
-        </Grid.Row>
-        <Grid.Row>
-          <Grid.Column>
-            <BlogFooter />
-          </Grid.Column>
-        </Grid.Row>
-      </Grid>
-    </Container>
+    <BlogLayout
+      CategoryComponent={<CategoryComponent />}
+      TagComponent={<TagComponent />}
+      ContentComponent={
+        <ContentComponent response={response} activePage={activePage} pagePrefix={params.pagePrefix}
+        />}
+    />
   )
 
 }

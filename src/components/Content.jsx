@@ -14,7 +14,7 @@ const renderers = {
     }
 }
 
-function ArchiveContent(props) {
+function ContentComponent(props) {
     const history = useHistory()
     const handlePaginationClick = (e, { activePage }) => {
         const url = props.pagePrefix + activePage
@@ -23,9 +23,9 @@ function ArchiveContent(props) {
     return (
         <Container fluid textAlign="left">
             {props.response.list && props.response.list.map((a, index) =>
-                <div className="postContainer" style={index > 0 ? { marginTop: '3em' } : {}}>
-                    <Header className="postHeader" as="a" textAlign="left" href="#" style={{fontSize:'1.5em',fontWeight:'900'}}>
-                        {a.title}
+                <Container className="postContainer" style={index > 0 ? { marginTop: '3em' } : {}}>
+                    <Header as="h1" textAlign="center">
+                        <a href={"/post/" + a.serialNumber} className="postTitle">{a.title}</a>
                     </Header>
                     <DivRow />
                     <ReactMarkdown renderers={renderers} children={a.content} plugins={[remarkGfm]}>
@@ -63,18 +63,46 @@ function ArchiveContent(props) {
                     }
                     <DivRow />
                     <DivRow />
-                </div>
+                </Container>
 
             )
             }
-            {props.response.totalPage > 1 && <Container fluid textAlign="center" style={{ marginTop: '2em' }}>
-                <Pagination totalPages={props.response.totalPage} firstItem={null} lastItem={null}
-                    pointing secondary activePage={props.activePage} onPageChange={handlePaginationClick} />
-            </Container>}
-
+            {
+                props.response.totalPage > 1 && props.activePage
+                &&
+                <Container fluid textAlign="center" style={{ marginTop: '2em' }}>
+                    <Pagination totalPages={props.response.totalPage} firstItem={null} lastItem={null}
+                        pointing secondary activePage={props.activePage} onPageChange={handlePaginationClick} />
+                </Container>
+            }
+            {
+                props.focus && props.response.list &&
+                <Container text style={{ marginTop: '1em' }}>
+                    <Grid>
+                        <Grid.Row>
+                            <Grid.Column width={8}>
+                                {props.response.list.map((e, index) =>
+                                    <>
+                                        {e.previous && <a key={index} href={"/post/" + e.previous.serialNumber} style={{fontWeight:'900'}}><Icon name="angle left" size="big"></Icon>&nbsp;&nbsp;{e.previous.title}</a>}
+                                    </>
+                                )
+                                }
+                            </Grid.Column>
+                            <Grid.Column width={8} textAlign="right">
+                                {props.response.list.map((e, index) =>
+                                    <>
+                                        {e.next && <a key={index} href={"/post/" + e.next.serialNumber} style={{fontWeight:'900'}}>{e.next.title}&nbsp;&nbsp;<Icon name="angle right" size="big"></Icon></a>}
+                                    </>
+                                )
+                                }
+                            </Grid.Column>
+                        </Grid.Row>
+                    </Grid>
+                </Container>
+            }
         </Container>
 
     )
 
 }
-export default withRouter(ArchiveContent)
+export default withRouter(ContentComponent)
