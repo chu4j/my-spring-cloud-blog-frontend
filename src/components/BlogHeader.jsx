@@ -11,6 +11,8 @@ import '../css/main.css';
 const style = {
     h1: {
         marginTop: '3em',
+        fontWeight: '900',
+        fontSize: '2.5em',
     },
     h3: {
         marginTop: '2em',
@@ -74,64 +76,68 @@ class BlogHeader extends Component {
     render() {
         const { activeItem, menuFixed, overlayFixed, overlayRect } = this.state
         return (
-            <div>
-                <Container fluid>
-                    <Header as='h1' content="Konc 's Blog" style={style.h1} textAlign='center' />
-                    <Header as='h4' content='To be or not to be' style={style.h3} textAlign='center' />
-                    <Visibility
-                        onBottomPassed={this.stickTopMenu}
-                        onBottomVisible={this.unStickTopMenu}
-                        once={false}
-                    />
-                    <Menu
-                        borderless
-                        fixed={menuFixed ? 'top' : undefined}
-                        style={menuFixed ? fixedMenuStyle : menuStyle}
-                        secondary pointing
+            <div style={{ paddingLeft: '3em' }}>
+                <Header as='h1' content="Learning Nothing" style={style.h1} textAlign='center' />
+                <Header as='h4' content='Born in China，Live in earth，Die in Universe。' style={style.h3} textAlign='center' />
+                <Visibility
+                    onBottomPassed={this.stickTopMenu}
+                    onBottomVisible={this.unStickTopMenu}
+                    once={false}
+                />
+                <Menu
+                    borderless
+                    fixed={menuFixed ? 'top' : undefined}
+                    style={menuFixed ? fixedMenuStyle : menuStyle}
+                    pointing
+                    className="blogHeader"
+                >
+                    <Menu.Item
+                        as="a"
+                        name='home'
+                        active={activeItem === 'home'}
+                        onClick={this.handleItemClick}
+                        position="right"
+                        link
+                        href="/"
                     >
-                        <Menu.Item
-                            as="a"
-                            name='home'
-                            active={activeItem === 'home'}
-                            onClick={this.handleItemClick}
-                            position="right"
-                            link
-                            href="/"
-                        >
-                        </Menu.Item>
-                        <Menu.Item
-                            name='archives'
-                            active={activeItem === 'archives'}
-                            onClick={this.handleItemClick}
-                        />
-                        <Menu.Item
-                            name='categories'
-                            active={activeItem === 'categories'}
-                            onClick={this.handleItemClick}
-                        />
-                        <Menu.Item
-                            name='tags'
-                            active={activeItem === 'tags'}
-                            onClick={this.handleItemClick}
-                        />
-                        <Menu.Item
-                            name='about'
-                            active={activeItem === 'about'}
-                            onClick={this.handleItemClick}
-                        />
-                        <a onLoad={enableDarkReader({
-                                brightness: 100,
-                                contrast: 105,
-                                sepia: 25,
-                            })}></a>
-                    </Menu>
-                    <Visibility
-                        offset={80}
-                        once={false}
-                        onTopPassed={this.stickOverlay}
-                        onTopVisible={this.unStickOverlay}
-                        style={overlayFixed ? { ...overlayStyle, ...overlayRect } : {}} />
-                </Container>
+                    </Menu.Item>
+                    <Menu.Item
+                        name='archives'
+                        active={activeItem === 'archives'}
+                        onClick={this.handleItemClick}
+                    />
+                    <Menu.Item
+                        as="a"
+                        name='categories'
+                        active={activeItem === 'categories'}
+                        onClick={this.handleItemClick}
+                        link
+                        href="/categories"
+                    />
+                    <Menu.Item
+                        name='tags'
+                        active={activeItem === 'tags'}
+                        onClick={this.handleItemClick}
+                        as="a"
+                        href="/tags"
+                    />
+                    <Menu.Item
+                        name='about'
+                        active={activeItem === 'about'}
+                        onClick={this.handleItemClick}
+                    />
+                    <a href={enableDarkReader({
+                        brightness: 100,
+                        contrast: 105,
+                        sepia: 25,
+                    })}></a>
+                </Menu>
+                <Visibility
+                    offset={80}
+                    once={false}
+                    onTopPassed={this.stickOverlay}
+                    onTopVisible={this.unStickOverlay}
+                    style={overlayFixed ? { ...overlayStyle, ...overlayRect } : {}} />
 
             </div>
         )

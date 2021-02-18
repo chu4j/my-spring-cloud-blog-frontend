@@ -76,8 +76,7 @@ export default function Home() {
       TagComponent={<TagComponent />}
       ContentComponent={
         <ContentComponent response={response} activePage={activePage} pagePrefix={params.pagePrefix}
-        />}
-    />
+        />} style={{ margin: 0, padding: 0 }} />
   )
 
 }

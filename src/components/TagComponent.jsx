@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
-import { TagCloud } from 'react-tagcloud'
 import {
-    Container,
-    Icon
+    Container, Label, LabelGroup
 } from 'semantic-ui-react'
 import { ServerHost } from './AppConfig'
 import DivRow from './Common'
@@ -32,7 +30,7 @@ class TagComponent extends Component {
                     {
                         fontSize: `${size / 4.5}em`,
                         display: 'inline-block',
-                        //color: color,
+                        color: color,
                         fontWeight: '700',
                     }
 
@@ -42,15 +40,34 @@ class TagComponent extends Component {
         )
     }
 
+    // render() {
+    //     return (<Container fluid textAlign="justified" >
+    //         <span style={{ fontWeight: '900' }}>Tags</span>
+    //         <DivRow />
+    //         <TagCloud tags={this.state.data}
+    //             minSize={4}
+    //             maxSize={9}
+    //             renderer={this.renderWords}
+    //         />
+    //     </Container>
+    //     )
+    // }
     render() {
         return (<Container fluid textAlign="justified" >
-            <span style={{ fontWeight: '900' }}> <Icon name="hashtag" color="yellow" size="big" />Tags</span>
+            <span style={{ fontWeight: '900' }}>Tags</span>
             <DivRow />
-            <TagCloud tags={this.state.data}
-                minSize={4}
-                maxSize={9}
-                renderer={this.renderWords}
-            />
+            <LabelGroup>
+                {
+
+                    this.state.data.map((e, index) =>
+                        <Label as="a" key={index} href={"/tag/" + e.value}>
+                            {e.value}
+                            <Label.Detail color="olive">{e.count}</Label.Detail>
+                        </Label>
+                    )
+
+                }
+            </LabelGroup>
         </Container>
         )
     }

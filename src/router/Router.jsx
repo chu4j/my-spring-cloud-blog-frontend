@@ -1,7 +1,9 @@
 import { Route, Switch } from "react-router-dom";
+import Categories from "../components/Categories";
 import FocusPostComponent from "../components/FocusContent";
 import Home from "../components/Home";
 import LoginForm from "../components/owner/LoginForm";
+import Tags from "../components/Tags";
 export default function BlogRouter() {
     return (
 
@@ -14,6 +16,8 @@ export default function BlogRouter() {
             <Route path="/category/:name/page/:pageNumber"><Home /></Route>
             <Route path="/tag/:name/page/:pageNumber"><Home /></Route>
             <Route path="/post/:postId" exact ><FocusPostComponent /></Route>
+            <Route path="/categories" exact><Categories /></Route>
+            <Route path="/tags" exact><Tags /></Route>
         </Switch>
 
     )

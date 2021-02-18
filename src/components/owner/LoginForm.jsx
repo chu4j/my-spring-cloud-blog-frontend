@@ -1,7 +1,5 @@
-import { enable } from 'darkreader'
-import React from 'react'
-import { Button, Form, Grid, Header, Icon, Image, Message, Segment } from 'semantic-ui-react'
-import { enable as enableDarkReader } from 'darkreader';
+import React from 'react';
+import { Button, Form, Grid, Header, Message } from 'semantic-ui-react';
 export default function LoginForm() {
 
     return (<Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
@@ -26,11 +24,6 @@ export default function LoginForm() {
             <Message>
                 Go home? <a href='/'> Home page</a>
             </Message>
-            <a onLoad={enableDarkReader({
-                brightness: 100,
-                contrast: 105,
-                sepia: 25,
-            })}></a>
         </Grid.Column>
     </Grid>
     )

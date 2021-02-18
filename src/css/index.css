@@ -1,7 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Ubuntu:wght@400;700&display=swap');
 body {
     margin: 1em;
-    /* font-family: 'Ubuntu', sans-serif; */
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
@@ -31,14 +29,47 @@ code {
 
 .postContainer {
     padding: 20px;
-    border-radius: 0.2em;
-    border: #e1e1e1 solid 1px;
-}
-
-.postTitle {
-    color: yellow;
+    border-radius: 0.5em;
+   /* border: whitesmoke solid 1px; */
+   /* border-left: 1px solid whitesmoke; */
 }
 
 .postTitle:hover {
-    color: yellowgreen;
+    text-decoration: underline;
+}
+
+.blogHeader {
+    background-color: yellow;
+}
+
+
+/*animate*/
+
+.alert-appear {
+    opacity: 0;
+}
+
+.alert-enter {
+    opacity: 1;
+    transform: scale(0.95)
+}
+
+.alert-enter-active {
+    opacity: 1;
+    transform: translateX(0);
+    transition: opacity 300ms, transform 200ms;
+}
+
+.alert-exit {
+    opacity: 1;
+    transform: scale(0.9)
+}
+
+.alert-exit-active {
+    opacity: 0;
+    transform: translateX(0);
+    transition: opacity 300ms, transform 200ms;
+}
+.postContainer pre code{
+    color: green;
 }

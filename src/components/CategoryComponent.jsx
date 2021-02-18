@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
-import { TagCloud } from 'react-tagcloud'
 import {
     Container,
-    Icon
+
+
+    Label,
+    LabelGroup
 } from 'semantic-ui-react'
 import { ServerHost } from './AppConfig'
 import DivRow from './Common'
@@ -23,12 +25,12 @@ class CategoryComponent extends Component {
                     console.log(error)
                 }
             )
-            console.log("category card render")
+        console.log("category card render")
     }
 
     renderWords = (tag, size, color) => {
         return (
-            <a 
+            <a key={tag.value}
                 style={
                     {
                         //  animation: 'blinker 3s linear infinite',
@@ -36,7 +38,7 @@ class CategoryComponent extends Component {
                         fontSize: `${size / 5}em`,
 
                         display: 'inline-block',
-                        //color: color,
+                        color: color,
                         fontWeight: '900',
 
                     }
@@ -47,17 +49,36 @@ class CategoryComponent extends Component {
         )
     }
 
+    // render() {
+    //     return (<Container fluid textAlign="justified" >
+    //         <span style={{ fontWeight: '900' }}>Categories</span>
+    //         <DivRow />
+    //         <TagCloud tags={this.state.data}
+    //             minSize={5}
+    //             maxSize={10}
+    //             renderer={this.renderWords}
+    //             key="categoryTagCloud"
+    //         />
+
+    //     </Container>
+    //     )
+    // }
     render() {
         return (<Container fluid textAlign="justified" >
-            <span style={{ fontWeight: '900' }}> <Icon name="linkify" color="blue" size="big" />Categories</span>
+            <span style={{ fontWeight: '900' }}>Categories</span>
             <DivRow />
-            <TagCloud tags={this.state.data}
-                minSize={5}
-                maxSize={10}
-                renderer={this.renderWords}
-                disableRandomColor
-            />
+            <LabelGroup>
+                {
 
+                    this.state.data.map((e, index) =>
+                        <Label as="a" key={index} href={"/category/" + e.value}>
+                            {e.value}
+                            <Label.Detail color="olive">{e.count}</Label.Detail>
+                        </Label>
+                    )
+
+                }
+            </LabelGroup>
         </Container>
         )
     }
