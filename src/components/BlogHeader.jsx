@@ -89,7 +89,7 @@ class BlogHeader extends Component {
                     fixed={menuFixed ? 'top' : undefined}
                     style={menuFixed ? fixedMenuStyle : menuStyle}
                     pointing
-                    className="blogHeader"
+                    className="blog-header"
                 >
                     <Menu.Item
                         as="a"

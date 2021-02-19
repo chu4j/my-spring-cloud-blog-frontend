@@ -22,12 +22,12 @@ function ContentComponent(props) {
     }
     return (
         <>
-            <CSSTransition in={showComponent} classNames="alert" timeout={200} unmountOnExit>
+            <CSSTransition in={showComponent} classNames="posts" timeout={200} unmountOnExit>
                 <Container fluid style={{ padding: '4em' }}>
                     {props.response.list && props.response.list.map((a, index) =>
-                        <div className="postContainer" style={index > 0 ? { marginTop: '3em' } : {}}>
+                        <div className="post-container" style={index > 0 ? { marginTop: '3em' } : {}}>
                             <Header as="h1" textAlign="center">
-                                <a href={"/post/" + a.serialNumber} className="postTitle">{a.title}</a>
+                                <a href={"/post/" + a.serialNumber} className="post-title">{a.title}</a>
                             </Header>
                             {
                                 <div className="markdown-body" dangerouslySetInnerHTML={{ __html: a.content }}></div>
