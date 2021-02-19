@@ -30,18 +30,22 @@ code {
 .postContainer {
     padding: 20px;
     border-radius: 0.5em;
-   /* border: whitesmoke solid 1px; */
-   /* border-left: 1px solid whitesmoke; */
+    /* border: whitesmoke solid 1px; */
+    /* border-left: 1px solid whitesmoke; */
+}
+
+.postTitle {
+    color: yellowgreen;
 }
 
 .postTitle:hover {
+    color: yellowgreen;
     text-decoration: underline;
 }
 
 .blogHeader {
     background-color: yellow;
 }
-
 
 /*animate*/
 
@@ -70,6 +74,7 @@ code {
     transform: translateX(0);
     transition: opacity 300ms, transform 200ms;
 }
-.postContainer pre code{
-    color: green;
+
+.postContainer pre code {
+    color: rgb(151, 155, 95);
 }

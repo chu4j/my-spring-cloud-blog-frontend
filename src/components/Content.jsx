@@ -1,23 +1,8 @@
 import { React, useEffect, useState } from "react";
 import { useHistory, withRouter } from "react-router-dom";
-import SyntaxHighlighter from "react-syntax-highlighter";
-import { github } from "react-syntax-highlighter/dist/cjs/styles/hljs";
 import { CSSTransition } from "react-transition-group";
 import { Container, Grid, Header, Icon, Pagination } from "semantic-ui-react";
 import DivRow from './Common';
-
-
-const renderers = {
-    code: ({ language, value }) => {
-        if (undefined === language) {
-            language = 'scala'
-        }
-        if (undefined === value) {
-            value = ''
-        }
-        return <SyntaxHighlighter style={github} language={language} children={value} />
-    }
-}
 
 function ContentComponent(props) {
     const hljs = require('highlight.js')
