@@ -14,7 +14,7 @@ class Footer extends Component {
         </p>
 
         <a href="https://www.github.com/konchoo">
-          <em>Present in 2021</em>
+          <b>&copy;&nbsp;Konc Levis</b>
         </a>
       </div>
     );

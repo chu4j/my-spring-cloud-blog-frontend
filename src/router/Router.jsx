@@ -4,6 +4,8 @@ import FocusPostComponent from "../components/FocusContent";
 import Home from "../components/Home";
 import LoginForm from "../components/owner/LoginForm";
 import Tags from "../components/Tags";
+import MyTimeline from "../components/Timeline";
+import TimelineHome from "../components/TimelineHome";
 export default function BlogRouter() {
   return (
     <Switch>
@@ -36,6 +38,12 @@ export default function BlogRouter() {
       </Route>
       <Route path="/tags" exact>
         <Tags />
+      </Route>
+      <Route path="/posts/timeline" exact>
+        <TimelineHome />
+      </Route>
+      <Route path="/posts/timeline/page/:pageNumber" exact>
+        <TimelineHome />
       </Route>
     </Switch>
   );

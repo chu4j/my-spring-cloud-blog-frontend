@@ -104,9 +104,12 @@ class BlogHeader extends Component {
             href="/"
           ></Menu.Item>
           <Menu.Item
+            as="a"
             name="archives"
             active={activeItem === "archives"}
             onClick={this.handleItemClick}
+            link
+            href="/posts/timeline"
           />
           <Menu.Item
             as="a"
