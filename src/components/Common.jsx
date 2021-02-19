@@ -1,3 +1,3 @@
-export default function DivRow(){
-    return(<div>&nbsp;</div>)
+export default function DivRow() {
+  return <div>&nbsp;</div>;
 }

@@ -1,58 +1,59 @@
 body {
-    margin: 1em;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+  margin: 1em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
 }
 
 .post-container {
-    padding: 20px;
-    border-radius: 0.5em;
+  padding: 20px;
+  border-radius: 0.5em;
 }
 
 .post-title {
-    color: yellowgreen;
+  color: yellowgreen;
 }
 
 .post-title:hover {
-    color: yellowgreen;
-    text-decoration: underline;
+  color: yellowgreen;
+  text-decoration: underline;
 }
 
 .blog-header {
-    background-color: yellow;
+  background-color: yellow;
 }
 /*animate*/
 
 .posts-appear {
-    opacity: 0;
+  opacity: 0;
 }
 
 .posts-enter {
-    opacity: 1;
-    transform: scale(0.95)
+  opacity: 1;
+  transform: scale(0.95);
 }
 
 .posts-enter-active {
-    opacity: 1;
-    transform: translateX(0);
-    transition: opacity 300ms, transform 200ms;
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 300ms, transform 200ms;
 }
 
 .posts-exit {
-    opacity: 1;
-    transform: scale(0.9)
+  opacity: 1;
+  transform: scale(0.9);
 }
 
 .posts-exit-active {
-    opacity: 0;
-    transform: translateX(0);
-    transition: opacity 300ms, transform 200ms;
+  opacity: 0;
+  transform: translateX(0);
+  transition: opacity 300ms, transform 200ms;
 }
 
 .post-container pre code {
-    color: rgb(151, 155, 95);
+  color: rgb(151, 155, 95);
 }

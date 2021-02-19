@@ -1,2 +1,1 @@
-
-export const ServerHost="http://localhost:9000"
+export const ServerHost = "http://localhost:9000";
