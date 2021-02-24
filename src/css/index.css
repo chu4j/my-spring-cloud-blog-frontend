@@ -2,18 +2,24 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #011623;
-  font-family: Georgia, "Times New Roman", "Microsoft YaHei", "微软雅黑",
-    STXihei, "华文细黑", serif;
+  font-family: Cambria, Georgia, "Times New Roman", FangSong, "仿宋", SimSun,
+    PMingLiU, STFangsong, "Microsoft YaHei", "微软雅黑", STXihei, "华文细黑",
+    serif;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+  font-family: Consolas, source-code-pro, Menlo, Monaco, "Courier New",
     monospace;
 }
 
 .post-container {
   padding: 8px;
   border-radius: 2px;
+}
+.ui.header {
+  font-family: Cambria, Georgia, "Times New Roman", FangSong, "仿宋", SimSun,
+    PMingLiU, STFangsong, "Microsoft YaHei", "微软雅黑", STXihei, "华文细黑",
+    serif;
 }
 
 .post-title {
@@ -28,32 +34,17 @@ code {
 /*animate*/
 
 .posts-appear {
-  opacity: 0;
+  opacity: 1;
 }
 
 .posts-enter {
   opacity: 1;
   transform: scale(0.95);
 }
-
 .posts-enter-active {
   opacity: 1;
   transform: translateX(0);
-  transition: opacity 300ms, transform 200ms;
-}
-
-.posts-exit {
-  opacity: 1;
-  transform: scale(0.9);
-}
-
-.posts-exit-active {
-  opacity: 0;
-  transform: translateX(0);
-  transition: opacity 300ms, transform 200ms;
-}
-
-.post-container pre code {
+  transition: opacity 500ms, transform 300ms;
 }
 .common-label {
   display: inline-block;
@@ -68,6 +59,7 @@ code {
 }
 .common-label-container {
   min-height: 280px;
+  font-family: inherit;
 }
 .menu-container {
   margin-bottom: 5em;
@@ -89,23 +81,74 @@ code {
   border: 1px solid #011623;
   display: inline-block;
   border-radius: 4px;
+  margin: 2px;
 }
 .post-tag:hover {
   color: #010101;
   text-decoration: underline;
 }
-.my-container {
+.layout-container {
   color: white;
   padding-left: 5px;
 }
+.layout-center-container {
+  margin-top: 3rem;
+}
 .base-post-container {
   color: white;
-  background-color: white;
+  background-color: #f7fafc;
+  border-radius: 3px;
 }
-.ui.pagination.pointing.secondary.page.menu .item {
+.ui.pagination.pointing.secondary.menu .item {
   color: white;
 }
-.ui.pagination.pointing.secondary.page.menu .active.item {
+.ui.pagination.pointing.secondary.menu .item:hover {
+  color: #bee3f8;
+}
+.ui.pagination.pointing.secondary.menu .active.item {
   color: white;
-  border-bottom: 2px solid gray;
+  border-bottom: 2px solid #bee3f8;
+}
+.post-previous-next {
+  font-weight: 900;
+  color: #bee3f8;
+}
+.breadmenu {
+  background: #171923;
+  background: linear-gradient(to right, #2c5282, #000, #2d3748);
+  position: fixed;
+  z-index: 1000;
+  padding-bottom: 1rem;
+  opacity: 0.9;
+}
+.ui.breadmenu .section {
+  color: #feebc8;
+  padding: 1px 3px 1px 3px;
+  border-radius: 1px;
+}
+.ui.breadmenu .section.active {
+  background-color: #805ad5;
+}
+.timeline-container {
+  padding: 1rem 5px 1rem 5px;
+  border-radius: 5px;
+
+  color: white;
+}
+.timeline-container a {
+  color: #f7fafc;
+}
+.timeline-container a:hover {
+  text-decoration: underline;
+}
+.footer-container{
+  text-align: center;
+  margin-top: 1rem;
+  background-color: inherit;
+}
+.timeline-label{
+  background-color: #805ad5;
+  padding: 3px;
+  font-size: 85%;
+  border-radius: 2px;
 }

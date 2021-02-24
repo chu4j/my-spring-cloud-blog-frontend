@@ -20,7 +20,7 @@ class TagComponent extends Component {
   render() {
     return (
       <>
-        <span>Tags : </span>
+        <span style={{fontWeight:'900'}}>Tags : </span>
         <DivRow />
         <div>
           {this.state.data.map((e, index) => (

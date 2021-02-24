@@ -21,7 +21,7 @@ class CategoryComponent extends Component {
   render() {
     return (
       <>
-        <span>Categories : </span>
+        <span style={{fontWeight:'900'}}>Categories : </span>
         <DivRow />
         <div className="common-label-container">
           {this.state.data.map((e, index) => (
