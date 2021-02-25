@@ -31,7 +31,7 @@ export default function Posts(props) {
       <CSSTransition
         in={showComponent}
         classNames="posts"
-        timeout={200}
+        timeout={300}
         unmountOnExit
       >
         <>

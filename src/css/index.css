@@ -33,25 +33,14 @@ code {
 
 /*animate*/
 
-.posts-appear {
-  opacity: 1;
-}
-
-.posts-enter {
-  opacity: 1;
-  transform: scale(0.95);
-}
-.posts-enter-active {
-  opacity: 1;
-  transform: translateX(0);
-  transition: opacity 500ms, transform 300ms;
-}
 .common-label {
   display: inline-block;
   margin: 5px;
   padding: 2px;
   color: whitesmoke;
   border-radius: 0;
+  font-size: 110%;
+  font-weight: 900;
 }
 .common-label:hover {
   color: whitesmoke;
@@ -118,8 +107,10 @@ code {
   background: linear-gradient(to right, #2c5282, #000, #2d3748);
   position: fixed;
   z-index: 1000;
-  padding-bottom: 1rem;
-  opacity: 0.9;
+  opacity: 0.99;
+  min-height: 40px;
+  max-height: 40px;
+  padding-top: 8px;
 }
 .ui.breadmenu .section {
   color: #feebc8;
@@ -151,4 +142,52 @@ code {
   padding: 3px;
   font-size: 85%;
   border-radius: 2px;
+}
+.mobile-menu {
+  background: #171923;
+  min-height: 40px;
+  max-height: 40px;
+  width: 100%;
+  opacity: 0.99;
+  padding: 8px 0 0 16px;
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  cursor: pointer;
+}
+.mobile-menu-content {
+  background: #101010;
+  position: fixed;
+  z-index: 100;
+  top: 40px;
+  width: 100%;
+  padding: 8px 0 0 16px;
+}
+.mobile-menu-content a {
+  width: 100%;
+  display: inline-block;
+  font-size: 105%;
+  font-weight: 900;
+}
+.mobile-menu-button {
+  color: #bee3f8;
+  background-color: #010101;
+}
+
+.posts-enter {
+  opacity: 0;
+  transform: scale(0.9);
+}
+.posts-enter-active {
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 300ms, transform 300ms;
+}
+.posts-exit {
+  opacity: 1;
+}
+.posts-exit-active {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 300ms, transform 300ms;
 }

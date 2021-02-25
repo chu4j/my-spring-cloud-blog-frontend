@@ -1,4 +1,4 @@
-import { React, useEffect, useState } from "react";
+import { React, useEffect, useLayoutEffect, useState } from "react";
 import { Helmet } from "react-helmet";
 import { useParams, useRouteMatch } from "react-router-dom";
 import "../css/App.css";
@@ -66,6 +66,18 @@ function countPath(router, name, pageNumber) {
   }
   return { requestUrl, pagePrefix, title, description };
 }
+function useWindowSize(props) {
+  const [size, setSize] = useState([0, 0]);
+  useLayoutEffect(() => {
+    function updateSize() {
+      setSize([window.innerWidth, window.innerHeight]);
+    }
+    window.addEventListener("resize", updateSize);
+    updateSize();
+    return () => window.removeEventListener("resize", updateSize);
+  }, []);
+  return size;
+}
 export default function Home() {
   let { name, pageNumber } = useParams();
   const router = useRouteMatch();
@@ -73,6 +85,7 @@ export default function Home() {
   let activePage = 1;
   if (null != pageNumber && undefined != pageNumber) activePage = pageNumber;
   const [response, setData] = useState({});
+  const [width, height] = useWindowSize();
   useEffect(() => {
     getArchive(params.requestUrl).then((res) => {
       setData(res);
@@ -86,8 +99,8 @@ export default function Home() {
         <meta name="description" content={params.description} />
       </Helmet>
       <DefaultLayout
-        CategoryComponent={<CategoryComponent />}
-        TagComponent={<TagComponent />}
+        CategoryComponent={width > 960 ? <CategoryComponent /> : null}
+        TagComponent={width > 960 ? <TagComponent /> : null}
         ContentComponent={
           <Posts
             response={response}

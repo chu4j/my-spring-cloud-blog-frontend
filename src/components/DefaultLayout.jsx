@@ -1,12 +1,12 @@
 import { Grid } from "semantic-ui-react";
 import "../css/index.css";
-import Spacing from "./Spacing";
 import Footer from "./Footer";
 import Header from "./Menu";
+import Spacing from "./Spacing";
 export default function DefaultLayout(props) {
   return (
     <div className="layout-container">
-      <Grid stackable>
+      <Grid>
         <Grid.Row columns={1}>
           <Header />
         </Grid.Row>

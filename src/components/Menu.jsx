@@ -1,14 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useLayoutEffect, useState } from "react";
 import { useRouteMatch } from "react-router-dom";
-import { Breadcrumb, Container } from "semantic-ui-react";
-const BreadcrumbExampleDivider = (props) => (
+import { CSSTransition } from "react-transition-group";
+import { Breadcrumb, Container, Divider, Icon } from "semantic-ui-react";
+import Spacing from "./Spacing";
+const BreadcrumbMenu = (props) => (
   <>
-    <Container
-      textAlign="center"
-      fluid
-      style={{ paddingTop: "1rem" }}
-      className="breadmenu"
-    >
+    <Container textAlign="center" fluid className="breadmenu">
       <Breadcrumb size="large">
         <Breadcrumb.Section href="/" active={"home" == props.active}>
           Home
@@ -35,12 +32,52 @@ const BreadcrumbExampleDivider = (props) => (
     </Container>
   </>
 );
+const MobileMenu = (props) => {
+  return (
+    <>
+      <div className="mobile-menu">
+        <div onClick={props.handler}>
+          <Icon name="bars" size="large" className="mobile-menu-button" />
+        </div>
+      </div>
+      <CSSTransition
+        in={props.show}
+        classNames="posts"
+        timeout={300}
+        unmountOnExit
+      >
+        <div className="mobile-menu-content">
+          <a href="/" style={{ color: "white" }}>
+            Home
+          </a>
+          <Divider />
+          <a href="/posts/timeline" style={{ color: "white" }}>
+            Timeline
+          </a>
+          <Divider />
+          <a href="/categories" style={{ color: "white" }}>
+            Categories
+          </a>
+          <Divider />
+          <a href="/tags" style={{ color: "white" }}>
+            Tags
+          </a>
+          <Divider />
+          <a href="/about" style={{ color: "white" }}>
+            About
+          </a>
+          <Spacing />
+        </div>
+      </CSSTransition>
+    </>
+  );
+};
 function getActiveItem(path) {
   let name = undefined;
   if (new String(path).indexOf("timeline") > 0) return "timeline";
   switch (path) {
     case "/":
-      name="home"
+      name = "home";
       break;
     case "/categories":
       name = "categories";
@@ -60,13 +97,33 @@ function getActiveItem(path) {
   }
   return name;
 }
+function useWindowSize() {
+  const [size, setSize] = useState([0, 0]);
+  useLayoutEffect(() => {
+    function updateSize() {
+      setSize([window.innerWidth, window.innerHeight]);
+    }
+    window.addEventListener("resize", updateSize);
+    updateSize();
+    return () => window.removeEventListener("resize", updateSize);
+  }, []);
+  return size;
+}
 export default function BreadMenu() {
   const router = useRouteMatch();
-  const name = getActiveItem(router.path);
   const [activeItem, setActiveItem] = useState(false);
+  const [width, height] = useWindowSize();
+  const [show, setShowMobileMenu] = useState(false);
+  const handlerClick = () => {
+    show ? setShowMobileMenu(false) : setShowMobileMenu(true);
+  };
   useEffect(() => {
     const activeItem = getActiveItem(router.path);
     setActiveItem(activeItem);
   }, []);
-  return <BreadcrumbExampleDivider active={activeItem} />;
+  return width < 960 ? (
+    <MobileMenu handler={handlerClick} show={show} />
+  ) : (
+    <BreadcrumbMenu active={activeItem} />
+  );
 }

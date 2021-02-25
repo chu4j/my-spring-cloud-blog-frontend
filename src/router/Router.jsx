@@ -2,7 +2,6 @@ import { Route, Switch } from "react-router-dom";
 import Categories from "../components/Categories";
 import Home from "../components/Home";
 import OnePost from "../components/OnePost";
-import LoginForm from "../components/owner/LoginForm";
 import Tags from "../components/Tags";
 import TimelineLayout from "../components/TimelineLayout";
 export default function BlogRouter() {
@@ -10,9 +9,6 @@ export default function BlogRouter() {
     <Switch>
       <Route path="/" exact>
         <Home />
-      </Route>
-      <Route path="/owner/login" exact>
-        <LoginForm />
       </Route>
       <Route path="/category/:name" exact>
         <Home />
