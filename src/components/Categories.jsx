@@ -10,7 +10,7 @@ export default function Categories() {
         title={CATEGORY + "-" + BLOG_TITLE}
         description={CATEGORY + "-" + BLOG_TITLE}
       />
-      <DefaultLayout ContentComponent={<CategoryComponent />} />
+      <DefaultLayout ContentComponent={<CategoryComponent />} nonFooter/>
     </>
   );
 }

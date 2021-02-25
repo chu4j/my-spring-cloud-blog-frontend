@@ -5,28 +5,32 @@ import { Breadcrumb, Container, Divider, Icon } from "semantic-ui-react";
 import Spacing from "./Spacing";
 const BreadcrumbMenu = (props) => (
   <>
-    <Container textAlign="center" fluid className="breadmenu">
+    <Container fluid className="breadmenu">
       <Breadcrumb size="large">
         <Breadcrumb.Section href="/" active={"home" == props.active}>
           Home
         </Breadcrumb.Section>
-        <Breadcrumb.Divider> / </Breadcrumb.Divider>
+        <Breadcrumb.Divider> /</Breadcrumb.Divider>
         <Breadcrumb.Section
           href="/posts/timeline"
           active={"timeline" == props.active}
         >
           Timeline
         </Breadcrumb.Section>
-        <Breadcrumb.Divider> / </Breadcrumb.Divider>
+        <Breadcrumb.Divider>/ </Breadcrumb.Divider>
         <Breadcrumb.Section
           href="/categories"
           active={"categories" === props.active}
         >
           Categories
         </Breadcrumb.Section>
-        <Breadcrumb.Divider> / </Breadcrumb.Divider>
+        <Breadcrumb.Divider>/ </Breadcrumb.Divider>
         <Breadcrumb.Section href="/tags" active={"tags" === props.active}>
           Tags
+        </Breadcrumb.Section>
+        <Breadcrumb.Divider> /</Breadcrumb.Divider>
+        <Breadcrumb.Section href="/about" active={"about" === props.active}>
+          About
         </Breadcrumb.Section>
       </Breadcrumb>
     </Container>

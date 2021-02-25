@@ -29,9 +29,7 @@ export default function DefaultLayout(props) {
           )}
         </Grid.Row>
         <Grid.Row columns={1}>
-          <Grid.Column>
-            <Footer />
-          </Grid.Column>
+          <Grid.Column>{!props.nonFooter && <Footer />}</Grid.Column>
         </Grid.Row>
       </Grid>
     </div>

@@ -10,7 +10,7 @@ export default function Tags() {
         title={TAG + "-" + BLOG_TITLE}
         description={TAG + "-" + BLOG_TITLE}
       />
-      <DefaultLayout ContentComponent={<TagComponent />} />
+      <DefaultLayout ContentComponent={<TagComponent />} nonFooter/>
     </>
   );
 }

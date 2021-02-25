@@ -104,26 +104,27 @@ code {
 }
 .breadmenu {
   background: #171923;
-  background: linear-gradient(to right, #2c5282, #000, #2d3748);
+  background: linear-gradient(to right, #000, #2d3748, #000);
   position: fixed;
   z-index: 1000;
   opacity: 0.99;
-  min-height: 40px;
-  max-height: 40px;
-  padding-top: 8px;
+  min-height: 45px;
+  max-height: 45px;
+  padding: 10px 0 0 1rem;
+  text-align: center;
 }
 .ui.breadmenu .section {
   color: #feebc8;
   padding: 1px 3px 1px 3px;
   border-radius: 1px;
 }
+.ui.breadmenu .divider {
+  color: #feebc8;
+}
 .ui.breadmenu .section.active {
   background-color: #805ad5;
 }
 .timeline-container {
-  padding: 1rem 5px 1rem 5px;
-  border-radius: 5px;
-
   color: white;
 }
 .timeline-container a {
@@ -138,15 +139,15 @@ code {
   background-color: inherit;
 }
 .timeline-label {
-  background-color: #805ad5;
+  background-color: #171923;
   padding: 3px;
   font-size: 85%;
   border-radius: 2px;
 }
 .mobile-menu {
   background: #171923;
-  min-height: 40px;
-  max-height: 40px;
+  min-height: 45px;
+  max-height: 45px;
   width: 100%;
   opacity: 0.99;
   padding: 8px 0 0 16px;
@@ -159,7 +160,7 @@ code {
   background: #101010;
   position: fixed;
   z-index: 100;
-  top: 40px;
+  top: 45px;
   width: 100%;
   padding: 8px 0 0 16px;
 }
@@ -190,4 +191,8 @@ code {
   opacity: 0;
   transform: scale(0.9);
   transition: opacity 300ms, transform 300ms;
+}
+.timeline-post-title {
+  font-size: 130%;
+  font-weight: 900;
 }

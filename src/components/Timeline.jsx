@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useHistory, useParams } from "react-router-dom";
 import { CSSTransition } from "react-transition-group";
-import { Container, Grid, Icon, Pagination } from "semantic-ui-react";
+import { Container, Divider, Grid, Pagination } from "semantic-ui-react";
 import Spacing from "./Spacing";
 import { ServerHost } from "./Vars";
 async function fetchData(pageNumber) {
@@ -37,40 +37,18 @@ export default function Timeline(props) {
         <Container className="timeline-container">
           {items.list &&
             items.list.map((e, index) => (
-              <>
+              <div key={index}>
                 <span className="timeline-label">{e.time}</span>
                 &nbsp;&nbsp;&nbsp;
                 <a
                   href={"/post/" + e.serialNumber}
-                  style={{ fontSize: "1.5em", fontWeight: "900" }}
+                  className="timeline-post-title"
                 >
                   {e.title}
                 </a>
                 <Spacing />
-                <span>
-                  <Icon name="linkify" color="blue" />
-                  {e.category &&
-                    e.category.map((c, index) => (
-                      <>
-                        <a key={index} href={"/category/" + c.category}>
-                          {c.category}
-                        </a>
-                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                      </>
-                    ))}
-                </span>
-                <span>
-                  <Icon name="hashtag" color="yellow" />
-                  {e.tag &&
-                    e.tag.map((t, index) => (
-                      <>
-                        <a href={"/tag/" + t.tag}>{t.tag}</a>
-                        &nbsp; &nbsp;
-                      </>
-                    ))}
-                </span>
-                <Spacing />
-              </>
+                <Divider />
+              </div>
             ))}
 
           <Spacing />
