@@ -1,20 +1,15 @@
 body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #011623;
+  background-color: #000;
   font-family: Cambria, Georgia, "Times New Roman", FangSong, "仿宋", SimSun,
     PMingLiU, STFangsong, "Microsoft YaHei", "微软雅黑", STXihei, "华文细黑",
     serif;
 }
 
 code {
-  font-family: Consolas, source-code-pro, Menlo, Monaco, "Courier New",
+  font-family: source-code-pro, Consolas, Menlo, Monaco, "Courier New",
     monospace;
-}
-
-.post-container {
-  padding: 8px;
-  border-radius: 2px;
 }
 .ui.header {
   font-family: Cambria, Georgia, "Times New Roman", FangSong, "仿宋", SimSun,
@@ -37,18 +32,16 @@ code {
   display: inline-block;
   margin: 5px;
   padding: 2px;
-  color: whitesmoke;
+  color: #c9d1d9;
   border-radius: 0;
   font-size: 110%;
-  font-weight: 900;
 }
 .common-label:hover {
-  color: whitesmoke;
+  color: #c9c9c9;
   text-decoration: underline;
 }
 .common-label-container {
-  min-height: 280px;
-  font-family: inherit;
+  margin-left: 2rem;
 }
 .menu-container {
   margin-bottom: 5em;
@@ -81,12 +74,13 @@ code {
   padding-left: 5px;
 }
 .layout-center-container {
-  margin-top: 3rem;
+  margin-top: 4rem;
 }
-.base-post-container {
-  color: white;
+.post-container {
+  color: inherit;
   background-color: #f7fafc;
-  border-radius: 3px;
+  border-radius: 1px;
+  padding: 10px 0 0 5px;
 }
 .ui.pagination.pointing.secondary.menu .item {
   color: white;
@@ -103,29 +97,37 @@ code {
   color: #bee3f8;
 }
 .breadmenu {
-  background: #171923;
-  background: linear-gradient(to right, #000, #2d3748, #000);
+  background: #161b22;
+  background: linear-gradient(to left, #161b22, #000, #171923);
   position: fixed;
   z-index: 1000;
-  opacity: 0.99;
-  min-height: 45px;
-  max-height: 45px;
-  padding: 10px 0 0 1rem;
+  min-height: 55px;
+  max-height: 55px;
+  padding: 15px 0 0 0;
   text-align: center;
+  font-family: "Lato", "Times New Roman", Cambria, Georgia, FangSong, "仿宋",
+    SimSun, PMingLiU, STFangsong, "Microsoft YaHei", "微软雅黑", STXihei,
+    "华文细黑", serif;
 }
 .ui.breadmenu .section {
-  color: #feebc8;
+  color: #e2f6fc;
   padding: 1px 3px 1px 3px;
   border-radius: 1px;
+}
+.ui.breadmenu .section:hover {
+  color: gray;
 }
 .ui.breadmenu .divider {
   color: #feebc8;
 }
-.ui.breadmenu .section.active {
+/* .ui.breadmenu .section.active {
   background-color: #805ad5;
-}
+} */
 .timeline-container {
   color: white;
+  font-family: Cambria, Georgia, "Times New Roman", FangSong, "仿宋", SimSun,
+    PMingLiU, STFangsong, "Microsoft YaHei", "微软雅黑", STXihei, "华文细黑",
+    serif;
 }
 .timeline-container a {
   color: #f7fafc;
@@ -137,6 +139,7 @@ code {
   text-align: center;
   margin-top: 1rem;
   background-color: inherit;
+  font-family: "Lato";
 }
 .timeline-label {
   background-color: #171923;
@@ -146,8 +149,8 @@ code {
 }
 .mobile-menu {
   background: #171923;
-  min-height: 45px;
-  max-height: 45px;
+  min-height: 55px;
+  max-height: 55px;
   width: 100%;
   opacity: 0.99;
   padding: 8px 0 0 16px;
@@ -160,7 +163,7 @@ code {
   background: #101010;
   position: fixed;
   z-index: 100;
-  top: 45px;
+  top: 55px;
   width: 100%;
   padding: 8px 0 0 16px;
 }
@@ -193,6 +196,6 @@ code {
   transition: opacity 300ms, transform 300ms;
 }
 .timeline-post-title {
-  font-size: 130%;
+  font-size: 1.2em;
   font-weight: 900;
 }

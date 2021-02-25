@@ -35,12 +35,10 @@ export default function Posts(props) {
         unmountOnExit
       >
         <>
-          <Container className="base-post-container">
+          <Container className="post-container">
             {props.response.list &&
               props.response.list.map((a, index) => (
                 <div
-                  style={index > 0 ? { marginTop: "20px" } : {}}
-                  className="post-container"
                   key={a.serialNumber}
                 >
                   <Header as="h1" textAlign="center">
@@ -99,10 +97,10 @@ export default function Posts(props) {
                           </Grid.Row>
                         </Grid>
                       </Container>
-                      <Divider />
                     </>
                   )}
                   <Spacing />
+                  <Divider />
                   <Spacing />
                 </div>
               ))}

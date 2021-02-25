@@ -22,7 +22,7 @@ class TagComponent extends Component {
       <>
         <span style={{ fontWeight: "900" }}>Tags : </span>
         <Spacing />
-        <div>
+        <div className="common-label-container">
           {this.state.data.map((e, index) => (
             <a key={index} href={"/tag/" + e.value} className="common-label">
               {e.value}

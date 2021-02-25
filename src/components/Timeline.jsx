@@ -46,8 +46,8 @@ export default function Timeline(props) {
                 >
                   {e.title}
                 </a>
-                <Spacing />
                 <Divider />
+                <Spacing />
               </div>
             ))}
 

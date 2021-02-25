@@ -1,5 +1,5 @@
 import { Component, React } from "react";
-import { Divider, Header, Icon } from "semantic-ui-react";
+import { Divider, Icon } from "semantic-ui-react";
 import Spacing from "./Spacing";
 
 class Footer extends Component {
@@ -8,19 +8,14 @@ class Footer extends Component {
       <div className="footer-container">
         <Divider />
         <Spacing />
-        <Header as="h5" color="blue">
-          <p>
-            build by <Icon name="react" color="yellow" size="big" />
-            <a href="#">
-              <b>React</b>
-            </a>
-          </p>
-        </Header>
-        <Header as="h5">
-          <a href="https://www.github.com/konchoo">
-            <b>&copy;&nbsp;Konc Levis</b>
+        <p>
+          build by <Icon name="react" color="yellow" size="big" />
+          <a href="https://github.com/facebook/react">
+            <b>React</b>
           </a>
-        </Header>
+        </p>
+
+        <a href="https://www.github.com/konchoo">&copy;&nbsp;konchoo</a>
       </div>
     );
   }

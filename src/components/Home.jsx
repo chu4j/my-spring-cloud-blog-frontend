@@ -1,9 +1,9 @@
 import { React, useEffect, useLayoutEffect, useState } from "react";
-import { Helmet } from "react-helmet";
 import { useParams, useRouteMatch } from "react-router-dom";
 import "../css/App.css";
 import CategoryComponent from "./CategoryComponent";
 import DefaultLayout from "./DefaultLayout";
+import HeadMeta from "./Meta";
 import Posts from "./Posts";
 import TagComponent from "./TagComponent";
 import { BLOG_TITLE, CATEGORY, ServerHost, TAG } from "./Vars";
@@ -93,11 +93,10 @@ export default function Home() {
   }, []);
   return (
     <>
-      <Helmet>
-        <meta charSet="utf-8" />
-        <title>{params.title ? params.title : BLOG_TITLE}</title>
-        <meta name="description" content={params.description} />
-      </Helmet>
+      <HeadMeta
+        title={params.title ? params.title : BLOG_TITLE}
+        description={params.description ? params.description : BLOG_TITLE}
+      />
       <DefaultLayout
         CategoryComponent={width > 960 ? <CategoryComponent /> : null}
         TagComponent={width > 960 ? <TagComponent /> : null}
