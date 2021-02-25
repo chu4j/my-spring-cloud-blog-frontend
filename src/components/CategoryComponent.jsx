@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import { ServerHost } from "./AppConfig";
-import DivRow from "./Common";
+import Spacing from "./Spacing";
+import { ServerHost } from "./Vars";
 class CategoryComponent extends Component {
   state = {
     data: [{}],
@@ -14,15 +14,14 @@ class CategoryComponent extends Component {
         this.setState({ data: data });
       })
       .catch((error) => {
-        console.log(error);
+        console.error(error);
       });
-    console.log("category card render");
   }
   render() {
     return (
       <>
-        <span style={{fontWeight:'900'}}>Categories : </span>
-        <DivRow />
+        <span style={{ fontWeight: "900" }}>Categories : </span>
+        <Spacing />
         <div className="common-label-container">
           {this.state.data.map((e, index) => (
             <a

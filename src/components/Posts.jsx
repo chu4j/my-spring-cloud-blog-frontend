@@ -9,12 +9,11 @@ import {
   Icon,
   Pagination
 } from "semantic-ui-react";
-import DivRow from "./Common";
+import Spacing from "./Spacing";
 
-export default function ContentComponent(props) {
+export default function Posts(props) {
   const hljs = require("highlight.js");
   const [showComponent, setShowComponent] = useState(false);
-  console.log("state : " + showComponent);
   useEffect(() => {
     let time = setTimeout(() => setShowComponent(true), 100);
     hljs.highlightAll();
@@ -57,7 +56,7 @@ export default function ContentComponent(props) {
                     ></div>
                   }
 
-                  <DivRow />
+                  <Spacing />
                   {a.category && a.tag && (
                     <>
                       <Container fluid>
@@ -80,7 +79,10 @@ export default function ContentComponent(props) {
                             </Grid.Column>
 
                             <Grid.Column width={11}>
-                              <Icon name="hashtag" style={{color:'#171923'}}/>
+                              <Icon
+                                name="hashtag"
+                                style={{ color: "#171923" }}
+                              />
                               {a.tag.map((t, index) => (
                                 <>
                                   <span key={t.serialNumber}>
@@ -100,8 +102,8 @@ export default function ContentComponent(props) {
                       <Divider />
                     </>
                   )}
-                  <DivRow />
-                  <DivRow />
+                  <Spacing />
+                  <Spacing />
                 </div>
               ))}
           </Container>

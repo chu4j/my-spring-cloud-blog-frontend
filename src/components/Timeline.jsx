@@ -1,16 +1,15 @@
 import { useEffect, useState } from "react";
 import { useHistory, useParams } from "react-router-dom";
 import { CSSTransition } from "react-transition-group";
-import { Container, Divider, Grid, Icon, Label, Pagination } from "semantic-ui-react";
-import { ServerHost } from "./AppConfig";
-import DivRow from "./Common";
+import { Container, Grid, Icon, Pagination } from "semantic-ui-react";
+import Spacing from "./Spacing";
+import { ServerHost } from "./Vars";
 async function fetchData(pageNumber) {
   const axois = require("axios").default;
   const url = ServerHost + "/v1/api/archive/timeline?page=" + pageNumber;
-  console.log("url : " + url);
   return axois.get(url).then((res) => res.data);
 }
-export default function MyTimeline(props) {
+export default function Timeline(props) {
   const [showTimeline, setShowTimeline] = useState(false);
   let { pageNumber } = useParams();
   if (null == pageNumber || undefined == pageNumber) pageNumber = 1;
@@ -39,9 +38,7 @@ export default function MyTimeline(props) {
           {items.list &&
             items.list.map((e, index) => (
               <>
-                <span className="timeline-label">
-                  {e.time}
-                </span>
+                <span className="timeline-label">{e.time}</span>
                 &nbsp;&nbsp;&nbsp;
                 <a
                   href={"/post/" + e.serialNumber}
@@ -49,7 +46,7 @@ export default function MyTimeline(props) {
                 >
                   {e.title}
                 </a>
-                <DivRow />
+                <Spacing />
                 <span>
                   <Icon name="linkify" color="blue" />
                   {e.category &&
@@ -72,13 +69,13 @@ export default function MyTimeline(props) {
                       </>
                     ))}
                 </span>
-                <Divider />
+                <Spacing />
               </>
             ))}
 
-          <DivRow />
-          <DivRow />
-          <DivRow />
+          <Spacing />
+          <Spacing />
+          <Spacing />
           <Grid textAlign="center">
             <Grid.Row columns={1}>
               <Pagination

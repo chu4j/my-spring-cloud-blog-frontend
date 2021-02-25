@@ -1,9 +1,9 @@
 import { Grid } from "semantic-ui-react";
 import "../css/index.css";
-import Header from "./Menu";
-import DivRow from "./Common";
+import Spacing from "./Spacing";
 import Footer from "./Footer";
-export default function BlogLayout(props) {
+import Header from "./Menu";
+export default function DefaultLayout(props) {
   return (
     <div className="layout-container">
       <Grid stackable>
@@ -14,9 +14,9 @@ export default function BlogLayout(props) {
           {props.CategoryComponent && props.TagComponent && (
             <Grid.Column width={3}>
               {props.CategoryComponent}
-              <DivRow />
-              <DivRow />
-              <DivRow />
+              <Spacing />
+              <Spacing />
+              <Spacing />
               {props.TagComponent}
             </Grid.Column>
           )}

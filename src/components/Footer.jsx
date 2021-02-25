@@ -1,13 +1,13 @@
 import { Component, React } from "react";
 import { Divider, Header, Icon } from "semantic-ui-react";
-import DivRow from "./Common";
+import Spacing from "./Spacing";
 
 class Footer extends Component {
   render() {
     return (
       <div className="footer-container">
         <Divider />
-        <DivRow />
+        <Spacing />
         <Header as="h5" color="blue">
           <p>
             build by <Icon name="react" color="yellow" size="big" />

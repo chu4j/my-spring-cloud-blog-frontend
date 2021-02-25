@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import { ServerHost } from "./AppConfig";
-import DivRow from "./Common";
+import Spacing from "./Spacing";
+import { ServerHost } from "./Vars";
 class TagComponent extends Component {
   state = {
     data: [{}],
@@ -20,8 +20,8 @@ class TagComponent extends Component {
   render() {
     return (
       <>
-        <span style={{fontWeight:'900'}}>Tags : </span>
-        <DivRow />
+        <span style={{ fontWeight: "900" }}>Tags : </span>
+        <Spacing />
         <div>
           {this.state.data.map((e, index) => (
             <a key={index} href={"/tag/" + e.value} className="common-label">

@@ -1,11 +1,10 @@
 import { Route, Switch } from "react-router-dom";
 import Categories from "../components/Categories";
-import FocusPostComponent from "../components/FocusContent";
 import Home from "../components/Home";
+import OnePost from "../components/OnePost";
 import LoginForm from "../components/owner/LoginForm";
 import Tags from "../components/Tags";
-import MyTimeline from "../components/Timeline";
-import TimelineHome from "../components/TimelineHome";
+import TimelineLayout from "../components/TimelineLayout";
 export default function BlogRouter() {
   return (
     <Switch>
@@ -31,7 +30,7 @@ export default function BlogRouter() {
         <Home />
       </Route>
       <Route path="/post/:postId" exact>
-        <FocusPostComponent />
+        <OnePost />
       </Route>
       <Route path="/categories" exact>
         <Categories />
@@ -40,10 +39,10 @@ export default function BlogRouter() {
         <Tags />
       </Route>
       <Route path="/posts/timeline" exact>
-        <TimelineHome />
+        <TimelineLayout />
       </Route>
       <Route path="/posts/timeline/page/:pageNumber" exact>
-        <TimelineHome />
+        <TimelineLayout />
       </Route>
     </Switch>
   );
