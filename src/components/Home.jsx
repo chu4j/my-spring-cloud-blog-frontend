@@ -1,12 +1,15 @@
 import { React, useEffect, useLayoutEffect, useState } from "react";
-import { useParams, useRouteMatch } from "react-router-dom";
+import { useHistory, useParams, useRouteMatch } from "react-router-dom";
 import "../css/App.css";
+import { getHomeUrl, isNumeric } from "../util/Utils";
 import CategoryComponent from "./CategoryComponent";
+import CategoryTable from "./CategoryTable";
 import DefaultLayout from "./DefaultLayout";
 import HeadMeta from "./Meta";
 import Posts from "./Posts";
 import TagComponent from "./TagComponent";
-import { BLOG_TITLE, CATEGORY, ServerHost, TAG } from "./Vars";
+import TagTable from "./TagTable";
+import { BLOG_TITLE, CATEGORY, NOT_FOUND_URL, ServerHost, TAG } from "./Vars";
 async function getArchive(path) {
   const axios = require("axios").default;
   if (null == path) {
@@ -14,57 +17,6 @@ async function getArchive(path) {
   } else {
     return axios.get(path).then((res) => res.data);
   }
-}
-function countPath(router, name, pageNumber) {
-  let requestUrl = "";
-  let pagePrefix = "";
-  let title = "";
-  let description = "";
-  const path = router.path;
-  switch (path) {
-    case "/":
-      requestUrl = ServerHost + "/v1/api/archive";
-      pagePrefix = "/posts/page/";
-      title = BLOG_TITLE;
-      description = BLOG_TITLE;
-      break;
-    case "/category/:name":
-      requestUrl = ServerHost + "/v1/api/category/" + name;
-      pagePrefix = "/category/" + name + "/page/";
-      title = CATEGORY + "：" + name + "-" + BLOG_TITLE;
-      description = CATEGORY + "：" + name + "-" + BLOG_TITLE;
-      break;
-    case "/category/:name/page/:pageNumber":
-      requestUrl =
-        ServerHost + "/v1/api/category/" + name + "?page=" + pageNumber;
-      pagePrefix = "/category/" + name + "/page/";
-      title = CATEGORY + "：" + name + "-" + BLOG_TITLE;
-      description = CATEGORY + "：" + name + "-" + BLOG_TITLE;
-      break;
-    case "/tag/:name":
-      requestUrl = ServerHost + "/v1/api/tag/" + name;
-      pagePrefix = "/tag/" + name + "/page/";
-      title = TAG + "：" + name + "-" + BLOG_TITLE;
-      description = TAG + "：" + name + "-" + BLOG_TITLE;
-      break;
-    case "/tag/:name/page/:pageNumber":
-      requestUrl = ServerHost + "/v1/api/tag/" + name + "?page=" + pageNumber;
-      pagePrefix = "/tag/" + name + "/page/";
-      title = TAG + "：" + name + "-" + BLOG_TITLE;
-      description = TAG + "：" + name + "-" + BLOG_TITLE;
-      break;
-    case "/posts/page/:pageNumber":
-      requestUrl = ServerHost + "/v1/api/archive?page=" + pageNumber;
-      pagePrefix = "/posts/page/";
-      title = BLOG_TITLE;
-      description = BLOG_TITLE;
-      break;
-    default:
-      title = BLOG_TITLE;
-      description = BLOG_TITLE;
-      break;
-  }
-  return { requestUrl, pagePrefix, title, description };
 }
 function useWindowSize(props) {
   const [size, setSize] = useState([0, 0]);
@@ -81,9 +33,13 @@ function useWindowSize(props) {
 export default function Home() {
   let { name, pageNumber } = useParams();
   const router = useRouteMatch();
-  const params = countPath(router, name, pageNumber);
+  const params = getHomeUrl(router, name, pageNumber);
+  const history = useHistory();
   let activePage = 1;
-  if (null != pageNumber && undefined != pageNumber) activePage = pageNumber;
+  if (null != pageNumber && undefined != pageNumber) {
+    !isNumeric(pageNumber) && history.push(NOT_FOUND_URL);
+    activePage = pageNumber;
+  }
   const [response, setData] = useState({});
   const [width, height] = useWindowSize();
   useEffect(() => {
@@ -98,8 +54,8 @@ export default function Home() {
         description={params.description ? params.description : BLOG_TITLE}
       />
       <DefaultLayout
-        CategoryComponent={width > 960 ? <CategoryComponent /> : null}
-        TagComponent={width > 960 ? <TagComponent /> : null}
+        CategoryComponent={width > 1200 ? <CategoryTable /> : null}
+        TagComponent={width > 1200 ? <TagTable /> : null}
         ContentComponent={
           <Posts
             response={response}

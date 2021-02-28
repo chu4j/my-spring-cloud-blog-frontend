@@ -9,7 +9,7 @@ class Footer extends Component {
         <Divider />
         <Spacing />
         <p>
-          build by <Icon name="react" color="yellow" size="big" />
+          build by <Icon name="react" color="teal" size="big" />
           <a href="https://github.com/facebook/react">
             <b>React</b>
           </a>

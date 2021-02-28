@@ -1,28 +1,20 @@
 body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #000;
-  font-family: Cambria, Georgia, "Times New Roman", FangSong, "仿宋", SimSun,
-    PMingLiU, STFangsong, "Microsoft YaHei", "微软雅黑", STXihei, "华文细黑",
-    serif;
+  background-color: #0d1117;
+  font-family: Lato, "Noto Sans SC";
 }
 
 code {
   font-family: source-code-pro, Consolas, Menlo, Monaco, "Courier New",
     monospace;
 }
-.ui.header {
-  font-family: Cambria, Georgia, "Times New Roman", FangSong, "仿宋", SimSun,
-    PMingLiU, STFangsong, "Microsoft YaHei", "微软雅黑", STXihei, "华文细黑",
-    serif;
-}
-
 .post-title {
   color: #011623;
 }
 
 .post-title:hover {
-  color: #011623;
+  color: #c9d1d9;
   text-decoration: underline;
 }
 
@@ -30,18 +22,23 @@ code {
 
 .common-label {
   display: inline-block;
-  margin: 5px;
+  margin: 2px;
   padding: 2px;
   color: #c9d1d9;
   border-radius: 0;
-  font-size: 110%;
 }
 .common-label:hover {
   color: #c9c9c9;
   text-decoration: underline;
 }
 .common-label-container {
-  margin-left: 2rem;
+  color: #c9d1d9;
+  margin: 2em 2em 0 2em;
+  border: 1px solid #30363d;
+  border-radius: 10px;
+  padding: 10px;
+  margin-top: 2em;
+  min-height: 10em;
 }
 .menu-container {
   margin-bottom: 5em;
@@ -66,7 +63,6 @@ code {
   margin: 2px;
 }
 .post-tag:hover {
-  color: #010101;
   text-decoration: underline;
 }
 .layout-container {
@@ -77,10 +73,15 @@ code {
   margin-top: 4rem;
 }
 .post-container {
-  color: inherit;
-  background-color: #f7fafc;
-  border-radius: 1px;
-  padding: 10px 0 0 5px;
+  margin-top: 2rem;
+  color: #c9d1d9;
+  background-color: inherit;
+  border: 1px solid #30363d;
+  border-radius: 8px;
+  padding: 1.5em;
+}
+.post-container a {
+  color: #c9d1d9;
 }
 .ui.pagination.pointing.secondary.menu .item {
   color: white;
@@ -98,16 +99,14 @@ code {
 }
 .breadmenu {
   background: #161b22;
-  background: linear-gradient(to left, #161b22, #000, #171923);
+  /* background: linear-gradient(to left, #161b22, #000, #171923); */
   position: fixed;
   z-index: 1000;
   min-height: 55px;
   max-height: 55px;
-  padding: 15px 0 0 0;
-  text-align: center;
-  font-family: "Lato", "Times New Roman", Cambria, Georgia, FangSong, "仿宋",
-    SimSun, PMingLiU, STFangsong, "Microsoft YaHei", "微软雅黑", STXihei,
-    "华文细黑", serif;
+  padding: 15px 0 0 2rem;
+  font-weight: 900;
+  text-align: left;
 }
 .ui.breadmenu .section {
   color: #e2f6fc;
@@ -124,10 +123,10 @@ code {
   background-color: #805ad5;
 } */
 .timeline-container {
-  color: white;
-  font-family: Cambria, Georgia, "Times New Roman", FangSong, "仿宋", SimSun,
-    PMingLiU, STFangsong, "Microsoft YaHei", "微软雅黑", STXihei, "华文细黑",
-    serif;
+  color: #c9d1d9;
+  border: 1px solid #30363d;
+  border-radius: 10px;
+  padding: 0 10px 0 10px;
 }
 .timeline-container a {
   color: #f7fafc;
@@ -170,8 +169,6 @@ code {
 .mobile-menu-content a {
   width: 100%;
   display: inline-block;
-  font-size: 105%;
-  font-weight: 900;
 }
 .mobile-menu-button {
   color: #bee3f8;
@@ -195,7 +192,164 @@ code {
   transform: scale(0.9);
   transition: opacity 300ms, transform 300ms;
 }
-.timeline-post-title {
-  font-size: 1.2em;
+.catalog-container {
+  position: fixed;
+  left: 0;
+  top: 0;
+  padding-top: 55px;
+  z-index: 999;
+  background-color: #0d1117;
+  border-radius: 0 3px 3px 0;
+  width: 230px;
+  height: 100%;
+  color: #c9d1d9;
+  border-right: 1px solid #30363d;
+  overflow: scroll;
+}
+.catalog-container-switch {
+  position: fixed;
+  top: 40%;
+  left: 0;
+  z-index: 1000;
+  background-color: #f1e05a;
+  border-radius: 0 5px 5px 0;
+  height: 110px;
+  width: 35px;
+  cursor: pointer;
+}
+.catalog-container-switch .name {
+  transform: rotate(-90deg);
+  position: absolute;
+  color: #011623;
   font-weight: 900;
+  margin-top: 45px;
+  margin-left: -16px;
+}
+.catalog-container-switch .name .icon {
+  display: block;
+  margin-left: 1em;
+  position: absolute;
+}
+.catalog-container ul:only-child {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+  position: relative;
+}
+.catalog-container li > ul {
+  margin-left: -1em;
+}
+.catalog-container ul > ul {
+  margin-left: -1em;
+}
+.catalog-container li {
+  list-style-type: none;
+  border-left: 1px solid transparent;
+  margin-left: 0;
+  margin-top: 0.2em;
+  padding-left: -30px;
+}
+.catalog-container li a {
+  padding-left: 1em;
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  padding: 5px;
+  border-radius: 2px;
+}
+.catalog-container li a:hover {
+  background-color: #182030;
+}
+.catalog-container li a::before {
+  /* content: "\f105"; */
+  content: "";
+  position: absolute;
+  top: 8px;
+  left: -5px;
+  bottom: 50%;
+  width: 0.25em;
+  font-family: "Icons";
+}
+
+.catalog-container ul > li:last-child {
+  border-left: 1px solid transparent;
+}
+
+.catalog-enter {
+  transform: translateX(-250px);
+}
+.catalog-enter-active {
+  transform: translateX(0);
+  transition: transform 300ms;
+}
+.catalog-exit {
+  transform: translateX(0);
+}
+.catalog-exit-active {
+  transform: translateX(-250px);
+  transition: transform 500ms;
+}
+.catalog-switch-enter {
+  transform: translateX(-50px);
+}
+.catalog-switch-enter-active {
+  transform: translateX(0);
+  transition: transform 300ms;
+}
+.catalog-switch-exit {
+  opacity: 1;
+}
+.catalog-switch-exit-active {
+  opacity: 0;
+  transition: opacity 100ms;
+}
+.ui.table.common-table {
+  margin-top: 2em;
+  color: #c9d1d9;
+  background-color: transparent;
+  border: 1px solid #30363d;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.ui.table.common-table th {
+  color: #c9d1d9;
+  background-color: transparent;
+}
+.ui.table.common-table thead:first:hover {
+  background-color: transparent;
+}
+.ui.table.common-table tbody tr :not(:last-child):hover {
+  background-color: #161b22;
+  border-radius: 5px;
+}
+.ui.table.common-table tbody tr td:nth-child(n) {
+  color: #c9d1d9;
+}
+
+.ui.table.common-table-1 {
+  margin-top: 2em;
+  color: #c9d1d9;
+  background-color: transparent;
+  border: 1px solid #30363d;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.ui.table.common-table-1 th {
+  color: #c9d1d9;
+  background-color: transparent;
+}
+.ui.table.common-table-1 thead:first:hover {
+  background-color: transparent;
+}
+.ui.table.common-table-1 tbody tr :not(:first-child):hover {
+  background-color: #161b22;
+  border-radius: 5px;
+}
+.ui.table.common-table-1 tbody tr td:nth-child(n) {
+  color: #c9d1d9;
+}
+.ui .header {
+  color: #c9d1d9;
 }

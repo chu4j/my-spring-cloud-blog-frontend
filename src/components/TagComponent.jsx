@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Icon } from "semantic-ui-react";
 import Spacing from "./Spacing";
 import { ServerHost } from "./Vars";
 class TagComponent extends Component {
@@ -20,16 +21,21 @@ class TagComponent extends Component {
   render() {
     return (
       <>
-        <span style={{ fontWeight: "900" }}>Tags : </span>
-        <Spacing />
         <div className="common-label-container">
-          {this.state.data.map((e, index) => (
-            <a key={index} href={"/tag/" + e.value} className="common-label">
-              {e.value}
-              &nbsp;
-              {e.count}
-            </a>
-          ))}
+          <span style={{ fontWeight: "900" }}>
+            <Icon name="tag" color="teal" />
+            Tags
+          </span>
+          <Spacing />
+          <div>
+            {this.state.data.map((e, index) => (
+              <a key={index} href={"/tag/" + e.value} className="common-label">
+                {e.value}
+                &nbsp;
+                {e.count}
+              </a>
+            ))}
+          </div>
         </div>
       </>
     );

@@ -3,3 +3,8 @@ export const BLOG_TITLE = "Just remember It's a Demo!";
 export const CATEGORY = "分类";
 export const TAG = "标签";
 export const TIMELINE = "归档";
+export const CATAGORY_STATISTICS_URL =
+  ServerHost + "/v1/api/category/statistics/count";
+export const TAG_STATISTICS_URL = ServerHost + "/v1/api/tag/statistics/count";
+export const TIMELINE_API_URL = ServerHost + "/v1/api/archive/timeline";
+export const NOT_FOUND_URL = "/404";

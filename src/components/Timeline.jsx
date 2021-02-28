@@ -18,8 +18,7 @@ export default function Timeline(props) {
     fetchData(pageNumber).then((res) => {
       setItem(res);
     });
-    const animate = setTimeout(setShowTimeline(true), 200);
-    clearTimeout(animate);
+    setShowTimeline(true);
   }, []);
   const history = useHistory();
   const handlerPageChange = (e, { activePage }) => {
@@ -34,27 +33,27 @@ export default function Timeline(props) {
         timeout={300}
         unmountOnExit
       >
-        <Container className="timeline-container">
-          {items.list &&
-            items.list.map((e, index) => (
-              <div key={index}>
-                <span className="timeline-label">{e.time}</span>
-                &nbsp;&nbsp;&nbsp;
-                <a
-                  href={"/post/" + e.serialNumber}
-                  className="timeline-post-title"
-                >
-                  {e.title}
-                </a>
-                <Divider />
-                <Spacing />
-              </div>
-            ))}
+        <>
+          <Container className="timeline-container">
+            <Spacing />
+            {items.list &&
+              items.list.map((e, index) => (
+                <div key={index}>
+                  <span className="timeline-label">{e.time}</span>
+                  &nbsp;&nbsp;&nbsp;
+                  <a
+                    href={"/post/" + e.serialNumber}
+                    className="timeline-post-title"
+                  >
+                    {e.title}
+                  </a>
+                  <Divider />
+                </div>
+              ))}
 
-          <Spacing />
-          <Spacing />
-          <Spacing />
-          <Grid textAlign="center">
+            <Spacing />
+          </Container>
+          <Grid textAlign="center" style={{ marginTop: "4em" }}>
             <Grid.Row columns={1}>
               <Pagination
                 totalPages={items.totalPage}
@@ -67,7 +66,7 @@ export default function Timeline(props) {
               />
             </Grid.Row>
           </Grid>
-        </Container>
+        </>
       </CSSTransition>
     </>
   );

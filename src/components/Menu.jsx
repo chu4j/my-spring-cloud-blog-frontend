@@ -10,25 +10,25 @@ const BreadcrumbMenu = (props) => (
         <Breadcrumb.Section href="/" active={"home" == props.active}>
           Home
         </Breadcrumb.Section>
-        <Breadcrumb.Divider> </Breadcrumb.Divider>
+        <Breadcrumb.Divider>/</Breadcrumb.Divider>
         <Breadcrumb.Section
           href="/posts/timeline"
           active={"timeline" == props.active}
         >
           Timeline
         </Breadcrumb.Section>
-        <Breadcrumb.Divider> </Breadcrumb.Divider>
+        <Breadcrumb.Divider>/</Breadcrumb.Divider>
         <Breadcrumb.Section
           href="/categories"
           active={"categories" === props.active}
         >
           Categories
         </Breadcrumb.Section>
-        <Breadcrumb.Divider> </Breadcrumb.Divider>
+        <Breadcrumb.Divider>/</Breadcrumb.Divider>
         <Breadcrumb.Section href="/tags" active={"tags" === props.active}>
           Tags
         </Breadcrumb.Section>
-        <Breadcrumb.Divider> </Breadcrumb.Divider>
+        <Breadcrumb.Divider>/</Breadcrumb.Divider>
         <Breadcrumb.Section href="/about" active={"about" === props.active}>
           About
         </Breadcrumb.Section>

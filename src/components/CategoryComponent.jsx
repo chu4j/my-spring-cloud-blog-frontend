@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Icon } from "semantic-ui-react";
 import Spacing from "./Spacing";
 import { ServerHost } from "./Vars";
 class CategoryComponent extends Component {
@@ -20,20 +21,25 @@ class CategoryComponent extends Component {
   render() {
     return (
       <>
-        <span style={{ fontWeight: "900" }}>Categories : </span>
-        <Spacing />
         <div className="common-label-container">
-          {this.state.data.map((e, index) => (
-            <a
-              key={index}
-              href={"/category/" + e.value}
-              className="common-label"
-            >
-              {e.value}
-              &nbsp;
-              {e.count}
-            </a>
-          ))}
+          <span style={{ fontWeight: "900" }}>
+            <Icon name="bookmark" color="teal" />
+            Categories
+          </span>
+          <Spacing />
+          <div>
+            {this.state.data.map((e, index) => (
+              <a
+                key={index}
+                href={"/category/" + e.value}
+                className="common-label"
+              >
+                {e.value}
+                &nbsp;
+                {e.count}
+              </a>
+            ))}
+          </div>
         </div>
       </>
     );
