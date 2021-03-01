@@ -32,7 +32,6 @@ export default function OnePost() {
   const $ = require("jquery");
   $(document).on("click", 'a[href^="#"]', function (event) {
     event.preventDefault();
-
     $("html, body").animate(
       {
         scrollTop: $($.attr(this, "href")).offset().top - 80,
@@ -40,7 +39,6 @@ export default function OnePost() {
       500
     );
   });
-
   return (
     <>
       <Helmet>

@@ -6,17 +6,24 @@ import NoData from "./NoData";
 import Spacing from "./Spacing";
 
 export default function Posts(props) {
-  const hljs = require("highlight.js");
   const [showComponent, setShowComponent] = useState(false);
   useEffect(() => {
     setShowComponent(true);
-    hljs.highlightAll();
   }, []);
   const history = useHistory();
   const handlePaginationClick = (e, { activePage }) => {
     const url = props.pagePrefix + activePage;
     history.push(url);
   };
+  const $ = require("jquery");
+  $(() => {
+    const ele = document.querySelectorAll("pre code");
+    if (undefined !== ele && null !== ele) {
+      ele.forEach((block) => {
+        window.hljs.highlightBlock(block);
+      });
+    }
+  });
   return (
     <>
       <CSSTransition
@@ -31,7 +38,11 @@ export default function Posts(props) {
               props.response.list.map(
                 (a, index) =>
                   a && (
-                    <div className="post-container" key={a.serialNumber}>
+                    <div
+                      key={index}
+                      className="post-container"
+                      key={a.serialNumber}
+                    >
                       <Header as="h1" textAlign="center">
                         <a
                           href={"/post/" + a.serialNumber}
@@ -44,7 +55,9 @@ export default function Posts(props) {
                         <div
                           style={{ maxWidth: "960px" }}
                           className="markdown-body"
-                          dangerouslySetInnerHTML={{ __html: a.content }}
+                          dangerouslySetInnerHTML={{
+                            __html: a.content,
+                          }}
                         ></div>
                       }
                       <Spacing />

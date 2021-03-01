@@ -6,8 +6,8 @@ const NotFoundComponent = () => (
       <Header as="h5">
         Maybe this resource by deleted or removed forever!
       </Header>
-      <Button basic as="a" href="/" color="green">
-        <Icon name="chevron left" color="green" />
+      <Button basic as="a" href="/" color="teal">
+        <Icon name="chevron left" color="teal" />
         Back home
       </Button>
     </Container>

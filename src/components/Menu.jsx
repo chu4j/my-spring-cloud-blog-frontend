@@ -46,30 +46,20 @@ const MobileMenu = (props) => {
       </div>
       <CSSTransition
         in={props.show}
-        classNames="posts"
+        classNames="mobile-menu"
         timeout={300}
         unmountOnExit
       >
         <div className="mobile-menu-content">
-          <a href="/" style={{ color: "white" }}>
-            Home
-          </a>
+          <a href="/">Home</a>
           <Divider />
-          <a href="/posts/timeline" style={{ color: "white" }}>
-            Timeline
-          </a>
+          <a href="/posts/timeline">Timeline</a>
           <Divider />
-          <a href="/categories" style={{ color: "white" }}>
-            Categories
-          </a>
+          <a href="/categories">Categories</a>
           <Divider />
-          <a href="/tags" style={{ color: "white" }}>
-            Tags
-          </a>
+          <a href="/tags">Tags</a>
           <Divider />
-          <a href="/about" style={{ color: "white" }}>
-            About
-          </a>
+          <a href="/about">About</a>
           <Spacing />
         </div>
       </CSSTransition>

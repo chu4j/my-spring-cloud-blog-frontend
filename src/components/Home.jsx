@@ -47,6 +47,7 @@ export default function Home() {
       setData(res);
     });
   }, []);
+
   return (
     <>
       <HeadMeta

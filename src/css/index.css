@@ -147,24 +147,30 @@ code {
   border-radius: 2px;
 }
 .mobile-menu {
-  background: #171923;
+  background: #161b22;
   min-height: 55px;
   max-height: 55px;
   width: 100%;
   opacity: 0.99;
   padding: 8px 0 0 16px;
   position: fixed;
-  z-index: 1000;
+  z-index: 1001;
   top: 0;
+  left: 0;
   cursor: pointer;
 }
 .mobile-menu-content {
-  background: #101010;
+  background: #161b22;
   position: fixed;
-  z-index: 100;
+  z-index: 1000;
   top: 55px;
+  left: 0;
   width: 100%;
-  padding: 8px 0 0 16px;
+  height: 250px;
+  padding: 5px 0 0 5px;
+  border-color: #30363d;
+  border-style: solid;
+  border-width: 1px;
 }
 .mobile-menu-content a {
   width: 100%;
@@ -173,6 +179,25 @@ code {
 .mobile-menu-button {
   color: #bee3f8;
   background-color: #010101;
+}
+
+.mobile-menu-enter {
+  transform: translateY(-305px);
+  opacity: 0;
+}
+.mobile-menu-enter-active {
+  transform: translateY(0);
+  opacity: 1;
+  transition: transform 200ms, opacity 200ms;
+}
+.mobile-menu-exit {
+  transform: translateY(0);
+  opacity: 1;
+}
+.mobile-menu-exit-active {
+  transform: translateY(-305px);
+  opacity: 0;
+  transition: transform 100ms, opacity 100ms;
 }
 
 .posts-enter {
@@ -211,24 +236,20 @@ code {
   top: 40%;
   left: 0;
   z-index: 1000;
-  background-color: #f1e05a;
+  background-color: #171923;
   border-radius: 0 5px 5px 0;
   height: 110px;
   width: 35px;
+  border-width: 1px 1px 1px 0;
+  border-color: #30363d;
+  border-style: solid;
   cursor: pointer;
 }
 .catalog-container-switch .name {
-  transform: rotate(-90deg);
   position: absolute;
-  color: #011623;
-  font-weight: 900;
-  margin-top: 45px;
-  margin-left: -16px;
-}
-.catalog-container-switch .name .icon {
-  display: block;
-  margin-left: 1em;
-  position: absolute;
+  color: #c9d1d9;
+  margin-top: 40px;
+  margin-left: 5px;
 }
 .catalog-container ul:only-child {
   padding: 0;
