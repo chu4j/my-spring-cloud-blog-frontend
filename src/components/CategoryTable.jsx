@@ -7,9 +7,12 @@ import { CATAGORY_STATISTICS_URL } from "./Vars";
 export default function CategoryTable() {
   const [data, setDataState] = useState([]);
   const [show, setShow] = useState(false);
+  let times = 0;
   useEffect(() => {
     ApiGet(CATAGORY_STATISTICS_URL).then((res) => {
       setDataState(res);
+      const tmp = Array.isArray(res) ? res.length : 0;
+      times = tmp % 2 == 0 ? tmp / 2 : (tmp + 1) / 2;
       setShow(true);
     });
   }, []);
@@ -27,7 +30,6 @@ export default function CategoryTable() {
                 <Table.HeaderCell>Total</Table.HeaderCell>
               </Table.Row>
             </Table.Header>
-
             <Table.Body>
               {data &&
                 data.map((e, index) => (

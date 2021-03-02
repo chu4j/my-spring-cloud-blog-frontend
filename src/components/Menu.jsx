@@ -2,37 +2,73 @@ import React, { useEffect, useLayoutEffect, useState } from "react";
 import { useRouteMatch } from "react-router-dom";
 import { CSSTransition } from "react-transition-group";
 import { Breadcrumb, Container, Divider, Icon } from "semantic-ui-react";
+import SearchBox from "./SearchBox";
 import Spacing from "./Spacing";
+import { SEARCH_URL } from "./Vars";
+const $ = require("jquery");
 const BreadcrumbMenu = (props) => (
   <>
     <Container fluid className="breadmenu">
-      <Breadcrumb>
-        <Breadcrumb.Section href="/" active={"home" == props.active}>
-          Home
-        </Breadcrumb.Section>
-        <Breadcrumb.Divider>/</Breadcrumb.Divider>
-        <Breadcrumb.Section
-          href="/posts/timeline"
-          active={"timeline" == props.active}
-        >
-          Timeline
-        </Breadcrumb.Section>
-        <Breadcrumb.Divider>/</Breadcrumb.Divider>
-        <Breadcrumb.Section
-          href="/categories"
-          active={"categories" === props.active}
-        >
-          Categories
-        </Breadcrumb.Section>
-        <Breadcrumb.Divider>/</Breadcrumb.Divider>
-        <Breadcrumb.Section href="/tags" active={"tags" === props.active}>
-          Tags
-        </Breadcrumb.Section>
-        <Breadcrumb.Divider>/</Breadcrumb.Divider>
-        <Breadcrumb.Section href="/about" active={"about" === props.active}>
-          About
-        </Breadcrumb.Section>
-      </Breadcrumb>
+      {props.searchBoxData && props.searchBoxData.length > 0 && (
+        <SearchBox
+          data={props.searchBoxData}
+          enter={props.enterHandler}
+          enterExit={props.enterExitHandler}
+        />
+      )}
+      <span>
+        <a href="/">
+          <img
+            src="/logo.svg"
+            alt="logo"
+            height={50}
+            width={50}
+            style={{
+              paddingLeft: "1em",
+              display: "inline-block",
+            }}
+          />
+        </a>
+      </span>
+      <span className="breadmenu-content">
+        <span>
+          <input
+            placeholder="searching blog..."
+            className="desktop-menu-search"
+            onFocus={props.focusHandler}
+            onBlur={props.blurHandler}
+            onChange={props.autoCompeleteHandler}
+            id="searchbox-input"
+          />
+        </span>
+        <Breadcrumb>
+          <Breadcrumb.Section href="/" active={"home" == props.active}>
+            Home
+          </Breadcrumb.Section>
+          <Breadcrumb.Divider>/</Breadcrumb.Divider>
+          <Breadcrumb.Section
+            href="/posts/timeline"
+            active={"timeline" == props.active}
+          >
+            Timeline
+          </Breadcrumb.Section>
+          <Breadcrumb.Divider>/</Breadcrumb.Divider>
+          <Breadcrumb.Section
+            href="/categories"
+            active={"categories" === props.active}
+          >
+            Categories
+          </Breadcrumb.Section>
+          <Breadcrumb.Divider>/</Breadcrumb.Divider>
+          <Breadcrumb.Section href="/tags" active={"tags" === props.active}>
+            Tags
+          </Breadcrumb.Section>
+          <Breadcrumb.Divider>/</Breadcrumb.Divider>
+          <Breadcrumb.Section href="/about" active={"about" === props.active}>
+            About
+          </Breadcrumb.Section>
+        </Breadcrumb>
+      </span>
     </Container>
   </>
 );
@@ -111,13 +147,55 @@ export default function BreadMenu() {
   const handlerClick = () => {
     show ? setShowMobileMenu(false) : setShowMobileMenu(true);
   };
+  const handlerSearchBoxOnFocus = () => {
+    $(".desktop-menu-search").animate({ width: "400px" }, 200);
+    handlerAutoCompelete();
+  };
+  const handlerSearchBoxOnBulr = () => {
+    if (!enter) setSearchDataState([]);
+    $(".desktop-menu-search").animate({ width: "250px" }, 200);
+  };
   useEffect(() => {
     const activeItem = getActiveItem(router.path);
     setActiveItem(activeItem);
   }, []);
+  const $ = require("jquery");
+  const [enter, setEnterState] = useState(false);
+  const handlerEnter = () => {
+    setEnterState(true);
+  };
+  const handlerEnterExit = () => {
+    setEnterState(false);
+  };
+  const [searchData, setSearchDataState] = useState([]);
+  const axios = require("axios").default;
+  const handlerAutoCompelete = () => {
+    setTimeout(function () {
+      timeoutTigger.call();
+    }, 1000);
+  };
+  function timeoutTigger() {
+    const searchValue = $("#searchbox-input").val().trim();
+    if ("" == searchValue) {
+      setSearchDataState([]);
+    } else {
+      axios
+        .get(SEARCH_URL + searchValue)
+        .then((res) => setSearchDataState(res.data))
+        .catch((error) => console.error(error));
+    }
+  }
   return width < 960 ? (
     <MobileMenu handler={handlerClick} show={show} />
   ) : (
-    <BreadcrumbMenu active={activeItem} />
+    <BreadcrumbMenu
+      active={activeItem}
+      focusHandler={handlerSearchBoxOnFocus}
+      blurHandler={handlerSearchBoxOnBulr}
+      autoCompeleteHandler={handlerAutoCompelete}
+      searchBoxData={searchData}
+      enterHandler={handlerEnter}
+      enterExitHandler={handlerEnterExit}
+    />
   );
 }

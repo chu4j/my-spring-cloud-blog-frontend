@@ -2,14 +2,12 @@ import { React, useEffect, useLayoutEffect, useState } from "react";
 import { useHistory, useParams, useRouteMatch } from "react-router-dom";
 import "../css/App.css";
 import { getHomeUrl, isNumeric } from "../util/Utils";
-import CategoryComponent from "./CategoryComponent";
 import CategoryTable from "./CategoryTable";
 import DefaultLayout from "./DefaultLayout";
 import HeadMeta from "./Meta";
 import Posts from "./Posts";
-import TagComponent from "./TagComponent";
 import TagTable from "./TagTable";
-import { BLOG_TITLE, CATEGORY, NOT_FOUND_URL, ServerHost, TAG } from "./Vars";
+import { BLOG_TITLE, NOT_FOUND_URL, ServerHost } from "./Vars";
 async function getArchive(path) {
   const axios = require("axios").default;
   if (null == path) {

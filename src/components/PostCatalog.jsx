@@ -15,12 +15,7 @@ const CatalogSwitch = (props) => (
         onMouseEnter={props.onMouseEnter}
       >
         <div className="name">
-          <Icon
-            name="chevron right"
-            className="icon"
-            size="large"
-            color="teal"
-          />
+          <Icon name="chevron right" className="icon" color="teal" />
         </div>
       </div>
     </CSSTransition>

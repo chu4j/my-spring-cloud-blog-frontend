@@ -8,3 +8,4 @@ export const CATAGORY_STATISTICS_URL =
 export const TAG_STATISTICS_URL = ServerHost + "/v1/api/tag/statistics/count";
 export const TIMELINE_API_URL = ServerHost + "/v1/api/archive/timeline";
 export const NOT_FOUND_URL = "/404";
+export const SEARCH_URL = ServerHost + "/v1/api/archive/search/";
