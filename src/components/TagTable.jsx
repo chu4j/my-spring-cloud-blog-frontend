@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useHistory } from "react-router-dom";
 import { Container, Icon, Table } from "semantic-ui-react";
 import { ApiGet } from "../data/ApiGet";
 import AnimationLayout from "./AnimationLayout";
@@ -7,30 +8,36 @@ import { TAG_STATISTICS_URL } from "./Vars";
 export default function TagTable() {
   const [data, setDataState] = useState([]);
   const [show, setShow] = useState(false);
+  const history = useHistory();
   useEffect(() => {
-    ApiGet(TAG_STATISTICS_URL).then((res) => {
-      setDataState(res);
-      setShow(true);
-    });
+    ApiGet(TAG_STATISTICS_URL)
+      .then((res) => {
+        setDataState(res);
+        setShow(true);
+      })
+      .catch((error) => {
+        console.error(error);
+        history.push("/");
+      });
   }, []);
   return (
     <>
-      <AnimationLayout isShow={show}>
-        <Container>
-          <Table className="common-table" selectable>
-            <Table.Header>
-              <Table.Row>
-                <Table.HeaderCell>
-                  <Icon name="tag" style={{ color: "#52C75F" }} />
-                  Tags&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                </Table.HeaderCell>
-                <Table.HeaderCell>Total</Table.HeaderCell>
-              </Table.Row>
-            </Table.Header>
+      {data && data.length > 0 && (
+        <AnimationLayout isShow={show}>
+          <Container>
+            <Table className="common-table" selectable>
+              <Table.Header>
+                <Table.Row>
+                  <Table.HeaderCell>
+                    <Icon name="tag" style={{ color: "#52C75F" }} />
+                    Tags&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  </Table.HeaderCell>
+                  <Table.HeaderCell>Total</Table.HeaderCell>
+                </Table.Row>
+              </Table.Header>
 
-            <Table.Body>
-              {data &&
-                data.map((e, index) => (
+              <Table.Body>
+                {data.map((e, index) => (
                   <>
                     <Table.Row key={index}>
                       <Table.Cell>
@@ -45,10 +52,11 @@ export default function TagTable() {
                     </Table.Row>
                   </>
                 ))}
-            </Table.Body>
-          </Table>
-        </Container>
-      </AnimationLayout>
+              </Table.Body>
+            </Table>
+          </Container>
+        </AnimationLayout>
+      )}
     </>
   );
 }

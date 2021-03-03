@@ -15,9 +15,14 @@ export default function Timeline(props) {
   if (null == pageNumber || undefined == pageNumber) pageNumber = 1;
   const [items, setItem] = useState({});
   useEffect(() => {
-    fetchData(pageNumber).then((res) => {
-      setItem(res);
-    });
+    fetchData(pageNumber)
+      .then((res) => {
+        setItem(res);
+      })
+      .catch((error) => {
+        console.error(error);
+        history.push("/500");
+      });
     setShowTimeline(true);
   }, []);
   const history = useHistory();

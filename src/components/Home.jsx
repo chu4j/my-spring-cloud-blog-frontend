@@ -41,9 +41,14 @@ export default function Home() {
   const [response, setData] = useState({});
   const [width, height] = useWindowSize();
   useEffect(() => {
-    getArchive(params.requestUrl).then((res) => {
-      setData(res);
-    });
+    getArchive(params.requestUrl)
+      .then((res) => {
+        setData(res);
+      })
+      .catch((error) => {
+        console.error(error);
+        history.push("/500");
+      });
   }, []);
 
   return (
