@@ -380,7 +380,7 @@ code {
 .desktop-menu-search {
   background-color: #0d1117;
   height: 30px;
-  border: 1px solid #30363d;
+  border: 2px solid #30363d;
   border-radius: 5px;
   width: 250px;
   margin: 0 0.5em 0 0.5em;
@@ -399,8 +399,10 @@ code {
   left: 89px;
   background-color: #0d1117;
   width: 400px;
-  border-width: 0 1px 1px 1px;
+  border-width: 0 2px 2px 2px;
   border-style: solid;
   border-color: #30363d;
   border-radius: 0 0 10px 10px;
+  max-height: 400px;
+  overflow: scroll;
 }

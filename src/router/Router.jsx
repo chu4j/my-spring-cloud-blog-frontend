@@ -5,7 +5,6 @@ import CategoryTable from "../components/CategoryTable";
 import DefaultLayout from "../components/DefaultLayout";
 import Home from "../components/Home";
 import OnePost from "../components/OnePost";
-import PostArchives from "../components/PostArchives";
 import TagTable from "../components/TagTable";
 import TimelineLayout from "../components/TimelineLayout";
 export default function BlogRouter() {
@@ -39,7 +38,7 @@ export default function BlogRouter() {
         <DefaultLayout ContentComponent={<TagTable />} />
       </Route>
       <Route path="/posts/timeline" exact>
-        <DefaultLayout ContentComponent={<PostArchives />} />
+        <TimelineLayout />
       </Route>
       <Route path="/posts/timeline/page/:pageNumber" exact>
         <TimelineLayout />

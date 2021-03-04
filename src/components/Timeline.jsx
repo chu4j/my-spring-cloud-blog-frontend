@@ -1,29 +1,22 @@
 import { useEffect, useState } from "react";
+import Moment from "react-moment";
 import { useHistory, useParams } from "react-router-dom";
-import { CSSTransition } from "react-transition-group";
-import { Container, Divider, Grid, Pagination } from "semantic-ui-react";
-import Spacing from "./Spacing";
-import { ServerHost } from "./Vars";
-async function fetchData(pageNumber) {
-  const axois = require("axios").default;
-  const url = ServerHost + "/v1/api/archive/timeline?page=" + pageNumber;
-  return axois.get(url).then((res) => res.data);
-}
-export default function Timeline(props) {
-  const [showTimeline, setShowTimeline] = useState(false);
+import { Container, Grid, Icon, Pagination, Table } from "semantic-ui-react";
+import { ApiGet } from "../data/ApiGet";
+import AnimationLayout from "./AnimationLayout";
+import { TIMELINE_API_URL } from "./Vars";
+
+export default function Timeline() {
   let { pageNumber } = useParams();
-  if (null == pageNumber || undefined == pageNumber) pageNumber = 1;
-  const [items, setItem] = useState({});
+  pageNumber = pageNumber ? pageNumber : 1;
+  const [data, setDataState] = useState([]);
+  const [show, setShow] = useState(false);
+  const url = TIMELINE_API_URL + "?page=" + pageNumber;
   useEffect(() => {
-    fetchData(pageNumber)
-      .then((res) => {
-        setItem(res);
-      })
-      .catch((error) => {
-        console.error(error);
-        history.push("/500");
-      });
-    setShowTimeline(true);
+    ApiGet(url).then((res) => {
+      setDataState(res);
+      setShow(true);
+    });
   }, []);
   const history = useHistory();
   const handlerPageChange = (e, { activePage }) => {
@@ -32,36 +25,47 @@ export default function Timeline(props) {
   };
   return (
     <>
-      <CSSTransition
-        in={showTimeline}
-        classNames="posts"
-        timeout={300}
-        unmountOnExit
-      >
-        <>
-          <Container className="timeline-container">
-            <Spacing />
-            {items.list &&
-              items.list.map((e, index) => (
-                <div key={index}>
-                  <span className="timeline-label">{e.time}</span>
-                  &nbsp;&nbsp;&nbsp;
-                  <a
-                    href={"/post/" + e.serialNumber}
-                    className="timeline-post-title"
-                  >
-                    {e.title}
-                  </a>
-                  <Divider />
-                </div>
-              ))}
+      <AnimationLayout isShow={show}>
+        <Container>
+          <Table className="common-table-1" selectable>
+            <Table.Header>
+              <Table.Row>
+                <Table.HeaderCell>
+                  <Icon name="hourglass" color="teal" />
+                  Date
+                </Table.HeaderCell>
+                <Table.HeaderCell>
+                  <Icon name="bookmark" color="teal" />
+                  Title
+                </Table.HeaderCell>
+              </Table.Row>
+            </Table.Header>
 
-            <Spacing />
-          </Container>
+            <Table.Body>
+              {data.list &&
+                data.list.map((e, index) => (
+                  <>
+                    <Table.Row key={index}>
+                      <Table.Cell>
+                        <Moment fromNow>{e.time}</Moment>
+                      </Table.Cell>
+                      <Table.Cell>
+                        <a
+                          href={"/post/" + e.serialNumber}
+                          style={{ display: "inline-block", width: "100%" }}
+                        >
+                          {e.title}
+                        </a>
+                      </Table.Cell>
+                    </Table.Row>
+                  </>
+                ))}
+            </Table.Body>
+          </Table>
           <Grid textAlign="center" style={{ marginTop: "4em" }}>
             <Grid.Row columns={1}>
               <Pagination
-                totalPages={items.totalPage}
+                totalPages={data.totalPage}
                 firstItem={null}
                 lastItem={null}
                 pointing
@@ -71,8 +75,8 @@ export default function Timeline(props) {
               />
             </Grid.Row>
           </Grid>
-        </>
-      </CSSTransition>
+        </Container>
+      </AnimationLayout>
     </>
   );
 }

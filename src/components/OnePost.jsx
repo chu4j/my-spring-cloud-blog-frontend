@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
-import { Redirect, useHistory, useParams } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import { isNumeric } from "../util/Utils";
 import DefaultLayout from "./DefaultLayout";
 import Catalog from "./PostCatalog";
 import Posts from "./Posts";
-import { BLOG_TITLE, ServerHost, NOT_FOUND_URL } from "./Vars";
+import { BLOG_TITLE, NOT_FOUND_URL, ServerHost } from "./Vars";
 async function getPost(postId) {
   const axios = require("axios").default;
   const url = ServerHost + "/v1/api/archive/" + postId;
