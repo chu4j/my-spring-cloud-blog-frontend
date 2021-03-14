@@ -2,10 +2,12 @@ import { React, useEffect, useLayoutEffect, useState } from "react";
 import { useHistory, useParams, useRouteMatch } from "react-router-dom";
 import "../css/App.css";
 import { getHomeUrl, isNumeric } from "../util/Utils";
+import CategoryComponent from "./CategoryComponent";
 import CategoryTable from "./CategoryTable";
 import DefaultLayout from "./DefaultLayout";
 import HeadMeta from "./Meta";
 import Posts from "./Posts";
+import TagComponent from "./TagComponent";
 import TagTable from "./TagTable";
 import { BLOG_TITLE, NOT_FOUND_URL, ServerHost } from "./Vars";
 async function getArchive(path) {
@@ -58,8 +60,8 @@ export default function Home() {
         description={params.description ? params.description : BLOG_TITLE}
       />
       <DefaultLayout
-        CategoryComponent={width > 1200 ? <CategoryTable /> : null}
-        TagComponent={width > 1200 ? <TagTable /> : null}
+        CategoryComponent={width > 1200 ? <CategoryComponent /> : null}
+        TagComponent={width > 1200 ? <TagComponent /> : null}
         ContentComponent={
           <Posts
             response={response}

@@ -8,6 +8,8 @@ export default function SearchBox(props) {
           className="searchbox-container"
           onMouseEnter={props.enter}
           onMouseLeave={props.enterExit}
+          onBlur={props.outFocus}
+          tabIndex="-1"
         >
           <Divider />
           {props.data.map((e, index) => (

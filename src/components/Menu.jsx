@@ -4,7 +4,14 @@ import { CSSTransition } from "react-transition-group";
 import { Breadcrumb, Container, Divider, Icon } from "semantic-ui-react";
 import SearchBox from "./SearchBox";
 import Spacing from "./Spacing";
-import { SEARCH_URL } from "./Vars";
+import {
+  MENU_ABOUT,
+  MENU_ARCHIVES,
+  MENU_CATEGORIES,
+  MENU_HOME,
+  MENU_TAGS,
+  SEARCH_URL,
+} from "./Vars";
 const $ = require("jquery");
 const BreadcrumbMenu = (props) => (
   <>
@@ -14,6 +21,7 @@ const BreadcrumbMenu = (props) => (
           data={props.searchBoxData}
           enter={props.enterHandler}
           enterExit={props.enterExitHandler}
+          outFocus={props.outFocus}
         />
       )}
       <span>
@@ -33,7 +41,7 @@ const BreadcrumbMenu = (props) => (
       <span className="breadmenu-content">
         <span>
           <input
-            placeholder="searching blog..."
+            placeholder="Searching ..."
             className="desktop-menu-search"
             onFocus={props.focusHandler}
             onBlur={props.blurHandler}
@@ -42,31 +50,31 @@ const BreadcrumbMenu = (props) => (
           />
         </span>
         <Breadcrumb>
-          <Breadcrumb.Divider>&nbsp;</Breadcrumb.Divider>
+          <Breadcrumb.Divider>/</Breadcrumb.Divider>
           <Breadcrumb.Section href="/" active={"home" == props.active}>
-            Home
+            {MENU_HOME}
           </Breadcrumb.Section>
-          <Breadcrumb.Divider>&nbsp;</Breadcrumb.Divider>
+          <Breadcrumb.Divider>/</Breadcrumb.Divider>
           <Breadcrumb.Section
             href="/posts/timeline"
             active={"timeline" == props.active}
           >
-            Timeline
+            {MENU_ARCHIVES}
           </Breadcrumb.Section>
-          <Breadcrumb.Divider>&nbsp;</Breadcrumb.Divider>
+          <Breadcrumb.Divider>/</Breadcrumb.Divider>
           <Breadcrumb.Section
             href="/categories"
             active={"categories" === props.active}
           >
-            Categories
+            {MENU_CATEGORIES}
           </Breadcrumb.Section>
-          <Breadcrumb.Divider>&nbsp;</Breadcrumb.Divider>
+          <Breadcrumb.Divider>/</Breadcrumb.Divider>
           <Breadcrumb.Section href="/tags" active={"tags" === props.active}>
-            Tags
+            {MENU_TAGS}
           </Breadcrumb.Section>
-          <Breadcrumb.Divider>&nbsp;</Breadcrumb.Divider>
+          <Breadcrumb.Divider>/</Breadcrumb.Divider>
           <Breadcrumb.Section href="/about" active={"about" === props.active}>
-            About
+            {MENU_ABOUT}
           </Breadcrumb.Section>
         </Breadcrumb>
       </span>
@@ -153,8 +161,10 @@ export default function BreadMenu() {
     handlerAutoCompelete();
   };
   const handlerSearchBoxOnBulr = () => {
-    if (!enter) setSearchDataState([]);
-    $(".desktop-menu-search").animate({ width: "250px" }, 200);
+    if (!enter) {
+      $(".desktop-menu-search").animate({ width: "250px" }, 200);
+      setSearchDataState([]);
+    }
   };
   useEffect(() => {
     const activeItem = getActiveItem(router.path);
@@ -167,6 +177,11 @@ export default function BreadMenu() {
   };
   const handlerEnterExit = () => {
     setEnterState(false);
+  };
+  const handlerOutFocus = () => {
+    console.log("test");
+    $(".desktop-menu-search").animate({ width: "250px" }, 200);
+    setSearchDataState([]);
   };
   const [searchData, setSearchDataState] = useState([]);
   const axios = require("axios").default;
@@ -197,6 +212,7 @@ export default function BreadMenu() {
       searchBoxData={searchData}
       enterHandler={handlerEnter}
       enterExitHandler={handlerEnterExit}
+      outFocus={handlerOutFocus}
     />
   );
 }
