@@ -1,5 +1,4 @@
 import { Grid } from "semantic-ui-react";
-import "../css/index.css";
 import Footer from "./Footer";
 import Header from "./Menu";
 export default function DefaultLayout(props) {

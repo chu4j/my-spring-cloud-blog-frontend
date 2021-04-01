@@ -17,11 +17,9 @@ class Footer extends Component {
             <b>React</b>
           </a>
         </p>
-        <p>
-          Theming Inspired By Github &nbsp;
-          <Icon name="heart" color="red" size="small" />
-        </p>
-        <a href="https://www.github.com/konchoo">&copy;&nbsp;konchoo</a>
+        <a href="https://www.github.com/konchoo">
+          &copy;&nbsp;konchoo <Icon name="heart" color="red" size="small" />
+        </a>
       </div>
     );
   }

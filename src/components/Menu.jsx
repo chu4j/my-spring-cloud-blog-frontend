@@ -39,7 +39,7 @@ const BreadcrumbMenu = (props) => (
         </a>
       </span>
       <span className="breadmenu-content">
-        <span>
+        {/* <span>
           <input
             placeholder="Searching ..."
             className="desktop-menu-search"
@@ -48,9 +48,9 @@ const BreadcrumbMenu = (props) => (
             onChange={props.autoCompeleteHandler}
             id="searchbox-input"
           />
-        </span>
+        </span> */}
         <Breadcrumb>
-          <Breadcrumb.Divider>/</Breadcrumb.Divider>
+          {/* <Breadcrumb.Divider>/</Breadcrumb.Divider> */}
           <Breadcrumb.Section href="/" active={"home" == props.active}>
             {MENU_HOME}
           </Breadcrumb.Section>

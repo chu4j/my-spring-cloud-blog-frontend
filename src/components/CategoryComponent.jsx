@@ -23,7 +23,7 @@ class CategoryComponent extends Component {
       <>
         <div className="common-label-container">
           <span style={{ fontWeight: "900" }}>
-            <Icon name="bookmark" color="teal" />
+            <Icon name="bookmark" style={{ color: "#52C75F" }} />
             Categories
           </span>
           <Spacing />

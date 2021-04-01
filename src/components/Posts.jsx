@@ -70,10 +70,7 @@ export default function Posts(props) {
                                   {a.category.map((c, index) => (
                                     <div key={c.serialNumber}>
                                       <span>
-                                        <Icon
-                                          name="bookmark"
-                                          style={{ color: "#52C75F" }}
-                                        />
+                                        <Icon name="bookmark" color="blue" />
                                         <a
                                           href={"/category/" + c.category}
                                           className="post-category"
@@ -86,10 +83,7 @@ export default function Posts(props) {
                                 </Grid.Column>
 
                                 <Grid.Column width={11}>
-                                  <Icon
-                                    name="tag"
-                                    style={{ color: "#52C75F" }}
-                                  />
+                                  <Icon name="tag" color="blue" />
                                   {a.tag.map((t, index) => (
                                     <>
                                       <span key={t.serialNumber}>

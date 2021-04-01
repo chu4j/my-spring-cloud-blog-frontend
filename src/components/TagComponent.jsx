@@ -23,7 +23,7 @@ class TagComponent extends Component {
       <>
         <div className="common-label-container">
           <span style={{ fontWeight: "900" }}>
-            <Icon name="tag" color="teal" />
+            <Icon name="tag" style={{ color: "#52C75F" }} />
             Tags
           </span>
           <Spacing />

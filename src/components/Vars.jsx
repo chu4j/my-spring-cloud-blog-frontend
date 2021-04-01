@@ -13,4 +13,4 @@ export const MENU_HOME = "Home";
 export const MENU_ARCHIVES = "Archives";
 export const MENU_CATEGORIES = "Categories";
 export const MENU_TAGS = "Tags";
-export const MENU_ABOUT = "About Me";
+export const MENU_ABOUT = "About";
