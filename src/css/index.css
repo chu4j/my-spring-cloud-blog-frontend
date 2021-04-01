@@ -1,7 +1,8 @@
 body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #0d1117;
+  /* background-color: #0d1117; */
+  background-color: #080810;
   font-family: Lato, "Noto Sans SC";
 }
 
@@ -273,7 +274,7 @@ code {
   position: relative;
   display: inline-block;
   width: 100%;
-  padding: 3px;
+  padding: 1px;
   border-radius: 2px;
 }
 .catalog-container li a:hover {
@@ -370,6 +371,7 @@ code {
 }
 .ui .header {
   color: #c9d1d9;
+  font-family: "Lato", Simsun, "宋体", Fangsong, "仿宋", STSong, STFangsong;
 }
 .desktop-menu-search {
   background-color: #0d1117;
