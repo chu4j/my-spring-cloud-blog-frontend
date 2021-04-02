@@ -7,7 +7,7 @@ export default function AnimationLayout(props) {
         <CSSTransition
           classNames={props.classNames ? props.classNames : "posts"}
           in={props.isShow ? props.isShow : false}
-          timeout={props.timeout ? props.timeout : 300}
+          timeout={props.timeout ? props.timeout : 2000}
           unmountOnExit
         >
           {props.children}

@@ -2,11 +2,11 @@ import { React, useEffect, useLayoutEffect, useState } from "react";
 import { useHistory, useParams, useRouteMatch } from "react-router-dom";
 import "../css/App.css";
 import { getHomeUrl, isNumeric } from "../util/Utils";
-import CategoryComponent from "./CategoryComponent";
+import CategoriesWidget from "./CategoriesWidget";
 import DefaultLayout from "./DefaultLayout";
 import HeadMeta from "./Meta";
 import Posts from "./Posts";
-import TagComponent from "./TagComponent";
+import TagsWidget from "./TagsWidget";
 import { BLOG_TITLE, NOT_FOUND_URL, ServerHost } from "./Vars";
 async function getArchive(path) {
   const axios = require("axios").default;
@@ -54,13 +54,13 @@ export default function Home() {
   return (
     <>
       <HeadMeta
-        title={params.title ? params.title : BLOG_TITLE}
+        title={params.title ? params.title : BLOG_TITLE + "- home page"}
         description={params.description ? params.description : BLOG_TITLE}
       />
       <DefaultLayout
-        CategoryComponent={width > 1200 ? <CategoryComponent /> : null}
-        TagComponent={width > 1200 ? <TagComponent /> : null}
-        ContentComponent={
+        CategoriesWidget={width > 1200 ? <CategoriesWidget /> : null}
+        TagsWidget={width > 1200 ? <TagsWidget /> : null}
+        CenterContent={
           <Posts
             response={response}
             activePage={activePage}

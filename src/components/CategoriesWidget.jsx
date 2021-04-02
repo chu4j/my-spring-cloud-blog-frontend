@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Icon } from "semantic-ui-react";
 import Spacing from "./Spacing";
 import { ServerHost } from "./Vars";
-class CategoryComponent extends Component {
+class CategoriesWidget extends Component {
   state = {
     data: [{}],
   };
@@ -45,4 +45,4 @@ class CategoryComponent extends Component {
     );
   }
 }
-export default CategoryComponent;
+export default CategoriesWidget;

@@ -16,8 +16,8 @@ export function getHomeUrl(router, name, pageNumber) {
         case "/":
             requestUrl = ServerHost + "/v1/api/archive";
             pagePrefix = "/posts/page/";
-            title = BLOG_TITLE;
-            description = BLOG_TITLE;
+            title = BLOG_TITLE + "- home page";
+            description = BLOG_TITLE + "- home page";
             break;
         case "/category/:name":
             requestUrl = ServerHost + "/v1/api/category/" + name;

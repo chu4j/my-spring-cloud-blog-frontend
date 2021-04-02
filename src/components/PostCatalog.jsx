@@ -7,7 +7,7 @@ const CatalogSwitch = (props) => (
     <CSSTransition
       in={props.show}
       classNames="catalog-switch"
-      timeout={300}
+      timeout={2000}
       unmountOnExit
     >
       <div
@@ -25,7 +25,7 @@ const CatalogComponent = (props) => (
   <>
     <CSSTransition
       in={props.show}
-      timeout={300}
+      timeout={2000}
       classNames="catalog"
       unmountOnExit
     >

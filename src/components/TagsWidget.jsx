@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Icon } from "semantic-ui-react";
 import Spacing from "./Spacing";
 import { ServerHost } from "./Vars";
-class TagComponent extends Component {
+class TagsWidget extends Component {
   state = {
     data: [{}],
   };
@@ -41,4 +41,4 @@ class TagComponent extends Component {
     );
   }
 }
-export default TagComponent;
+export default TagsWidget;

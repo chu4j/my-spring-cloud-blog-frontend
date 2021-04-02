@@ -1,12 +1,12 @@
 import { Route, Switch } from "react-router-dom";
 import NotFound from "../components/404";
 import InternalError from "../components/500";
-import CategoryTable from "../components/CategoryTable";
+import Categories from "../components/Categories";
 import DefaultLayout from "../components/DefaultLayout";
 import Home from "../components/Home";
 import OnePost from "../components/OnePost";
-import TagTable from "../components/TagTable";
-import TimelineLayout from "../components/TimelineLayout";
+import Tags from "../components/Tags";
+import Timeline from "../components/Timeline";
 export default function BlogRouter() {
   return (
     <Switch>
@@ -32,16 +32,16 @@ export default function BlogRouter() {
         <OnePost />
       </Route>
       <Route path="/categories" exact>
-        <DefaultLayout ContentComponent={<CategoryTable />} />
+        <Categories />
       </Route>
       <Route path="/tags" exact>
-        <DefaultLayout ContentComponent={<TagTable />} />
+        <Tags />
       </Route>
       <Route path="/posts/timeline" exact>
-        <TimelineLayout />
+        <Timeline />
       </Route>
       <Route path="/posts/timeline/page/:pageNumber" exact>
-        <TimelineLayout />
+        <Timeline />
       </Route>
       <Route path="/500">
         <InternalError />

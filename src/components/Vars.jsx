@@ -1,8 +1,12 @@
+/*
+Remember to change ServerHost as your server domain or ip
+if you deploy project to your product server
+ */
 export const ServerHost = "http://localhost:9000";
-export const BLOG_TITLE = "Just remember It's a Demo!";
-export const CATEGORY = "分类";
-export const TAG = "标签";
-export const TIMELINE = "归档";
+export const BLOG_TITLE = "zhuqigong.xyz";
+export const CATEGORY = "categories";
+export const TAG = "tags";
+export const TIMELINE = "timeline";
 export const CATAGORY_STATISTICS_URL =
   ServerHost + "/v1/api/category/statistics/count";
 export const TAG_STATISTICS_URL = ServerHost + "/v1/api/tag/statistics/count";
@@ -14,3 +18,5 @@ export const MENU_ARCHIVES = "Archives";
 export const MENU_CATEGORIES = "Categories";
 export const MENU_TAGS = "Tags";
 export const MENU_ABOUT = "About";
+export const TITLE_404 = "Not Found";
+export const TITLE_500 = "Internal Server Error";

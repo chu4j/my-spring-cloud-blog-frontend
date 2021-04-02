@@ -6,7 +6,7 @@ export default function TimelineLayout() {
   return (
     <>
       <HeadMeta title={TIMELINE + "-" + BLOG_TITLE} />
-      <DefaultLayout ContentComponent={<Timeline />} />
+      <DefaultLayout CenterContent={<Timeline />} />
     </>
   );
 }

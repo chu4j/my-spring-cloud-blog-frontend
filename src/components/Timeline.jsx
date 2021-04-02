@@ -4,7 +4,9 @@ import { useHistory, useParams } from "react-router-dom";
 import { Container, Grid, Icon, Pagination, Table } from "semantic-ui-react";
 import { ApiGet } from "../data/ApiGet";
 import AnimationLayout from "./AnimationLayout";
-import { TIMELINE_API_URL } from "./Vars";
+import DefaultLayout from "./DefaultLayout";
+import HeadMeta from "./Meta";
+import { BLOG_TITLE, TIMELINE, TIMELINE_API_URL } from "./Vars";
 
 export default function Timeline() {
   let { pageNumber } = useParams();
@@ -23,11 +25,12 @@ export default function Timeline() {
     const url = "/posts/timeline/page/" + activePage;
     history.push(url);
   };
-  return (
+  const timelineContent = (
     <>
       <AnimationLayout isShow={show}>
-        <Container>
-          <Table className="common-table-1" selectable>
+        <Container className="timeline-container">
+          <HeadMeta title={TIMELINE + "-" + BLOG_TITLE} />
+          <Table selectable>
             <Table.Header>
               <Table.Row>
                 <Table.HeaderCell>
@@ -77,6 +80,11 @@ export default function Timeline() {
           </Grid>
         </Container>
       </AnimationLayout>
+    </>
+  );
+  return (
+    <>
+      <DefaultLayout CenterContent={timelineContent} />
     </>
   );
 }

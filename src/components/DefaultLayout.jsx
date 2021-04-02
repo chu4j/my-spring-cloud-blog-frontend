@@ -12,20 +12,21 @@ export default function DefaultLayout(props) {
           <>
             <Grid.Column width={1} />
             <Grid.Column width={3}>
-              {props.CategoryComponent && props.CategoryComponent}
-              {props.TagComponent && props.TagComponent}
+              {props.CategoriesWidget && props.CategoriesWidget}
+              {props.TagsWidget && props.TagsWidget}
             </Grid.Column>
           </>
-          {props.CategoryComponent &&
-          props.TagComponent &&
-          props.ContentComponent ? (
-            <Grid.Column width={10}>{props.ContentComponent}</Grid.Column>
+          {props.CategoriesWidget && props.TagsWidget && props.CenterContent ? (
+            <Grid.Column width={10}>{props.CenterContent}</Grid.Column>
           ) : (
-            <Grid.Column width={16}>{props.ContentComponent}</Grid.Column>
+            <Grid.Column width={16}>{props.CenterContent}</Grid.Column>
+          )}
+          {props.children && (
+            <Grid.Column width={16}>{props.children}</Grid.Column>
           )}
         </Grid.Row>
         <Grid.Row columns={1}>
-          <Grid.Column>{!props.nonFooter && <Footer />}</Grid.Column>
+          <Grid.Column width={16}>{!props.nonFooter && <Footer />}</Grid.Column>
         </Grid.Row>
       </Grid>
     </div>

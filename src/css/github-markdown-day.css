@@ -661,7 +661,6 @@
   margin-bottom: 16px;
   font-weight: 900;
   line-height: 1.25;
-  font-family: "Lato", Simsun, "宋体", Fangsong, "仿宋", STSong, STFangsong;
 }
 
 .markdown-body h1 {
@@ -982,14 +981,12 @@
   padding: 15px;
   overflow: auto;
   font-size: 85%;
-  line-height: 1;
-  background-color: #edf2f7;
+  line-height: 2;
+  /* background-color: #edf2f7; */
   /* background-color: #161b22; */
   /* border: 1px solid #30363d; */
-  /* background-color: #171923; */
-  /* background: #1c1b1b; */
-  border-radius: 2px;
-  color: inherit;
+  background-color: whitesmoke;
+  border-radius: 3px;
 }
 
 .markdown-body pre code {
@@ -1007,7 +1004,6 @@
 }
 .markdown-body h1,
 .markdown-body h2,
-.markdown-body h3,
-.markdown-body h4 {
-  font-family: "Lato", Simsun, "宋体", Fangsong, "仿宋", STSong, STFangsong;
+.markdown-body h3 {
+  color: #2a4365;
 }

@@ -1,13 +1,14 @@
 import { Button, Container, Header, Icon } from "semantic-ui-react";
+import HeadMeta from "./Meta";
+import { TITLE_404 } from "./Vars";
 const NotFoundComponent = () => (
   <>
     <Container text textAlign="center" style={{ paddingTop: "5em" }}>
-      <Header as="h1">Oops! Not Found</Header>
-      <Header as="h5">
-        Maybe this resource by deleted or removed forever!
-      </Header>
-      <Button basic as="a" href="/" color="teal">
-        <Icon name="chevron left" color="teal" />
+      <HeadMeta title={TITLE_404} />
+      <Header as="h1">Oops! not Found</Header>
+      <div>&nbsp;</div>
+      <Button basic as="a" href="/" color="blue">
+        <Icon name="chevron left" color="blue" />
         Back home
       </Button>
     </Container>

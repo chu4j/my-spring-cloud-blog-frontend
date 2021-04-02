@@ -8,11 +8,14 @@ class Footer extends Component {
         <Divider />
         <p>
           <a href="/">
-            <img src="/logo.svg" alt="logo" width={70} height={70} />
+            <img src="/logo-footer.png" alt="logo" width={80} height={80} />
+            &nbsp;
           </a>
+          <b>風立ちぬ、いざ生きめやも。</b>
         </p>
+        <Divider />
         <p>
-          build by <Icon name="react" color="teal" size="big" />
+          build with <Icon name="react" color="teal" size="big" />
           <a href="https://github.com/facebook/react">
             <b>React</b>
           </a>

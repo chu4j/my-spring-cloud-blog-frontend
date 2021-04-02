@@ -24,18 +24,9 @@ const BreadcrumbMenu = (props) => (
           outFocus={props.outFocus}
         />
       )}
-      <span>
+      <span className="logo">
         <a href="/">
-          <img
-            src="/logo.svg"
-            alt="logo"
-            height={50}
-            width={50}
-            style={{
-              paddingLeft: "1em",
-              display: "inline-block",
-            }}
-          />
+          <img src="/logo-footer.png" alt="logo" height={47} width={50} />
         </a>
       </span>
       <span className="breadmenu-content">
@@ -92,7 +83,7 @@ const MobileMenu = (props) => {
       <CSSTransition
         in={props.show}
         classNames="mobile-menu"
-        timeout={300}
+        timeout={2000}
         unmountOnExit
       >
         <div className="mobile-menu-content">

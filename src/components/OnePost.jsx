@@ -47,8 +47,8 @@ export default function OnePost() {
         <meta name="description" content={title} />
       </Helmet>
       <DefaultLayout
-        CategoryComponent={<Catalog response={post} />}
-        ContentComponent={<Posts response={post} focus />}
+        CategoriesWidget={<Catalog response={post} />}
+        CenterContent={<Posts response={post} focus />}
       />
     </>
   );
