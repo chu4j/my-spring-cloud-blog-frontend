@@ -1,14 +1,15 @@
 import { Component, React } from "react";
 import { Divider, Icon } from "semantic-ui-react";
+import Spacing from "./Spacing";
 
 class Footer extends Component {
   render() {
     return (
       <div className="footer-container">
-        <Divider />
+        <Spacing />
         <p>
           <a href="/">
-            <img src="/logo-footer.png" alt="logo" width={80} height={80} />
+            <img src="/logo48x48.png" alt="logo" width={48} height={48} />
             &nbsp;
           </a>
           <b>風立ちぬ、いざ生きめやも。</b>

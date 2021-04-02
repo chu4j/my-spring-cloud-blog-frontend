@@ -24,9 +24,9 @@ const BreadcrumbMenu = (props) => (
           outFocus={props.outFocus}
         />
       )}
-      <span className="logo">
-        <a href="/">
-          <img src="/logo-footer.png" alt="logo" height={47} width={50} />
+      <span>
+        <a className="my-logo" href="/">
+          <img src="/logo48x48.png" alt="logo" />
         </a>
       </span>
       <span className="breadmenu-content">
