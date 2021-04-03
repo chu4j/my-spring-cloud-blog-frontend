@@ -6,10 +6,10 @@ import SearchBox from "./SearchBox";
 import Spacing from "./Spacing";
 import {
   MENU_ABOUT,
-  MENU_ARCHIVES,
   MENU_CATEGORIES,
   MENU_HOME,
   MENU_TAGS,
+  POSTS,
   SEARCH_URL,
 } from "./Vars";
 const $ = require("jquery");
@@ -26,7 +26,7 @@ const BreadcrumbMenu = (props) => (
       )}
       <span>
         <a className="my-logo" href="/">
-          <img src="/logo48x48.png" alt="logo" />
+          <img src="/logo28x28.png" alt="logo" />
         </a>
       </span>
       <span className="breadmenu-content">
@@ -50,7 +50,7 @@ const BreadcrumbMenu = (props) => (
             href="/posts/timeline"
             active={"timeline" == props.active}
           >
-            {MENU_ARCHIVES}
+            {POSTS}
           </Breadcrumb.Section>
           <Breadcrumb.Divider>/</Breadcrumb.Divider>
           <Breadcrumb.Section
@@ -89,7 +89,7 @@ const MobileMenu = (props) => {
         <div className="mobile-menu-content">
           <a href="/">Home</a>
           <Divider />
-          <a href="/posts/timeline">Timeline</a>
+          <a href="/posts/timeline">Posts</a>
           <Divider />
           <a href="/categories">Categories</a>
           <Divider />

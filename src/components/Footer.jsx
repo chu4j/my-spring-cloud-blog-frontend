@@ -9,21 +9,25 @@ class Footer extends Component {
         <Spacing />
         <p>
           <a href="/">
-            <img src="/logo48x48.png" alt="logo" width={48} height={48} />
+            <img src="/logo38x38.png" alt="logo" width={38} height={38} />
             &nbsp;
           </a>
-          <b>風立ちぬ、いざ生きめやも。</b>
         </p>
-        <Divider />
+
         <p>
-          build with <Icon name="react" color="teal" size="big" />
+          build with <Icon name="react" color="teal" />
           <a href="https://github.com/facebook/react">
             <b>React</b>
           </a>
         </p>
-        <a href="https://www.github.com/konchoo">
-          &copy;&nbsp;konchoo <Icon name="heart" color="red" size="small" />
-        </a>
+        <p>
+          <a href="https://www.github.com/konchoo">
+            <Icon name="github square" />
+            konchoo
+            <Icon name="heart" color="red" size="small" />
+          </a>
+        </p>
+        <p>Copyright &copy; 2021 zhuqigong.xyz.All rights reserved.</p>
       </div>
     );
   }

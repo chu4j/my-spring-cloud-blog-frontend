@@ -34,9 +34,8 @@ export default function Tags() {
                   <Table.Row>
                     <Table.HeaderCell>
                       <Icon name="tag" style={{ color: "#52C75F" }} />
-                      Tags&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      Tags
                     </Table.HeaderCell>
-                    <Table.HeaderCell>Total</Table.HeaderCell>
                   </Table.Row>
                 </Table.Header>
 
@@ -49,10 +48,9 @@ export default function Tags() {
                             style={{ display: "inline-block", width: "100%" }}
                             href={"/tag/" + e.value}
                           >
-                            {e.value}
+                            {e.value}&nbsp;&nbsp;({e.count})
                           </a>
                         </Table.Cell>
-                        <Table.Cell>{e.count}</Table.Cell>
                       </Table.Row>
                     </>
                   ))}

@@ -35,7 +35,6 @@ export default function Categories() {
                       <Icon name="bookmark" style={{ color: "#52C75F" }} />
                       Categories
                     </Table.HeaderCell>
-                    <Table.HeaderCell>Total</Table.HeaderCell>
                   </Table.Row>
                 </Table.Header>
                 <Table.Body>
@@ -47,10 +46,9 @@ export default function Categories() {
                             style={{ display: "inline-block", width: "100%" }}
                             href={"/category/" + e.value}
                           >
-                            {e.value}
+                            {e.value}&nbsp;&nbsp;({e.count})
                           </a>
                         </Table.Cell>
-                        <Table.Cell>{e.count}</Table.Cell>
                       </Table.Row>
                     </>
                   ))}

@@ -6,7 +6,7 @@ import { ApiGet } from "../data/ApiGet";
 import AnimationLayout from "./AnimationLayout";
 import DefaultLayout from "./DefaultLayout";
 import HeadMeta from "./Meta";
-import { BLOG_TITLE, TIMELINE, TIMELINE_API_URL } from "./Vars";
+import { BLOG_TITLE, POSTS, TIMELINE_API_URL } from "./Vars";
 
 export default function Timeline() {
   let { pageNumber } = useParams();
@@ -29,21 +29,16 @@ export default function Timeline() {
     <>
       <AnimationLayout isShow={show}>
         <Container className="timeline-container">
-          <HeadMeta title={TIMELINE + "-" + BLOG_TITLE} />
+          <HeadMeta title={POSTS + "-" + BLOG_TITLE} />
           <Table selectable>
             <Table.Header>
               <Table.Row>
                 <Table.HeaderCell>
-                  <Icon name="hourglass" color="teal" />
-                  Date
-                </Table.HeaderCell>
-                <Table.HeaderCell>
-                  <Icon name="bookmark" color="teal" />
-                  Title
+                  <Icon name="bookmark" style={{ color: "#52C75F" }} />
+                  Posts
                 </Table.HeaderCell>
               </Table.Row>
             </Table.Header>
-
             <Table.Body>
               {data.list &&
                 data.list.map((e, index) => (
@@ -51,8 +46,7 @@ export default function Timeline() {
                     <Table.Row key={index}>
                       <Table.Cell>
                         <Moment fromNow>{e.time}</Moment>
-                      </Table.Cell>
-                      <Table.Cell>
+                        &nbsp;&nbsp;
                         <a
                           href={"/post/" + e.serialNumber}
                           style={{ display: "inline-block", width: "100%" }}

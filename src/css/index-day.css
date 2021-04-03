@@ -92,8 +92,13 @@ code {
   font-weight: 900;
 }
 .breadmenu {
-  background: #161b22;
-  background-image: linear-gradient(to right, black 0%, #303030 100%);
+  background: white;
+  /* background-image: linear-gradient(
+    to bottom,
+    black 0%,
+    #171923 50%,
+    black 100%
+  ); */
   position: fixed;
   right: 0;
   z-index: 1000;
@@ -102,13 +107,15 @@ code {
   padding: 15px 0 0 2rem;
   font-weight: bold;
   text-align: left;
+  color: #000;
+  border-bottom: 2px solid #eaedf1;
 }
 .breadmenu .my-logo {
   display: inline-block;
   cursor: pointer;
-  margin-top: 5px;
-  width: 48px;
-  height: 48px;
+  margin-top: 12px;
+  width: 28px;
+  height: 28px;
   margin-left: 10px;
 }
 .breadmenu .my-logo img {
@@ -118,23 +125,32 @@ code {
 
 .breadmenu-content {
   position: fixed;
-  padding: 15px 0 0px 0px;
+  padding: 15px 0 0px 10px;
 }
 .ui.breadmenu .section {
-  color: #e2f6fc;
+  /* color: #e2f6fc; */
+  color: #010102;
   padding: 1px 3px 1px 3px;
   border-radius: 1px;
 }
 .ui.breadmenu .section:hover {
-  color: gray;
+  color: #2b6cb0;
 }
 .ui.breadmenu .divider {
-  color: #feebc8;
+  /* color: #feebc8; */
+  color: #171923;
 }
 .footer-container {
   text-align: center;
-  color: white;
-  background-color: #000;
+  color: gray;
+  background: #171923;
+  background-image: linear-gradient(
+    to right,
+    black 0%,
+    #171923 50%,
+    black 100%
+  );
+  position: fixed;
   width: 100%;
   clear: both;
   position: relative;

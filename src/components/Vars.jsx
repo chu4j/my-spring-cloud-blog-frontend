@@ -6,7 +6,7 @@ export const ServerHost = "http://localhost:9000";
 export const BLOG_TITLE = "zhuqigong.xyz";
 export const CATEGORY = "categories";
 export const TAG = "tags";
-export const TIMELINE = "timeline";
+export const POSTS = "Posts";
 export const CATAGORY_STATISTICS_URL =
   ServerHost + "/v1/api/category/statistics/count";
 export const TAG_STATISTICS_URL = ServerHost + "/v1/api/tag/statistics/count";
