@@ -2,7 +2,8 @@
 Remember to change ServerHost as your server domain or ip
 if you deploy project to your product server
  */
-export const ServerHost = "http://localhost:9000";
+// export const ServerHost = "http://localhost:9000";
+export const ServerHost = "https://data.zhuqigong.xyz";
 export const BLOG_TITLE = "zhuqigong.xyz";
 export const CATEGORY = "categories";
 export const TAG = "tags";
