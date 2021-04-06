@@ -51,6 +51,14 @@ export default function Posts(props) {
                           {a.title}
                         </a>
                       </Header>
+                      {props.focus && a.catalog && (
+                        <>
+                          <Header as="h3" content={"目录"} />
+                          <div
+                            dangerouslySetInnerHTML={{ __html: a.catalog }}
+                          ></div>
+                        </>
+                      )}
                       {
                         <div
                           style={{ maxWidth: "960px" }}
