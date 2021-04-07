@@ -9,7 +9,7 @@ class Footer extends Component {
         <Spacing />
         <p>
           <a href="/">
-            <img src="/logo38x38.png" alt="logo" width={38} height={38} />
+            <img src="/logo28x28.png" alt="logo" width={28} height={28} />
             &nbsp;
           </a>
         </p>
@@ -27,7 +27,8 @@ class Footer extends Component {
             <Icon name="heart" color="red" size="small" />
           </a>
         </p>
-        <p>Copyright &copy; 2021 zhuqigong.xyz.All rights reserved.</p>
+        <Divider />
+        <p>Copyright &copy; zhuqigong.xyz. All rights reserved.</p>
       </div>
     );
   }

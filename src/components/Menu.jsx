@@ -170,7 +170,6 @@ export default function BreadMenu() {
     setEnterState(false);
   };
   const handlerOutFocus = () => {
-    console.log("test");
     $(".desktop-menu-search").animate({ width: "250px" }, 200);
     setSearchDataState([]);
   };

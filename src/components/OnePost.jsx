@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
 import { useHistory, useParams } from "react-router-dom";
-import { isNumeric } from "../util/Utils";
+import { isNumeric } from "../util/utils";
 import DefaultLayout from "./DefaultLayout";
-import Catalog from "./PostCatalog";
 import Posts from "./Posts";
 import { BLOG_TITLE, NOT_FOUND_URL, ServerHost } from "./Vars";
 async function getPost(postId) {

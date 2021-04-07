@@ -34,9 +34,10 @@ code {
 }
 .common-label {
   display: inline-block;
-  margin: 2px;
-  padding: 5px 3px 5px 3px;
-  border-radius: 0;
+  margin: 2px 3px 10px 1px;
+  padding: 3px 5px 3px 5px;
+  border-radius: 3px;
+  background: whitesmoke;
 }
 .common-label:hover {
   text-decoration: underline;
@@ -47,6 +48,7 @@ code {
   border-radius: 5px;
   padding: 10px 10px 3em 10px;
   margin-top: 8rem;
+  box-shadow: 0px 0px 1px 1px #eff1f3;
 }
 .menu-container {
   margin-bottom: 5em;
@@ -84,6 +86,7 @@ code {
   border: 1px solid #e1e4e8;
   border-radius: 5px;
   padding: 1.5em;
+  box-shadow: 0px 0px 1px 1px #eff1f3;
 }
 .post-container a {
   color: #1a365d;
@@ -92,7 +95,7 @@ code {
   font-weight: 900;
 }
 .breadmenu {
-  background: whitesmoke;
+  background: white;
   /* background-image: linear-gradient(
     to bottom,
     black 0%,
@@ -102,18 +105,19 @@ code {
   position: fixed;
   right: 0;
   z-index: 1000;
-  min-height: 75px;
-  max-height: 75px;
+  min-height: 68px;
+  max-height: 68px;
   padding: 15px 0 0 2rem;
   font-weight: bold;
   text-align: left;
   color: #000;
-  border-bottom: 2px solid #eaedf1;
+  border-bottom: 2px solid #e0e2e7;
+  box-shadow: 0px 0px 1px 1px #eff1f3;
 }
 .breadmenu .my-logo {
   display: inline-block;
   cursor: pointer;
-  margin-top: 12px;
+  margin-top: 10px;
   width: 28px;
   height: 28px;
   margin-left: 10px;
@@ -125,7 +129,7 @@ code {
 
 .breadmenu-content {
   position: fixed;
-  padding: 15px 0 0px 10px;
+  padding: 14px 0 0px 10px;
 }
 .ui.breadmenu .section {
   /* color: #e2f6fc; */
@@ -232,6 +236,7 @@ code {
   transform: scale(0.9);
   transition: opacity 300ms, transform 300ms;
 }
+
 .catalog-container {
   position: fixed;
   left: 0;
@@ -368,4 +373,15 @@ code {
   max-height: 600px;
   overflow: scroll;
   outline: none;
+}
+.back-to-top {
+  position: fixed;
+  bottom: 0;
+  width: 65px;
+  right: 0px;
+  display: inline;
+  background-color: black;
+  z-index: 1001;
+  padding: 0;
+  margin: 0;
 }

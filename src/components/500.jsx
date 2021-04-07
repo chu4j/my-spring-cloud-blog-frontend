@@ -9,12 +9,10 @@ export default function InternalError() {
       <DefaultLayout>
         <Container text textAlign="center" style={{ marginTop: "8rem" }}>
           <HeadMeta title={TITLE_500} />
-          <Icon name="server" size="large" color="blue" />
-          <Header as="h3" color="blue">
-            Internal Server Error
-          </Header>
-          <Button basic color="blue" as="a" href="/">
-            <Icon name="chevron left" color="blue" /> Back home
+          <Icon name="server" size="large" />
+          <Header as="h3">Internal Server Error</Header>
+          <Button color="facebook" as="a" href="/">
+            <Icon name="chevron left" /> Back home
           </Button>
         </Container>
       </DefaultLayout>

@@ -1,7 +1,7 @@
 import { React, useEffect, useLayoutEffect, useState } from "react";
 import { useHistory, useParams, useRouteMatch } from "react-router-dom";
 import "../css/App.css";
-import { getHomeUrl, isNumeric } from "../util/Utils";
+import { getHomeUrl, isNumeric } from "../util/utils";
 import CategoriesWidget from "./CategoriesWidget";
 import DefaultLayout from "./DefaultLayout";
 import HeadMeta from "./Meta";
