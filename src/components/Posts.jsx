@@ -2,7 +2,6 @@ import moment from "moment";
 import { React, useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import {
-  Button,
   Container,
   Divider,
   Grid,
@@ -46,30 +45,12 @@ export default function Posts(props) {
                     key={a.serialNumber}
                   >
                     <Header as="h1" textAlign="center">
-                      <Icon
-                        name="quote left"
-                        color="olive"
-                        style={{
-                          marginTop: "-2em",
-                          display: "inline-block",
-                          fontSize: "0.7em",
-                        }}
-                      />
                       <a
                         href={"/post/" + a.serialNumber}
                         className="post-title"
                       >
                         {a.title}
                       </a>
-                      <Icon
-                        name="quote right"
-                        color="olive"
-                        style={{
-                          marginTop: "-2em",
-                          display: "inline-block",
-                          fontSize: "0.7em",
-                        }}
-                      />
                     </Header>
                     {props.focus && a.catalog && (
                       <>
