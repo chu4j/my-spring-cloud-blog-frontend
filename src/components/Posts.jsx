@@ -115,16 +115,12 @@ export default function Posts(props) {
                               <GridColumn width={11}>
                                 <Spacing />
                                 <div style={{ color: "#010102" }}>
-                                  <b>
-                                    <em>{a.author}</em>
-                                  </b>
-                                  &nbsp; posted on &nbsp;
+                                  <Icon name="time" color="blue" />
                                   <em style={{ fontSize: "0.8em" }}>
                                     {moment(a.publishTime)
                                       .locale("en")
                                       .format("yyyy/MM/DD")}
                                   </em>
-                                  &nbsp;
                                 </div>
                               </GridColumn>
                             </Grid.Row>
@@ -154,7 +150,7 @@ export default function Posts(props) {
                           className="post-previous-next"
                         >
                           <Icon name="angle left" size="big"></Icon>
-                          &nbsp;&nbsp;{e.previous.title}
+                          {e.previous.title}
                         </a>
                       )}
                     </>
@@ -169,7 +165,7 @@ export default function Posts(props) {
                           href={"/post/" + e.next.serialNumber}
                           className="post-previous-next"
                         >
-                          {e.next.title}&nbsp;&nbsp;
+                          {e.next.title}
                           <Icon name="angle right" size="big"></Icon>
                         </a>
                       )}

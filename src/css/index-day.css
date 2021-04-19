@@ -1,9 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap");
 body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   /* background-color: #0d1117; */
   /* background-color: whitesmoke; */
-  font-family: Lato, "Noto Sans SC";
+  font-family: "JetBrains Mono", "Noto Sans SC";
   height: 100%;
   background: white;
   padding: 0;
@@ -37,12 +38,12 @@ code {
   margin: 2px 3px 10px 1px;
   padding: 3px 5px 3px 5px;
   border-radius: 3px;
-  background: whitesmoke;
 }
 .common-label:hover {
   text-decoration: underline;
 }
 .common-label-container {
+  font-family: Lato;
   color: #010102;
   border: 1px solid #e1e4e8;
   border-radius: 5px;
@@ -80,13 +81,13 @@ code {
   margin-top: 4rem;
 }
 .post-container {
-  margin-top: 8rem;
+  margin-top: 6.5rem;
   color: #010102;
   background-color: inherit;
-  border: 1px solid #e1e4e8;
+  /* border: 1px solid #e1e4e8; */
   border-radius: 5px;
   padding: 1.5em;
-  box-shadow: 0px 0px 1px 1px #eff1f3;
+  /* box-shadow: 0px 0px 1px 1px #eff1f3; */
 }
 .post-container a {
   color: #1a365d;
@@ -95,6 +96,7 @@ code {
   font-weight: 900;
 }
 .breadmenu {
+  font-family: Lato;
   background: white;
   /* background-image: linear-gradient(
     to bottom,
@@ -344,7 +346,8 @@ code {
 }
 
 .ui .header {
-  font-family: "Lato", Simsun, "宋体", Fangsong, "仿宋", STSong, STFangsong;
+  font-family: "charter", "JetBrains Mono", "Lato", Fangsong, "仿宋", STSong,
+    STFangsong;
 }
 .desktop-menu-search {
   background-color: #0d1117;

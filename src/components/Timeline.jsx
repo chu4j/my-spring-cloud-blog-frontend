@@ -8,7 +8,7 @@ import DefaultLayout from "./DefaultLayout";
 import HeadMeta from "./Meta";
 import { BLOG_TITLE, POSTS, TIMELINE_API_URL } from "./Vars";
 
-export default function Timeline() {
+export default function Timeline(props) {
   let { pageNumber } = useParams();
   pageNumber = pageNumber ? pageNumber : 1;
   const [data, setDataState] = useState([]);
@@ -78,7 +78,11 @@ export default function Timeline() {
   );
   return (
     <>
-      <DefaultLayout CenterContent={timelineContent} />
+      {props.isHome ? (
+        <>{timelineContent}</>
+      ) : (
+        <DefaultLayout CenterContent={timelineContent} />
+      )}
     </>
   );
 }

@@ -4,6 +4,7 @@ import { CSSTransition } from "react-transition-group";
 import { Breadcrumb, Container, Divider, Icon } from "semantic-ui-react";
 import SearchBox from "./SearchBox";
 import Spacing from "./Spacing";
+import { enable as enableDarkMode } from "darkreader";
 import {
   MENU_ABOUT,
   MENU_CATEGORIES,
@@ -68,6 +69,11 @@ const BreadcrumbMenu = (props) => (
             {MENU_ABOUT}
           </Breadcrumb.Section>
         </Breadcrumb>
+        {enableDarkMode({
+          brightness: 105,
+          contrast: 115,
+          sepia: 10,
+        })}
       </span>
     </Container>
   </>
