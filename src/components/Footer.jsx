@@ -9,7 +9,7 @@ class Footer extends Component {
         <Spacing />
         <p>
           <a href="/">
-            <img src="/logo28x28.png" alt="logo" width={28} height={28} />
+            <img src="/logo.svg" alt="logo" width={64} height={64} />
             &nbsp;
           </a>
         </p>

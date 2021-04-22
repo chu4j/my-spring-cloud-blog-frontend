@@ -1,10 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;800&display=swap");
 body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /* background-color: #0d1117; */
-  /* background-color: whitesmoke; */
-  font-family: "JetBrains Mono", "Noto Sans SC";
+  font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   height: 100%;
   background: white;
   padding: 0;
@@ -25,31 +26,39 @@ code {
   text-decoration: underline;
 }
 .timeline-container {
-  margin-top: 8rem;
+  margin-top: 14em;
+  font-family: inherit;
 }
 .categories-container {
-  margin-top: 8rem;
+  margin-top: 14em;
 }
 .tags-container {
-  margin-top: 8rem;
+  margin-top: 14em;
 }
-.common-label {
+.widget-label {
+  font-size: 90%;
   display: inline-block;
   margin: 2px 3px 10px 1px;
   padding: 3px 5px 3px 5px;
   border-radius: 3px;
 }
-.common-label:hover {
+.widget-label:hover {
   text-decoration: underline;
 }
-.common-label-container {
-  font-family: Lato;
+.widget-container {
+  font-family: inherit;
   color: #010102;
-  border: 1px solid #e1e4e8;
-  border-radius: 5px;
+  border-radius: 8px;
   padding: 10px 10px 3em 10px;
-  margin-top: 8rem;
-  box-shadow: 0px 0px 1px 1px #eff1f3;
+  margin-top: 14rem;
+  box-shadow: 0px 0px 2px 1px #dbdbdf;
+  font-family: "JetBrains Mono";
+}
+.widget-tags-container {
+  margin-top: 3rem;
+}
+.widget-container .title {
+  font-family: "Open Sans";
 }
 .menu-container {
   margin-bottom: 5em;
@@ -59,6 +68,7 @@ code {
   color: white;
   display: inline-block;
   border-radius: 2px;
+  font-family: "JetBrains Mono";
 }
 .post-category:hover {
   text-decoration: underline;
@@ -67,12 +77,18 @@ code {
   padding: 3px;
   display: inline-block;
   margin: 2px;
+  font-family: "JetBrains Mono";
+}
+.post-time {
+  font-family: "JetBrains Mono";
+}
+.post-time span {
+  font-size: 70%;
 }
 .post-tag:hover {
   text-decoration: underline;
 }
 .layout-container {
-  color: white;
   padding: 0;
   margin: 0;
   min-height: 100%;
@@ -81,13 +97,13 @@ code {
   margin-top: 4rem;
 }
 .post-container {
-  margin-top: 6.5rem;
-  color: #010102;
-  background-color: inherit;
   /* border: 1px solid #e1e4e8; */
-  border-radius: 5px;
+  border-radius: 8px;
   padding: 1.5em;
   /* box-shadow: 0px 0px 1px 1px #eff1f3; */
+}
+.post-container .catalog {
+  font-family: "JetBrains Mono";
 }
 .post-container a {
   color: #1a365d;
@@ -95,58 +111,77 @@ code {
 .post-previous-next {
   font-weight: 900;
 }
-.breadmenu {
-  font-family: Lato;
-  background: white;
-  /* background-image: linear-gradient(
-    to bottom,
-    black 0%,
-    #171923 50%,
-    black 100%
-  ); */
+.breadmenu-container {
+  font-family: "Open Sans", Georgia, Tahoma, Geneva, Verdana, sans-serif;
   position: fixed;
-  right: 0;
+  left: 0;
+  top: 0;
+  display: block;
+  min-width: 100%;
+  max-height: 95px;
+  text-align: center;
+  background-image: linear-gradient(to right, black 0%, #252525, black 100%);
   z-index: 1000;
+}
+.breadmenu-container .title {
+  color: white;
+  display: block;
+  font-weight: 900;
+  font-size: 3em;
+  margin-top: 0.2em;
+}
+.breadmenu {
+  display: inline-block;
+  right: 0;
   min-height: 68px;
   max-height: 68px;
-  padding: 15px 0 0 2rem;
+  padding: 8px 0 0 0;
+  width: 330px;
   font-weight: bold;
   text-align: left;
   color: #000;
-  border-bottom: 1px solid #d0d2d6;
-  box-shadow: 0 0 1px 1px #eff1f3;
+  background-color: inherit;
+  font-family: inherit;
+  /* border-bottom: 1px solid #d0d2d6; */
+  /* box-shadow: 0 0 1px 2px #e3e4e6; */
 }
-.breadmenu .my-logo {
+.breadmenu-container .my-logo {
   display: inline-block;
   cursor: pointer;
-  margin-top: 10px;
-  width: 28px;
-  height: 28px;
-  margin-left: 10px;
+  height: 30px;
+  width: 30px;
 }
-.breadmenu .my-logo img {
+.breadmenu-container .my-logo img {
   width: 100%;
   height: 100%;
+  display: inline;
 }
 
 .breadmenu-content {
-  position: fixed;
   padding: 14px 0 0px 10px;
 }
-.ui.breadmenu .section {
+.breadmenu-content .ui.breadcrumb {
+  padding-top: 5px;
+}
+.ui.breadcrumb .section {
   /* color: #e2f6fc; */
-  color: #010102;
+  font-weight: 400;
+  color: whitesmoke;
   padding: 1px 3px 1px 3px;
   border-radius: 1px;
 }
-.ui.breadmenu .section:hover {
-  color: #2b6cb0;
+.ui.breadcrumb .section.active {
+  color: yellowgreen;
 }
-.ui.breadmenu .divider {
+.ui.ui.breadcrumb .section:hover {
+  color: yellowgreen;
+}
+.ui.breadcrumb .divider {
   /* color: #feebc8; */
-  color: #171923;
+  color: whitesmoke;
 }
 .footer-container {
+  font-family: "Open Sans";
   text-align: center;
   color: gray;
   background: #171923;
@@ -160,7 +195,7 @@ code {
   width: 100%;
   clear: both;
   position: relative;
-  height: 200px;
+  height: 218px;
   bottom: -100px;
 }
 .ui.grid > .row {
@@ -346,8 +381,7 @@ code {
 }
 
 .ui .header {
-  font-family: "charter", "JetBrains Mono", "Lato", Fangsong, "仿宋", STSong,
-    STFangsong;
+  font-family: "Open Sans", Fangsong, "仿宋", STSong, STFangsong;
 }
 .desktop-menu-search {
   background-color: #0d1117;

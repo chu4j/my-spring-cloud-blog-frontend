@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Icon, Loader } from "semantic-ui-react";
-import Spacing from "./Spacing";
+import { Divider, Icon, Loader } from "semantic-ui-react";
 import { ServerHost } from "./Vars";
 export default function CategoriesWidget() {
   const [data, setData] = useState([]);
@@ -19,19 +18,19 @@ export default function CategoriesWidget() {
   }, []);
   return (
     <>
-      <div className="common-label-container">
-        <span style={{ fontWeight: "900" }}>
+      <div className="widget-container">
+        <span style={{ fontWeight: "900" }} className="title">
           <Icon name="bookmark" style={{ color: "#52C75F" }} />
           Categories
         </span>
-        <Spacing />
+        <Divider />
         <div>
           {data && data.length > 0 ? (
             data.map((e, index) => (
               <a
                 key={index}
                 href={"/category/" + e.value}
-                className="common-label"
+                className="widget-label"
               >
                 {e.value}
                 &nbsp;

@@ -42,7 +42,9 @@ export default function Posts(props) {
                   <div
                     key={index}
                     className="post-container"
-                    key={a.serialNumber}
+                    style={
+                      index > 0 ? { marginTop: "2em" } : { marginTop: "11.5em" }
+                    }
                   >
                     <Header as="h1" textAlign="center">
                       <a
@@ -51,15 +53,17 @@ export default function Posts(props) {
                       >
                         {a.title}
                       </a>
+                      <Divider />
                     </Header>
                     {props.focus && a.catalog && (
                       <>
                         <Header as="h3">
                           <Icon name="bookmark" style={{ color: "#52C75F" }} />
-                          目录
+                          TOC
                         </Header>
 
                         <div
+                          className="catalog"
                           style={{ display: "inline-block" }}
                           dangerouslySetInnerHTML={{ __html: a.catalog }}
                         ></div>
@@ -114,13 +118,16 @@ export default function Posts(props) {
                               </Grid.Column>
                               <GridColumn width={11}>
                                 <Spacing />
-                                <div style={{ color: "#010102" }}>
+                                <div
+                                  style={{ color: "#010102" }}
+                                  className="post-time"
+                                >
                                   <Icon name="time" color="blue" />
-                                  <em style={{ fontSize: "0.8em" }}>
+                                  <span>
                                     {moment(a.publishTime)
                                       .locale("en")
                                       .format("yyyy/MM/DD")}
-                                  </em>
+                                  </span>
                                 </div>
                               </GridColumn>
                             </Grid.Row>

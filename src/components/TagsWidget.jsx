@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Icon, Loader } from "semantic-ui-react";
-import Spacing from "./Spacing";
+import { Divider, Icon, Loader } from "semantic-ui-react";
 import { ServerHost } from "./Vars";
 export default function TagsWidget() {
   const [data, setData] = useState([]);
@@ -19,16 +18,16 @@ export default function TagsWidget() {
   }, []);
   return (
     <>
-      <div className="common-label-container">
-        <span style={{ fontWeight: "900" }}>
+      <div className="widget-container widget-tags-container">
+        <span style={{ fontWeight: "900" }} className="title">
           <Icon name="tag" style={{ color: "#52C75F" }} />
           Tags
         </span>
-        <Spacing />
+        <Divider />
         <div>
           {data && data.length > 0 ? (
             data.map((e, index) => (
-              <a key={index} href={"/tag/" + e.value} className="common-label">
+              <a key={index} href={"/tag/" + e.value} className="widget-label">
                 {e.value}
                 &nbsp;
                 {e.count}

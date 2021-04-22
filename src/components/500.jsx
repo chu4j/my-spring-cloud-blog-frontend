@@ -7,7 +7,7 @@ export default function InternalError() {
   return (
     <>
       <DefaultLayout>
-        <Container text textAlign="center" style={{ marginTop: "8rem" }}>
+        <Container text textAlign="center" style={{ marginTop: "14em" }}>
           <HeadMeta title={TITLE_500} />
           <Icon name="server" size="large" />
           <Header as="h3">Internal Server Error</Header>

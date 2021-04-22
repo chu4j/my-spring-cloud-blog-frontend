@@ -1,10 +1,9 @@
 import React, { useEffect, useLayoutEffect, useState } from "react";
 import { useRouteMatch } from "react-router-dom";
 import { CSSTransition } from "react-transition-group";
-import { Breadcrumb, Container, Divider, Icon } from "semantic-ui-react";
+import { Breadcrumb, Divider, Icon } from "semantic-ui-react";
 import SearchBox from "./SearchBox";
 import Spacing from "./Spacing";
-import { enable as enableDarkMode } from "darkreader";
 import {
   MENU_ABOUT,
   MENU_CATEGORIES,
@@ -16,22 +15,28 @@ import {
 const $ = require("jquery");
 const BreadcrumbMenu = (props) => (
   <>
-    <Container fluid className="breadmenu">
-      {props.searchBoxData && props.searchBoxData.length > 0 && (
-        <SearchBox
-          data={props.searchBoxData}
-          enter={props.enterHandler}
-          enterExit={props.enterExitHandler}
-          outFocus={props.outFocus}
-        />
-      )}
-      <span>
-        <a className="my-logo" href="/">
-          <img src="/logo28x28.png" alt="logo" />
-        </a>
+    <div className="breadmenu-container">
+      <span className="title">
+        C
+        <span>
+          <a className="my-logo" href="/">
+            <img src="/logo.svg" alt="logo" width={48} height={48} />
+          </a>
+        </span>
+        sine 90&#730;
       </span>
-      <span className="breadmenu-content">
-        {/* <span>
+
+      <div className="breadmenu">
+        {props.searchBoxData && props.searchBoxData.length > 0 && (
+          <SearchBox
+            data={props.searchBoxData}
+            enter={props.enterHandler}
+            enterExit={props.enterExitHandler}
+            outFocus={props.outFocus}
+          />
+        )}
+        <span className="breadmenu-content">
+          {/* <span>
           <input
             placeholder="Searching ..."
             className="desktop-menu-search"
@@ -41,41 +46,42 @@ const BreadcrumbMenu = (props) => (
             id="searchbox-input"
           />
         </span> */}
-        <Breadcrumb>
-          {/* <Breadcrumb.Divider>/</Breadcrumb.Divider> */}
-          <Breadcrumb.Section href="/" active={"home" == props.active}>
-            {MENU_HOME}
-          </Breadcrumb.Section>
-          <Breadcrumb.Divider>/</Breadcrumb.Divider>
-          <Breadcrumb.Section
-            href="/posts/timeline"
-            active={"timeline" == props.active}
-          >
-            {POSTS}
-          </Breadcrumb.Section>
-          <Breadcrumb.Divider>/</Breadcrumb.Divider>
-          <Breadcrumb.Section
-            href="/categories"
-            active={"categories" === props.active}
-          >
-            {MENU_CATEGORIES}
-          </Breadcrumb.Section>
-          <Breadcrumb.Divider>/</Breadcrumb.Divider>
-          <Breadcrumb.Section href="/tags" active={"tags" === props.active}>
-            {MENU_TAGS}
-          </Breadcrumb.Section>
-          <Breadcrumb.Divider>/</Breadcrumb.Divider>
-          <Breadcrumb.Section href="/about" active={"about" === props.active}>
-            {MENU_ABOUT}
-          </Breadcrumb.Section>
-        </Breadcrumb>
-        {enableDarkMode({
-          brightness: 105,
-          contrast: 115,
-          sepia: 10,
-        })}
-      </span>
-    </Container>
+          <Breadcrumb>
+            {/* <Breadcrumb.Divider>/</Breadcrumb.Divider> */}
+            <Breadcrumb.Section href="/" active={"home" == props.active}>
+              {MENU_HOME}
+            </Breadcrumb.Section>
+            <Breadcrumb.Divider>/</Breadcrumb.Divider>
+            <Breadcrumb.Section
+              href="/posts/timeline"
+              active={"timeline" == props.active}
+            >
+              {POSTS}
+            </Breadcrumb.Section>
+            <Breadcrumb.Divider>/</Breadcrumb.Divider>
+            <Breadcrumb.Section
+              href="/categories"
+              active={"categories" === props.active}
+            >
+              {MENU_CATEGORIES}
+            </Breadcrumb.Section>
+            <Breadcrumb.Divider>/</Breadcrumb.Divider>
+            <Breadcrumb.Section href="/tags" active={"tags" === props.active}>
+              {MENU_TAGS}
+            </Breadcrumb.Section>
+            <Breadcrumb.Divider>/</Breadcrumb.Divider>
+            <Breadcrumb.Section href="/about" active={"about" === props.active}>
+              {MENU_ABOUT}
+            </Breadcrumb.Section>
+          </Breadcrumb>
+          {/* {enableDarkMode({
+            brightness: 108,
+            contrast: 108,
+            sepia: 20,
+          })} */}
+        </span>
+      </div>
+    </div>
   </>
 );
 const MobileMenu = (props) => {
