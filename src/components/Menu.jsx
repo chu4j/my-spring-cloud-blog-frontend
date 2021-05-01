@@ -17,13 +17,11 @@ const BreadcrumbMenu = (props) => (
   <>
     <div className="breadmenu-container">
       <span className="title">
-        C
         <span>
           <a className="my-logo" href="/">
             <img src="/logo.svg" alt="logo" width={48} height={48} />
           </a>
         </span>
-        sine 90&#730;
       </span>
 
       <div className="breadmenu">
@@ -91,6 +89,13 @@ const MobileMenu = (props) => {
         <div onClick={props.handler}>
           <Icon name="bars" size="large" className="mobile-menu-button" />
         </div>
+        <span>
+          <a href="/" className="title">
+            <span className="logo">
+              <img src="/logo.svg" alt="logo" width={48} height={48} />
+            </span>
+          </a>
+        </span>
       </div>
       <CSSTransition
         in={props.show}

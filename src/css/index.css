@@ -48,11 +48,12 @@ code {
 .widget-container {
   font-family: inherit;
   color: #010102;
-  border-radius: 8px;
+  border-radius: 10px;
   padding: 10px 10px 3em 10px;
   margin-top: 14rem;
-  box-shadow: 0px 0px 2px 1px #dbdbdf;
+  box-shadow: 0px 0px 2px 1px #e2e2e5;
   font-family: "JetBrains Mono";
+  background-color: whitesmoke;
 }
 .widget-tags-container {
   margin-top: 3rem;
@@ -118,24 +119,27 @@ code {
   top: 0;
   display: block;
   min-width: 100%;
-  max-height: 95px;
+  height: 100px;
   text-align: center;
-  background-image: linear-gradient(to right, black 0%, #252525, black 100%);
+  background-image: linear-gradient(
+    to right,
+    black 0%,
+    #1a202c 50%,
+    black 100%
+  );
   z-index: 1000;
 }
 .breadmenu-container .title {
-  color: white;
+  color: whitesmoke;
   display: block;
   font-weight: 900;
   font-size: 3em;
-  margin-top: 0.2em;
+  margin-top: 0.1em;
 }
 .breadmenu {
   display: inline-block;
   right: 0;
-  min-height: 68px;
-  max-height: 68px;
-  padding: 8px 0 0 0;
+  padding: 5px 0 0 0;
   width: 330px;
   font-weight: bold;
   text-align: left;
@@ -148,8 +152,8 @@ code {
 .breadmenu-container .my-logo {
   display: inline-block;
   cursor: pointer;
-  height: 30px;
-  width: 30px;
+  height: 48px;
+  width: 48px;
 }
 .breadmenu-container .my-logo img {
   width: 100%;
@@ -183,7 +187,7 @@ code {
 .footer-container {
   font-family: "Open Sans";
   text-align: center;
-  color: gray;
+  color: whitesmoke;
   background: #171923;
   background-image: linear-gradient(
     to right,
@@ -195,8 +199,13 @@ code {
   width: 100%;
   clear: both;
   position: relative;
-  height: 218px;
-  bottom: -100px;
+  height: 240px;
+  bottom: -200px;
+}
+.footer-container .logo {
+  font-size: 3em;
+  font-weight: 900;
+  color: whitesmoke;
 }
 .ui.grid > .row {
   padding: 0;
@@ -207,34 +216,45 @@ code {
   min-height: 65px;
   max-height: 65px;
   width: 100%;
-  opacity: 0.99;
-  padding: 8px 0 0 16px;
   position: fixed;
   z-index: 1001;
   top: 0;
   left: 0;
   cursor: pointer;
+  text-align: center;
+}
+.mobile-menu .logo {
+  display: inline-block;
+  margin-top: 3px;
+  width: 40px;
+  height: 40px;
+}
+.mobile-menu .title {
+  display: inline-block;
+  margin-top: 5px;
 }
 .mobile-menu-content {
   background: #161b22;
   position: fixed;
   z-index: 1000;
-  top: 65px;
+  top: 63px;
   left: 0;
   width: 100%;
-  height: 250px;
-  padding: 5px 0 0 5px;
-  border-color: #e1e4e8;
-  border-style: solid;
-  border-width: 1px;
+  height: 240px;
+  padding: 5px 0 0 10px;
+  text-align: left;
 }
 .mobile-menu-content a {
   width: 100%;
   display: inline-block;
+  font-weight: 900;
 }
 .mobile-menu-button {
   color: #bee3f8;
   background-color: #010101;
+  position: fixed;
+  top: 22px;
+  left: 10px;
 }
 
 .mobile-menu-enter {
@@ -244,7 +264,7 @@ code {
 .mobile-menu-enter-active {
   transform: translateY(0);
   opacity: 1;
-  transition: transform 200ms, opacity 200ms;
+  transition: transform 300ms, opacity 350ms;
 }
 .mobile-menu-exit {
   transform: translateY(0);
@@ -253,7 +273,7 @@ code {
 .mobile-menu-exit-active {
   transform: translateY(-305px);
   opacity: 0;
-  transition: transform 100ms, opacity 100ms;
+  transition: transform 350ms, opacity 300ms;
 }
 
 .posts-enter {

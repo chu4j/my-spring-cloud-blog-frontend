@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Divider, Icon, Loader } from "semantic-ui-react";
+import API from "../data/DataUrl";
 import { ServerHost } from "./Vars";
 export default function CategoriesWidget() {
   const [data, setData] = useState([]);
@@ -7,7 +8,7 @@ export default function CategoriesWidget() {
   useEffect(() => {
     const axois = require("axios").default;
     axois
-      .get(ServerHost + "/v1/api/category/statistics/count")
+      .get(API.GET_CATEGORIES_URL)
       .then((res) => {
         setData(res.data);
       })
@@ -25,14 +26,15 @@ export default function CategoriesWidget() {
         </span>
         <Divider />
         <div>
+          {console.log(data)}
           {data && data.length > 0 ? (
             data.map((e, index) => (
               <a
                 key={index}
-                href={"/category/" + e.value}
+                href={"/category/" + e.category}
                 className="widget-label"
               >
-                {e.value}
+                {e.category}
                 &nbsp;
                 {e.count}
               </a>

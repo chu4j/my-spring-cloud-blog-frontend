@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { Divider, Icon, Loader } from "semantic-ui-react";
-import { ServerHost } from "./Vars";
+import API from "../data/DataUrl";
 export default function TagsWidget() {
   const [data, setData] = useState([]);
   const [show, setShow] = useState(false);
   useEffect(() => {
     const axois = require("axios").default;
     axois
-      .get(ServerHost + "/v1/api/tag/statistics/count")
+      .get(API.GET_TAGS_URL)
       .then((res) => {
         setData(res.data);
       })
@@ -27,8 +27,8 @@ export default function TagsWidget() {
         <div>
           {data && data.length > 0 ? (
             data.map((e, index) => (
-              <a key={index} href={"/tag/" + e.value} className="widget-label">
-                {e.value}
+              <a key={index} href={"/tag/" + e.tag} className="widget-label">
+                {e.tag}
                 &nbsp;
                 {e.count}
               </a>

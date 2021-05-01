@@ -7,7 +7,7 @@ class Footer extends Component {
     return (
       <div className="footer-container">
         <Spacing />
-        <p>
+        <p className="logo">
           <a href="/">
             <img src="/logo.svg" alt="logo" width={64} height={64} />
             &nbsp;
@@ -22,10 +22,15 @@ class Footer extends Component {
         </p>
         <p>
           <a href="https://www.github.com/konchoo">
-            <Icon name="github square" />
+            <Icon name="github" />
             konchoo
-            <Icon name="heart" color="red" size="small" />
           </a>
+          &nbsp;&nbsp;
+          <a href="https://github.com/konchoo/play-blog-frontend">
+            play-blog-frontend
+          </a>
+          &nbsp;
+          <Icon name="heart" color="red" size="small" />
         </p>
         <Divider />
         <p>Copyright &copy; zhuqigong.xyz. All rights reserved.</p>

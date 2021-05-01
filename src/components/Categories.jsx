@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { Container, Icon, Table } from "semantic-ui-react";
 import { ApiGet } from "../data/ApiGet";
+import API from "../data/DataUrl";
 import AnimationLayout from "./AnimationLayout";
 import DefaultLayout from "./DefaultLayout";
 import HeadMeta from "./Meta";
@@ -12,7 +13,7 @@ export default function Categories() {
   const [show, setShow] = useState(false);
   const his = useHistory();
   useEffect(() => {
-    ApiGet(CATAGORY_STATISTICS_URL)
+    ApiGet(API.GET_CATEGORIES_URL)
       .then((res) => {
         setDataState(res);
         setShow(true);
@@ -44,9 +45,9 @@ export default function Categories() {
                         <Table.Cell>
                           <a
                             style={{ display: "inline-block", width: "100%" }}
-                            href={"/category/" + e.value}
+                            href={"/category/" + e.category}
                           >
-                            {e.value}&nbsp;&nbsp;({e.count})
+                            {e.category}&nbsp;&nbsp;({e.count})
                           </a>
                         </Table.Cell>
                       </Table.Row>

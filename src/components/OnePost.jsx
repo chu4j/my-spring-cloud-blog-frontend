@@ -1,13 +1,19 @@
 import { useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
 import { useHistory, useParams } from "react-router-dom";
+import API from "../data/DataUrl";
+import RequestBuilder from "../util/RequestBuilder";
 import { isNumeric } from "../util/Utils";
 import DefaultLayout from "./DefaultLayout";
 import Posts from "./Posts";
 import { BLOG_TITLE, NOT_FOUND_URL, ServerHost } from "./Vars";
 async function getPost(postId) {
   const axios = require("axios").default;
-  const url = ServerHost + "/v1/api/archive/" + postId;
+  const url = new RequestBuilder()
+    .setUrl(API.GET_POST_BY_ID_URL)
+    .setPathVar(postId)
+    .build()
+    .toUrlString();
   return axios.get(url).then((res) => res.data);
 }
 export default function OnePost() {
@@ -33,7 +39,7 @@ export default function OnePost() {
     event.preventDefault();
     $("html, body").animate(
       {
-        scrollTop: $($.attr(this, "href")).offset().top - 80,
+        scrollTop: $($.attr(this, "href")).offset().top - 120,
       },
       500
     );
