@@ -92,7 +92,7 @@ const MobileMenu = (props) => {
         <span>
           <a href="/" className="title">
             <span className="logo">
-              <img src="/logo.svg" alt="logo" width={48} height={48} />
+              <img src="/logo.svg" alt="logo" width={32} height={32} />
             </span>
           </a>
         </span>

@@ -9,11 +9,9 @@ class Footer extends Component {
         <Spacing />
         <p className="logo">
           <a href="/">
-            <img src="/logo.svg" alt="logo" width={64} height={64} />
-            &nbsp;
+            <img src="/logo.svg" alt="logo" width={32} height={32} />
           </a>
         </p>
-
         <p>
           build with <Icon name="react" color="teal" />
           <a href="https://github.com/facebook/react">
@@ -25,7 +23,7 @@ class Footer extends Component {
             <Icon name="github" />
             konchoo
           </a>
-          &nbsp;&nbsp;
+          &nbsp;&nbsp;&&nbsp;&nbsp;
           <a href="https://github.com/konchoo/play-blog-frontend">
             play-blog-frontend
           </a>
