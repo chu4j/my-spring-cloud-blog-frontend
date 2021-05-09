@@ -21,17 +21,15 @@ class Footer extends Component {
         <p>
           <a href="https://www.github.com/konchoo">
             <Icon name="github" />
-            konchoo
+            @konchoo
           </a>
-          &nbsp;&nbsp;&&nbsp;&nbsp;
+          &nbsp;&&nbsp;
           <a href="https://github.com/konchoo/play-blog-frontend">
             play-blog-frontend
           </a>
-          &nbsp;
-          <Icon name="heart" color="red" size="small" />
         </p>
         <Divider />
-        <p>Copyright &copy; zhuqigong.xyz. All rights reserved.</p>
+        <p>Copyright &copy; zhuqigong.xyz 2021</p>
       </div>
     );
   }

@@ -664,8 +664,9 @@
 .markdown-body h6 {
   margin-top: 24px;
   margin-bottom: 16px;
-  font-weight: 900;
-  line-height: 1.25;
+  font-weight: 400;
+  line-height: 1.8;
+  color: #1a202c;
 }
 
 .markdown-body h1 {

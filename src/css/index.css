@@ -22,7 +22,6 @@ code {
 }
 
 .post-title:hover {
-  color: #010102;
   text-decoration: underline;
 }
 .timeline-container {
@@ -49,7 +48,7 @@ code {
   font-family: inherit;
   color: #010102;
   border-radius: 10px;
-  padding: 10px 10px 3em 10px;
+  padding: 10px 10px 10px 10px;
   margin-top: 14rem;
   box-shadow: 0px 0px 2px 1px #e2e2e5;
   font-family: "JetBrains Mono";
@@ -80,11 +79,9 @@ code {
   margin: 2px;
   font-family: "JetBrains Mono";
 }
-.post-time {
+.post-time em {
   font-family: "JetBrains Mono";
-}
-.post-time span {
-  font-size: 70%;
+  color: #010102;
 }
 .post-tag:hover {
   text-decoration: underline;
@@ -176,10 +173,10 @@ code {
   border-radius: 1px;
 }
 .ui.breadcrumb .section.active {
-  color: yellowgreen;
+  color: rebeccapurple;
 }
 .ui.ui.breadcrumb .section:hover {
-  color: yellowgreen;
+  color: rebeccapurple;
 }
 .ui.breadcrumb .divider {
   color: whitesmoke;

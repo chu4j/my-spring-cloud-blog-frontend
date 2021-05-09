@@ -49,8 +49,11 @@ export default function Posts(props) {
                       <a href={"/post/" + a.id} className="post-title">
                         {a.title}
                       </a>
-                      <Divider />
                     </Header>
+                    <Header as="h6" textAlign="center" className="post-time">
+                      <em> {a.publishTime}</em>
+                    </Header>
+                    <Spacing />
                     {props.focus && a.catalogueBody && (
                       <>
                         <Header as="h3">
@@ -112,18 +115,6 @@ export default function Posts(props) {
                                   </>
                                 ))}
                               </Grid.Column>
-                            </Grid.Row>
-                            <Grid.Row>
-                              <GridColumn width={16}>
-                                <Spacing />
-                                <div
-                                  style={{ color: "#010102" }}
-                                  className="post-time"
-                                >
-                                  <Icon name="time" color="blue" />
-                                  <span>{a.publishTime}</span>
-                                </div>
-                              </GridColumn>
                             </Grid.Row>
                           </Grid>
                         </Container>
