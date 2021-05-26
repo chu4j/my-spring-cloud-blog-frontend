@@ -19,13 +19,13 @@ class Footer extends Component {
           </a>
         </p>
         <p>
-          <a href="https://www.github.com/konchoo">
+          <a href="https://www.github.com/zhuqigong">
             <Icon name="github" />
-            @konchoo
+            @zhuqigong
           </a>
           &nbsp;&&nbsp;
-          <a href="https://github.com/konchoo/play-blog-frontend">
-            play-blog-frontend
+          <a href="https://github.com/zhuqigong/my-spring-cloud-blog-frontend">
+            my-spring-cloud-blog-frontend
           </a>
         </p>
         <Divider />
