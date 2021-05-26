@@ -1,6 +1,8 @@
-import { Route, Switch } from "react-router-dom";
+import { Route, Router, Switch } from "react-router-dom";
 import NotFound from "../components/404";
 import InternalError from "../components/500";
+import EditPost from "../components/admin/EditPost";
+import AdminPostListCmp from "../components/admin/PostList";
 import Categories from "../components/Categories";
 import DefaultLayout from "../components/DefaultLayout";
 import Home from "../components/Home";
@@ -42,6 +44,13 @@ export default function BlogRouter() {
       </Route>
       <Route path="/posts/timeline/page/:pageNumber" exact>
         <Timeline />
+      </Route>
+
+      <Route path="/admin/posts" exact>
+        <AdminPostListCmp />
+      </Route>
+      <Route path="/admin/post/edit/:postId" exact>
+        <EditPost />
       </Route>
       <Route path="/500">
         <InternalError />

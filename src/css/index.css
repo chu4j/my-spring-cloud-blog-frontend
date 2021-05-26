@@ -10,6 +10,7 @@ body {
   background: white;
   padding: 0;
   margin: 0;
+  width: 100%;
 }
 #root {
   height: 100%;
@@ -437,4 +438,10 @@ code {
   z-index: 1001;
   padding: 0;
   margin: 0;
+}
+.markdown-area {
+  max-width: 100%;
+  min-width: 100%;
+  overflow: scroll;
+  height: 400px;
 }
