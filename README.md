@@ -1,4 +1,4 @@
-# play-blog-frontend
+# my-spring-cloud-blog-frontend
 A simple blog frontend
 
 1. git clone https://github.com/zhuqigong/play-blog-frontend.git
