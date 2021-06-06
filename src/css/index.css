@@ -125,7 +125,7 @@ code {
     #1a202c 50%,
     black 100%
   ); */
-  background-color: whitesmoke;
+  background-color: #101015;
   box-shadow: 0 0 2px 1px #bfc2c4;
   z-index: 1000;
 }
@@ -169,15 +169,15 @@ code {
 .ui.breadcrumb .section {
   /* color: #e2f6fc; */
   font-weight: 900;
-  color: #161b22;
+  color: wheat;
   padding: 1px 3px 1px 3px;
   border-radius: 1px;
 }
 .ui.breadcrumb .section.active {
-  color: rebeccapurple;
+  color: yellowgreen;
 }
 .ui.ui.breadcrumb .section:hover {
-  color: rebeccapurple;
+  color: yellowgreen;
 }
 .ui.breadcrumb .divider {
   color: whitesmoke;
@@ -398,7 +398,11 @@ code {
 }
 
 .ui .header {
-  font-family: "Open Sans", Fangsong, "仿宋", STSong, STFangsong;
+  font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, "Helvetica Neue", "楷体", "宋体", "仿宋", Arial, "Noto Sans",
+    "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol", "Noto Color Emoji";
+  font-weight: 900;
 }
 .desktop-menu-search {
   background-color: #0d1117;

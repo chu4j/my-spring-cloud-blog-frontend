@@ -85,10 +85,10 @@ export default function Posts(props) {
                           <Grid>
                             <Grid.Row>
                               <Grid.Column width={5}>
+                                <Icon name="bookmark" color="blue" />
                                 {a.categories.map((c, index) => (
-                                  <div key={c.id}>
+                                  <span key={c.id}>
                                     <span>
-                                      <Icon name="bookmark" color="blue" />
                                       <a
                                         href={"/category/" + c.category}
                                         className="post-category"
@@ -96,7 +96,7 @@ export default function Posts(props) {
                                         {c.category}
                                       </a>
                                     </span>
-                                  </div>
+                                  </span>
                                 ))}
                               </Grid.Column>
 
