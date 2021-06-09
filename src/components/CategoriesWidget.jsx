@@ -26,7 +26,6 @@ export default function CategoriesWidget() {
         </span>
         <Divider />
         <div>
-          {console.log(data)}
           {data && data.length > 0 ? (
             data.map((e, index) => (
               <a
