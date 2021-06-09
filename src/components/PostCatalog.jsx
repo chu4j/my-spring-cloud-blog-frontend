@@ -31,7 +31,7 @@ const CatalogComponent = (props) => (
     >
       <div className="catalog-container" onMouseLeave={props.onMouseLeave}>
         <div>
-          <Icon name="bookmark" style={{ color: "#52C75F" }} />
+          <Icon name="bookmark" style={{ color: "#169E36" }} />
           Table Of Content
         </div>
         <div

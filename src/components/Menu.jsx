@@ -2,6 +2,7 @@ import React, { useEffect, useLayoutEffect, useState } from "react";
 import { useRouteMatch } from "react-router-dom";
 import { CSSTransition } from "react-transition-group";
 import { Breadcrumb, Divider, Icon } from "semantic-ui-react";
+import { enableDarkReader } from "../theme/dark-mode";
 import SearchBox from "./SearchBox";
 import Spacing from "./Spacing";
 import {
@@ -19,7 +20,7 @@ const BreadcrumbMenu = (props) => (
       <span className="title">
         <span>
           <a className="my-logo" href="/">
-            <img src="/logo.svg" alt="logo" width={48} height={48} />
+            {/* <img src="/logo.svg" alt="logo" width={48} height={48} /> */}
           </a>
         </span>
       </span>
@@ -49,34 +50,30 @@ const BreadcrumbMenu = (props) => (
             <Breadcrumb.Section href="/" active={"home" == props.active}>
               {MENU_HOME}
             </Breadcrumb.Section>
-            <Breadcrumb.Divider>/</Breadcrumb.Divider>
+            <Breadcrumb.Divider>&nbsp;</Breadcrumb.Divider>
             <Breadcrumb.Section
-              href="/posts/timeline"
+              href="/posts"
               active={"timeline" == props.active}
             >
               {POSTS}
             </Breadcrumb.Section>
-            <Breadcrumb.Divider>/</Breadcrumb.Divider>
+            <Breadcrumb.Divider>&nbsp;</Breadcrumb.Divider>
             <Breadcrumb.Section
               href="/categories"
               active={"categories" === props.active}
             >
               {MENU_CATEGORIES}
             </Breadcrumb.Section>
-            <Breadcrumb.Divider>/</Breadcrumb.Divider>
+            <Breadcrumb.Divider>&nbsp;</Breadcrumb.Divider>
             <Breadcrumb.Section href="/tags" active={"tags" === props.active}>
               {MENU_TAGS}
             </Breadcrumb.Section>
-            <Breadcrumb.Divider>/</Breadcrumb.Divider>
+            <Breadcrumb.Divider>&nbsp;</Breadcrumb.Divider>
             <Breadcrumb.Section href="/about" active={"about" === props.active}>
               {MENU_ABOUT}
             </Breadcrumb.Section>
           </Breadcrumb>
-          {/* {enableDarkMode({
-            brightness: 108,
-            contrast: 108,
-            sepia: 20,
-          })} */}
+          {/* {enableDarkReader()} */}
         </span>
       </div>
     </div>
@@ -87,12 +84,17 @@ const MobileMenu = (props) => {
     <>
       <div className="mobile-menu">
         <div onClick={props.handler}>
-          <Icon name="bars" size="large" className="mobile-menu-button" />
+          <Icon
+            name="bars"
+            color="blue"
+            size="large"
+            className="mobile-menu-button"
+          />
         </div>
         <span>
           <a href="/" className="title">
             <span className="logo">
-              <img src="/logo.svg" alt="logo" width={32} height={32} />
+              {/* <img src="/logo.svg" alt="logo" width={32} height={32} /> */}
             </span>
           </a>
         </span>

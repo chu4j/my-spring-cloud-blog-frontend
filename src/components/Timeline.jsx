@@ -30,7 +30,7 @@ export default function Timeline(props) {
   }, []);
   const history = useHistory();
   const handlerPageChange = (e, { activePage }) => {
-    const url = "/posts/timeline/page/" + activePage;
+    const url = "/post/page/" + activePage;
     history.push(url);
   };
   const timelineContent = (
@@ -42,7 +42,7 @@ export default function Timeline(props) {
             <Table.Header>
               <Table.Row>
                 <Table.HeaderCell>
-                  <Icon name="bookmark" style={{ color: "#52C75F" }} />
+                  <Icon name="bookmark" style={{ color: "#169E36" }} />
                   Posts
                 </Table.HeaderCell>
               </Table.Row>
@@ -86,11 +86,7 @@ export default function Timeline(props) {
   );
   return (
     <>
-      {props.isHome ? (
-        <>{timelineContent}</>
-      ) : (
-        <DefaultLayout CenterContent={timelineContent} />
-      )}
+      <DefaultLayout>{timelineContent}</DefaultLayout>
     </>
   );
 }

@@ -20,7 +20,7 @@ export default function TagsWidget() {
     <>
       <div className="widget-container widget-tags-container">
         <span style={{ fontWeight: "900" }} className="title">
-          <Icon name="tag" style={{ color: "#52C75F" }} />
+          <Icon name="tag" style={{ color: "#169E36" }} />
           Tags
         </span>
         <Divider />

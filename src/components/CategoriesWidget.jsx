@@ -21,7 +21,7 @@ export default function CategoriesWidget() {
     <>
       <div className="widget-container">
         <span style={{ fontWeight: "900" }} className="title">
-          <Icon name="bookmark" style={{ color: "#52C75F" }} />
+          <Icon name="bookmark" style={{ color: "#169E36" }} />
           Categories
         </span>
         <Divider />

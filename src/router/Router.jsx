@@ -4,6 +4,7 @@ import InternalError from "../components/500";
 import EditPost from "../components/admin/EditPost";
 import AdminPostListCmp from "../components/admin/PostList";
 import AdminSignIn from "../components/admin/SignIn";
+import Upload from "../components/admin/Upload";
 import Categories from "../components/Categories";
 import DefaultLayout from "../components/DefaultLayout";
 import Home from "../components/Home";
@@ -40,10 +41,10 @@ export default function BlogRouter() {
       <Route path="/tags" exact>
         <Tags />
       </Route>
-      <Route path="/posts/timeline" exact>
+      <Route path="/posts" exact>
         <Timeline />
       </Route>
-      <Route path="/posts/timeline/page/:pageNumber" exact>
+      <Route path="/post/page/:pageNumber" exact>
         <Timeline />
       </Route>
 
@@ -55,6 +56,9 @@ export default function BlogRouter() {
       </Route>
       <Route path="/admin/signIn">
         <AdminSignIn />
+      </Route>
+      <Route path="/admin/post/upload">
+        <Upload />
       </Route>
       <Route path="/500">
         <InternalError />

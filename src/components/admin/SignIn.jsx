@@ -1,20 +1,13 @@
 import Cookies from "js-cookie";
 import { useState } from "react";
 import { useHistory } from "react-router";
-import {
-  Button,
-  Form,
-  Grid,
-  Header,
-  Image,
-  Message,
-  Segment,
-} from "semantic-ui-react";
+import { Button, Form, Grid, Header, Image, Message } from "semantic-ui-react";
 import API from "../../data/DataUrl";
+import { enableDarkReader } from "../../theme/dark-mode";
 export default function AdminSignIn() {
   const history = useHistory();
-  const [username, setUsername] = useState();
-  const [password, setPassword] = useState();
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
   const [message, setMessage] = useState();
   const cleanMessage = () => {
     setMessage("");
@@ -24,6 +17,14 @@ export default function AdminSignIn() {
     const params = new URLSearchParams();
     params.append("username", username);
     params.append("password", password);
+    if (username == "") {
+      setMessage("Username Cannot be empty");
+      return;
+    }
+    if (password == "") {
+      setMessage("Password Cannot be empty");
+      return;
+    }
     axios
       .post(API.ADMIN_SIGN_IN, params, { withCredentials: true })
       .then((res) => {
@@ -43,35 +44,35 @@ export default function AdminSignIn() {
       });
   };
   const LoginForm = () => (
-    <Grid textAlign="center" style={{ height: "60vh" }} verticalAlign="middle">
+    <Grid textAlign="center" style={{ height: "80vh" }} verticalAlign="middle">
       <Grid.Column style={{ maxWidth: 350 }}>
-        <Header as="h2" textAlign="center">
+        <Header as="h1">
           <Image src="/logo.svg" />
-          Admin Sign In
+        </Header>
+        <Header as="h1" textAlign="center" style={{ color: "#1a202c" }}>
+          Sign In
         </Header>
         <Form size="large">
-          <Segment>
-            <Form.Input
-              fluid
-              icon="user"
-              iconPosition="left"
-              placeholder="Username"
-              onChange={(e) => setUsername(e.target.value)}
-              onFocus={cleanMessage}
-            />
-            <Form.Input
-              fluid
-              icon="lock"
-              iconPosition="left"
-              placeholder="Password"
-              type="password"
-              onChange={(e) => setPassword(e.target.value)}
-              onFocus={cleanMessage}
-            />
-            <Button positive fluid size="large" onClick={SignInOnClick}>
-              Sign In
-            </Button>
-          </Segment>
+          <Form.Input
+            fluid
+            icon="user"
+            iconPosition="left"
+            placeholder="Username"
+            onChange={(e) => setUsername(e.target.value)}
+            onFocus={cleanMessage}
+          />
+          <Form.Input
+            fluid
+            icon="lock"
+            iconPosition="left"
+            placeholder="Password"
+            type="password"
+            onChange={(e) => setPassword(e.target.value)}
+            onFocus={cleanMessage}
+          />
+          <Button positive fluid size="large" onClick={SignInOnClick}>
+            Sign In
+          </Button>
         </Form>
         {message && (
           <>
@@ -85,5 +86,10 @@ export default function AdminSignIn() {
       </Grid.Column>
     </Grid>
   );
-  return <>{LoginForm()}</>;
+  return (
+    <>
+      {LoginForm()}
+      {/* {enableDarkReader()} */}
+    </>
+  );
 }

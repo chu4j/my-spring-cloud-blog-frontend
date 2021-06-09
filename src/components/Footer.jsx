@@ -9,7 +9,7 @@ class Footer extends Component {
         <Spacing />
         <p className="logo">
           <a href="/">
-            <img src="/logo.svg" alt="logo" width={32} height={32} />
+            <img src="/logo.svg" alt="logo" width={48} height={48} />
           </a>
         </p>
         <p>
@@ -20,12 +20,8 @@ class Footer extends Component {
         </p>
         <p>
           <a href="https://www.github.com/zhuqigong">
-            <Icon name="github" />
+            <Icon color="green" name="github" size="big" />
             @zhuqigong
-          </a>
-          &nbsp;&&nbsp;
-          <a href="https://github.com/zhuqigong/my-spring-cloud-blog-frontend">
-            my-spring-cloud-blog-frontend
           </a>
         </p>
         <Divider />

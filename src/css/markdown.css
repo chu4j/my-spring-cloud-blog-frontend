@@ -670,33 +670,33 @@
 }
 
 .markdown-body h1 {
-  font-size: 2em;
+  font-size: 25px;
 }
 
 .markdown-body h1,
 .markdown-body h2 {
   padding-bottom: 0.3em;
-  border-bottom: 1px solid #e1e4e8;
+  border-bottom: 0px solid #e1e4e8;
 }
 
 .markdown-body h2 {
-  font-size: 1.5em;
+  font-size: 21px;
 }
 
 .markdown-body h3 {
-  font-size: 1.25em;
+  font-size: 19px;
 }
 
 .markdown-body h4 {
-  font-size: 1em;
+  font-size: 16px;
 }
 
 .markdown-body h5 {
-  font-size: 0.875em;
+  font-size: 14px;
 }
 
 .markdown-body h6 {
-  font-size: 0.85em;
+  font-size: 13px;
   color: #6a737d;
 }
 
@@ -783,12 +783,14 @@
 .markdown-body {
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
-  font-family: "JetBrains Mono", -apple-system, BlinkMacSystemFont, "Segoe UI",
-    Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif,
+  font-family: "charter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-size: 100%;
-  line-height: 1.8;
+  line-height: 1.2;
   word-wrap: break-word;
+  font-size: 15px;
+  /* color: #fff5f7; */
 }
 
 .markdown-body code {
@@ -826,8 +828,8 @@
 
 .markdown-body .commit-tease-sha {
   display: inline-block;
-  font-family: "JetBrains Mono", -apple-system, BlinkMacSystemFont, "Segoe UI",
-    Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif,
+  font-family: "charter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-size: 90%;
   color: #444d56;
@@ -853,8 +855,8 @@
   min-width: 50px;
   padding-right: 10px;
   padding-left: 10px;
-  font-family: "JetBrains Mono", -apple-system, BlinkMacSystemFont, "Segoe UI",
-    Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif,
+  font-family: "charter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-size: 12px;
   line-height: 20px;
@@ -887,8 +889,8 @@
 
 .markdown-body .blob-code-inner {
   overflow: visible;
-  font-family: "JetBrains Mono", -apple-system, BlinkMacSystemFont, "Segoe UI",
-    Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif,
+  font-family: "charter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-size: 12px;
   color: #24292e;
@@ -986,17 +988,17 @@
   font-family: inherit;
   background-color: #e1e4e8;
   color: #1a202c;
-  line-height: 2;
-  font-size: 90%;
+  line-height: 1.8;
+  font-size: 100%;
   font-weight: 900;
 }
 
 .markdown-body .highlight pre,
 .markdown-body pre {
-  padding: 20px;
+  padding: 12px 10px;
   overflow: auto;
-  font-size: 90%;
-  line-height: 2;
+  font-size: 14px;
+  line-height: 1.8;
   /* background-color: #edf2f7; */
   /* background-color: #161b22; */
   /* border: 1px solid #30363d; */
@@ -1018,7 +1020,7 @@
   word-wrap: normal;
   background-color: initial;
   border: 0;
-  font-size: 95%;
+  font-size: 12px;
 }
 .markdown-body h1 a,
 .markdown-body h2 a,
@@ -1028,4 +1030,14 @@
 .markdown-body h6 a {
   font-weight: 900;
   color: inherit;
+}
+.ui.header {
+  font-family: "charter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", "SimSun", Arial, "Noto Sans", "Liberation Sans",
+    sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+    "Noto Color Emoji";
+}
+h1.ui.header {
+  font-weight: 600;
+  font-size: 30px;
 }

@@ -1,11 +1,31 @@
 @import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;800&display=swap");
+/* @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:wght@400;900&display=swap"); */
+
+@font-face {
+  font-family: "charter";
+  font-weight: 400;
+  src: local("charter"),
+    url(./assets/fonts/charter_regular-webfont.woff) format("woff");
+  /* other formats include: 'woff2', 'truetype, 'opentype',
+                            'embedded-opentype', and 'svg' */
+}
+
+@font-face {
+  font-family: "charter";
+  font-weight: 900;
+  src: local("charter"),
+    url(./assets/fonts/charter_bold-webfont.woff) format("woff");
+  /* other formats include: 'woff2', 'truetype, 'opentype',
+                            'embedded-opentype', and 'svg' */
+}
 body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
-    Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif,
-    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-family: "charter", "Open Sans", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans",
+    sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+    "Noto Color Emoji";
   height: 100%;
   background: white;
   padding: 0;
@@ -21,8 +41,11 @@ code {
   font-family: source-code-pro, Consolas, Menlo, Monaco, "Courier New",
     monospace;
 }
-
+.post-title {
+  color: #1a365d;
+}
 .post-title:hover {
+  color: #1a365d;
   text-decoration: underline;
 }
 .timeline-container {
@@ -46,46 +69,47 @@ code {
   text-decoration: underline;
 }
 .widget-container {
-  font-family: inherit;
   color: #010102;
   border-radius: 10px;
   padding: 10px 10px 10px 10px;
   margin-top: 14rem;
   box-shadow: 0px 0px 2px 1px #e2e2e5;
-  font-family: "JetBrains Mono";
+  font-family: "Lato";
   background-color: whitesmoke;
 }
 .widget-tags-container {
   margin-top: 3rem;
 }
 .widget-container .title {
-  font-family: "Open Sans";
+  font-family: "charter";
 }
 .menu-container {
   margin-bottom: 5em;
 }
 .post-category {
   padding: 3px;
-  color: white;
+  color: #a9a9a9;
   display: inline-block;
   border-radius: 2px;
-  font-family: "JetBrains Mono";
+  font-weight: 900;
 }
 .post-category:hover {
+  color: #a9a9a9;
   text-decoration: underline;
 }
 .post-tag {
   padding: 3px;
   display: inline-block;
   margin: 2px;
-  font-family: "JetBrains Mono";
-}
-.post-time em {
-  font-family: "JetBrains Mono";
-  color: #010102;
+  color: #a9a9a9;
 }
 .post-tag:hover {
   text-decoration: underline;
+  color: #a9a9a9;
+}
+.post-time em {
+  font-family: "charter";
+  color: #010102;
 }
 .layout-container {
   padding: 0;
@@ -96,37 +120,36 @@ code {
   margin-top: 4rem;
 }
 .post-container {
-  /* border: 1px solid #e1e4e8; */
-  border-radius: 8px;
-  padding: 1.5em;
-  /* box-shadow: 0px 0px 1px 1px #eff1f3; */
+  border-left: 1px solid #e7ebee;
+  border-radius: 2px;
+  padding: 0.1em;
+  padding-left: 2.5em;
+  /* background-color: whitesmoke; */
+  /* box-shadow: 0px 0px 2px 1px #d3d3d4; */
 }
 .post-container .catalog {
-  font-family: "JetBrains Mono";
-}
-.post-container a {
-  color: #1a365d;
+  font-family: "charter";
 }
 .post-previous-next {
   font-weight: 900;
 }
 .breadmenu-container {
-  font-family: "Open Sans", Georgia, Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "charter";
   position: fixed;
   left: 0;
   top: 0;
   display: block;
   min-width: 100%;
-  height: 75px;
-  text-align: center;
+  height: 60px;
+  text-align: right;
   /* background-image: linear-gradient(
     to right,
     black 0%,
     #1a202c 50%,
     black 100%
   ); */
-  background-color: #101015;
-  box-shadow: 0 0 2px 1px #bfc2c4;
+  background-color: white;
+  box-shadow: 0 0 1px 1px #e4e6e7;
   z-index: 1000;
 }
 .breadmenu-container .title {
@@ -134,7 +157,7 @@ code {
   display: block;
   font-weight: 900;
   font-size: 3em;
-  margin-top: 5px;
+  margin-top: -12px;
 }
 .breadmenu {
   display: inline-block;
@@ -169,7 +192,7 @@ code {
 .ui.breadcrumb .section {
   /* color: #e2f6fc; */
   font-weight: 900;
-  color: wheat;
+  color: black;
   padding: 1px 3px 1px 3px;
   border-radius: 1px;
 }
@@ -197,8 +220,8 @@ code {
   width: 100%;
   clear: both;
   position: relative;
-  height: 180px;
-  bottom: -180px;
+  height: 220px;
+  bottom: -350px;
 }
 .footer-container .logo {
   font-weight: 900;
@@ -209,7 +232,8 @@ code {
   margin: 0;
 }
 .mobile-menu {
-  background: #161b22;
+  background: #171923;
+  /* box-shadow: 0 0 1px 1px #e4e6e7; */
   min-height: 65px;
   max-height: 65px;
   width: 100%;
@@ -248,7 +272,6 @@ code {
 }
 .mobile-menu-button {
   color: #bee3f8;
-  background-color: #010101;
   position: fixed;
   top: 22px;
   left: 10px;
@@ -395,14 +418,6 @@ code {
 .catalog-switch-exit-active {
   opacity: 0;
   transition: opacity 100ms;
-}
-
-.ui .header {
-  font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
-    Roboto, "Helvetica Neue", "楷体", "宋体", "仿宋", Arial, "Noto Sans",
-    "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
-    "Segoe UI Symbol", "Noto Color Emoji";
-  font-weight: 900;
 }
 .desktop-menu-search {
   background-color: #0d1117;

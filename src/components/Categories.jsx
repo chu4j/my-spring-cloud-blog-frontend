@@ -33,7 +33,7 @@ export default function Categories() {
                 <Table.Header>
                   <Table.Row>
                     <Table.HeaderCell>
-                      <Icon name="bookmark" style={{ color: "#52C75F" }} />
+                      <Icon name="bookmark" style={{ color: "#169E36" }} />
                       Categories
                     </Table.HeaderCell>
                   </Table.Row>

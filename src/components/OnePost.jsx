@@ -51,10 +51,9 @@ export default function OnePost() {
         <title>{title + "-" + BLOG_TITLE}</title>
         <meta name="description" content={title} />
       </Helmet>
-      <DefaultLayout
-        // CategoriesWidget={<Catalog response={post} />}
-        CenterContent={<Posts response={post} focus />}
-      />
+      <DefaultLayout>
+        <Posts response={post} focus />
+      </DefaultLayout>
     </>
   );
 }

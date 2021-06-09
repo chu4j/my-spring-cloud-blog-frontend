@@ -10,10 +10,20 @@ import {
   TextArea,
 } from "semantic-ui-react";
 import API from "../../data/DataUrl";
+import { enableDarkReader } from "../../theme/dark-mode";
 import Spacing from "../Spacing";
 export default function EditPost() {
   const axios = require("axios").default;
   const history = useHistory();
+  const $ = require("jquery");
+  $(() => {
+    const ele = document.querySelectorAll("pre code");
+    if (undefined !== ele && null !== ele) {
+      ele.forEach((block) => {
+        window.hljs.highlightBlock(block);
+      });
+    }
+  });
   const backToSignIn = () => {
     history.push("/admin/signIn");
   };
@@ -161,16 +171,16 @@ export default function EditPost() {
               </Header>
               <Spacing />
               {PostInfoForm()}
-              <Button positive onClick={previewMarkdownEvent}>
-                Preview...
+              <Button positive size="tiny" onClick={previewMarkdownEvent}>
+                Format...
               </Button>
-              <Button color="teal" onClick={saveMarkdownEvent}>
+              <Button positive size="tiny" onClick={saveMarkdownEvent}>
                 Save...
               </Button>
-              <Button secondary as="a" href={"/post/" + postId}>
-                Go to Post
+              <Button positive size="tiny" as="a" href={"/post/" + postId}>
+                View
               </Button>
-              <Button as="a" href="/admin/posts">
+              <Button positive size="tiny" as="a" href="/admin/posts">
                 Back Home
               </Button>
               <Spacing />
@@ -208,5 +218,10 @@ export default function EditPost() {
       </Container>
     </>
   );
-  return <>{Cmp()}</>;
+  return (
+    <>
+      {Cmp()}
+      {/* {enableDarkReader()} */}
+    </>
+  );
 }

@@ -34,7 +34,7 @@ export default function Tags() {
                 <Table.Header>
                   <Table.Row>
                     <Table.HeaderCell>
-                      <Icon name="tag" style={{ color: "#52C75F" }} />
+                      <Icon name="tag" style={{ color: "#169E36" }} />
                       Tags
                     </Table.HeaderCell>
                   </Table.Row>

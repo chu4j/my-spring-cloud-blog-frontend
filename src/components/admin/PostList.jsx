@@ -14,8 +14,9 @@ import {
   TableHeader,
 } from "semantic-ui-react";
 import API from "../../data/DataUrl";
+import { enableDarkReader } from "../../theme/dark-mode";
 import AnimationLayout from "../AnimationLayout";
-import Footer from "../Footer";
+import Spacing from "../Spacing";
 
 export default function AdminPostListCmp() {
   const CreateNewPostButton = () => (
@@ -23,73 +24,79 @@ export default function AdminPostListCmp() {
       <Button positive as="a" href="/admin/post/edit/undefined">
         New Post...
       </Button>
+      <Button positive as="a" href="/admin/post/upload">
+        Upload...
+      </Button>
     </>
   );
   const List = (props) => (
     <>
       <Container style={{ marginTop: "1em" }}>
-        {WelcomeHeader()}
+        {accountUser()}
+        <Spacing />
         {CreateNewPostButton()}
-        <Table>
-          <TableHeader>
-            <Table.Row>
-              <Table.HeaderCell>
-                <Icon name="bookmark" style={{ color: "#52C75F" }} />
-                Title
-              </Table.HeaderCell>
-              <Table.HeaderCell>
-                <Icon name="edit" style={{ color: "#52C75F" }} />
-                Operation
-              </Table.HeaderCell>
-            </Table.Row>
-          </TableHeader>
-          <Table.Body>
-            {props.data &&
-              props.data.list &&
-              props.data.list.length > 0 &&
-              props.data.list.map((e, index) => (
-                <Table.Row key={e.id}>
-                  <Table.Cell>
-                    <a href={"/post/" + e.id}>{e.title}</a>
-                  </Table.Cell>
-                  <Table.Cell key={index}>
-                    <Button
-                      as="a"
-                      color="blue"
-                      secondary
-                      size="tiny"
-                      href={"/admin/post/edit/" + e.id}
-                    >
-                      Edit
-                    </Button>
-                    <Button
-                      color="red"
-                      size="tiny"
-                      onClick={(ev) => {
-                        props.deletePostEvent(ev, e.id);
-                      }}
-                    >
-                      Delete
-                    </Button>
-                  </Table.Cell>
-                </Table.Row>
-              ))}
-          </Table.Body>
-        </Table>
-
-        <Grid textAlign="center" style={{ marginTop: "4em" }}>
-          <Grid.Row columns={1}>
-            <Pagination
-              totalPages={props.data.totalPage}
-              firstItem={null}
-              lastItem={null}
-              pointing
-              secondary
-              activePage={reqPageNum}
-              onPageChange={handlerPageChange}
-            />
-          </Grid.Row>
-        </Grid>
+        {props.data.list && props.data.list.length > 0 && (
+          <Table>
+            <TableHeader>
+              <Table.Row>
+                <Table.HeaderCell>
+                  <Icon name="bookmark" style={{ color: "#169E36" }} />
+                  Title
+                </Table.HeaderCell>
+                <Table.HeaderCell>
+                  <Icon name="edit" style={{ color: "#169E36" }} />
+                  Edit
+                </Table.HeaderCell>
+              </Table.Row>
+            </TableHeader>
+            <Table.Body>
+              {props.data &&
+                props.data.list &&
+                props.data.list.length > 0 &&
+                props.data.list.map((e, index) => (
+                  <Table.Row key={e.id}>
+                    <Table.Cell>
+                      <a href={"/post/" + e.id}>{e.title}</a>
+                    </Table.Cell>
+                    <Table.Cell key={index}>
+                      <Button
+                        positive
+                        as="a"
+                        size="tiny"
+                        href={"/admin/post/edit/" + e.id}
+                      >
+                        Edit
+                      </Button>
+                      <Button
+                        positive
+                        size="tiny"
+                        onClick={(ev) => {
+                          props.deletePostEvent(ev, e.id);
+                        }}
+                      >
+                        Delete
+                      </Button>
+                    </Table.Cell>
+                  </Table.Row>
+                ))}
+            </Table.Body>
+          </Table>
+        )}
+        {props.totalPage > 0 && (
+          <Grid textAlign="center" style={{ marginTop: "4em" }}>
+            <Grid.Row columns={1}>
+              <Pagination
+                totalPages={props.data.totalPage}
+                firstItem={null}
+                lastItem={null}
+                pointing
+                secondary
+                activePage={reqPageNum}
+                onPageChange={handlerPageChange}
+              />
+            </Grid.Row>
+          </Grid>
+        )}
       </Container>
     </>
   );
@@ -108,16 +115,17 @@ export default function AdminPostListCmp() {
   const history = useHistory();
   const [signInUsername, setSignInUsername] = useState();
   const [animationShow, setAnimationShow] = useState(false);
-  const WelcomeHeader = () => (
+  const accountUser = () => (
     <>
       <Container textAlign="right">
-        <Header as="h2">
-          Welcome,
-          <span style={{ color: "green" }}>{signInUsername}</span>
+        <Header as="h3" icon>
+          <span style={{ color: "grey" }}>Welcome you，{signInUsername}</span>
         </Header>
-        <Button secondary onClick={signoutEvent}>
-          Signout
-        </Button>
+        <div>
+          <Button size="tiny" onClick={signoutEvent}>
+            Sign Out
+          </Button>
+        </div>
       </Container>
     </>
   );
@@ -204,7 +212,7 @@ export default function AdminPostListCmp() {
       <>
         <List data={postData} deletePostEvent={deletePostEvent}></List>
         <DeleteModal />
-        <Footer />
+        {/* {enableDarkReader()} */}
       </>
     </AnimationLayout>
   );

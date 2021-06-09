@@ -27,6 +27,7 @@ const API = {
   SVAE_MARKDOWN_URL: SERVER_URL + "/admin/post/create",
   ADMIN_SIGN_IN: SERVER_URL + "/admin/signIn",
   ADMIN_GET_POSTS_URL: SERVER_URL + "/admin/posts",
+  ADMIN_POSTS_UPLOAD_URL: SERVER_URL + "/admin/post/upload",
   MAX_PAGE: "10",
   MIN_PAGE: "3",
 };

@@ -6,16 +6,12 @@ import DefaultLayout from "./DefaultLayout";
 import HeadMeta from "./Meta";
 import Posts from "./Posts";
 import TagsWidget from "./TagsWidget";
-import { BLOG_TITLE, NOT_FOUND_URL, ServerHost } from "./Vars";
+import { BLOG_TITLE, NOT_FOUND_URL } from "./Vars";
 async function getArchive(path) {
   const axios = require("axios").default;
-  if (null == path) {
-    return axios.get(ServerHost + "/v1/api/archive").then((res) => res.data);
-  } else {
-    return axios.get(path).then((res) => res.data);
-  }
+  return axios.get(path).then((res) => res.data);
 }
-function useWindowSize(props) {
+function useWindowSize() {
   const [size, setSize] = useState([0, 0]);
   useLayoutEffect(() => {
     function updateSize() {
@@ -66,6 +62,8 @@ export default function Home() {
             pagePrefix={params.pagePrefix}
           />
         }
+        fullWidth={width > 1200 ? false : true}
+        division={width > 1200 ? true : false}
         style={{ margin: 0, padding: 0 }}
       />
     </>

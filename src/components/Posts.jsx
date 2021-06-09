@@ -12,10 +12,6 @@ import {
 } from "semantic-ui-react";
 import Spacing from "./Spacing";
 export default function Posts(props) {
-  const [showComponent, setShowComponent] = useState(false);
-  useEffect(() => {
-    setShowComponent(true);
-  }, []);
   const history = useHistory();
   const handlePaginationClick = (e, { activePage }) => {
     const url = props.pagePrefix + activePage;
@@ -42,22 +38,22 @@ export default function Posts(props) {
                     key={index}
                     className="post-container"
                     style={
-                      index > 0 ? { marginTop: "2em" } : { marginTop: "9.3em" }
+                      index > 0 ? { marginTop: "2em" } : { marginTop: "11em" }
                     }
                   >
-                    <Header as="h1" textAlign="center">
+                    <Header as="h1">
                       <a href={"/post/" + a.id} className="post-title">
                         {a.title}
                       </a>
                     </Header>
-                    <Header as="h6" textAlign="center" className="post-time">
+                    {/* <Header as="h6" textAlign="center" className="post-time">
                       <em> {a.publishTime}</em>
-                    </Header>
+                    </Header> */}
                     <Spacing />
                     {props.focus && a.catalogueBody && (
                       <>
                         <Header as="h3">
-                          <Icon name="bookmark" style={{ color: "#52C75F" }} />
+                          <Icon name="bookmark" style={{ color: "#169E36" }} />
                           TOC
                         </Header>
 
@@ -85,7 +81,7 @@ export default function Posts(props) {
                           <Grid>
                             <Grid.Row>
                               <Grid.Column width={5}>
-                                <Icon name="bookmark" color="blue" />
+                                {/* <Icon name="bookmark" color="blue" /> */}
                                 {a.categories.map((c, index) => (
                                   <span key={c.id}>
                                     <span>
@@ -93,7 +89,7 @@ export default function Posts(props) {
                                         href={"/category/" + c.category}
                                         className="post-category"
                                       >
-                                        {c.category}
+                                        #{c.category}
                                       </a>
                                     </span>
                                   </span>
@@ -101,7 +97,7 @@ export default function Posts(props) {
                               </Grid.Column>
 
                               <Grid.Column width={11}>
-                                <Icon name="tag" color="blue" />
+                                {/* <Icon name="tag" color="blue" /> */}
                                 {a.tags.map((t, index) => (
                                   <>
                                     <span key={t.id}>
@@ -109,7 +105,7 @@ export default function Posts(props) {
                                         href={"/tag/" + t.tag}
                                         className="post-tag"
                                       >
-                                        {t.tag}
+                                        #{t.tag}
                                       </a>
                                     </span>
                                   </>
