@@ -31,12 +31,12 @@ export default function DefaultLayout(props) {
             {props.CategoriesWidget &&
             props.TagsWidget &&
             props.CenterContent ? (
-              <Grid.Column width={props.fullWidth ? 16 : 9}>
+              <Grid.Column width={props.fullWidth ? 16 : 8}>
                 {props.CenterContent}
               </Grid.Column>
             ) : (
               !props.children && (
-                <Grid.Column width={props.fullWidth ? 16 : 9}>
+                <Grid.Column width={props.fullWidth ? 16 : 8}>
                   {props.CenterContent}
                 </Grid.Column>
               )
