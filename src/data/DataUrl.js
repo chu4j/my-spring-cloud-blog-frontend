@@ -12,7 +12,6 @@
 //   MIN_PAGE: "3",
 // };
 // const SERVER_URL = "http://localhost:8084";
-//const SERVER_URL = "http://localhost:8084";
 const SERVER_URL = "https://www.zhuqigong.xyz:8443";
 const API = {
   GET_POSTS_URL: SERVER_URL + "/blog/posts",

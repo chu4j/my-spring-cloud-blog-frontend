@@ -108,7 +108,7 @@ const MobileMenu = (props) => {
         <div className="mobile-menu-content">
           <a href="/">Home</a>
           <Divider />
-          <a href="/posts/timeline">Posts</a>
+          <a href="/posts">Posts</a>
           <Divider />
           <a href="/categories">Categories</a>
           <Divider />
