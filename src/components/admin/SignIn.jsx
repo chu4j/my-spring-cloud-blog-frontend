@@ -35,7 +35,7 @@ export default function AdminSignIn() {
             history.push("/admin/posts");
           } else {
             //sign in failed
-            setMessage(res.data);
+            setMessage(res.data.message);
           }
         })
         .catch((error) => {
