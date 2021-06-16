@@ -1,7 +1,9 @@
-import { Button, Container, Header, Icon } from "semantic-ui-react";
+import { Container, Header, Icon } from "semantic-ui-react";
+import { CustomButton } from "./Components";
+import { TITLE_500 } from "./Contansts";
 import DefaultLayout from "./DefaultLayout";
 import HeadMeta from "./Meta";
-import { TITLE_500 } from "./Vars";
+import Spacing from "./Spacing";
 
 export default function InternalError() {
   return (
@@ -11,9 +13,15 @@ export default function InternalError() {
           <HeadMeta title={TITLE_500} />
           <Icon name="server" size="large" />
           <Header as="h3">Internal Server Error</Header>
-          <Button color="facebook" as="a" href="/">
-            <Icon name="chevron left" /> Back home
-          </Button>
+          <Spacing />
+          <CustomButton
+            paddingTop={2}
+            height="38px"
+            width="140px"
+            content="Back Home"
+            href="/"
+            bold
+          />
         </Container>
       </DefaultLayout>
     </>

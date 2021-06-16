@@ -15,6 +15,7 @@ import {
 } from "semantic-ui-react";
 import API from "../../data/DataUrl";
 import { enableDarkReader } from "../../theme/dark-mode";
+import { CustomButton } from "../Components";
 import Footer from "../Footer";
 
 export default function Upload() {
@@ -74,7 +75,9 @@ export default function Upload() {
               <Segment textAlign="left">
                 <Form>
                   <Form.Field>
-                    <label htmlFor="">Select your markdown file</label>
+                    <label htmlFor="" style={{ fontSize: "15px" }}>
+                      Select your markdown file to upload
+                    </label>
                     <input
                       id="files"
                       type="file"
@@ -83,16 +86,21 @@ export default function Upload() {
                       accept=".md"
                     />
                   </Form.Field>
-                  <Button positive onClick={uploadFileEvent}>
-                    Upload
-                  </Button>
+                  <CustomButton
+                    content="Submit"
+                    onClick={uploadFileEvent}
+                    bold
+                    height={32}
+                    border={1}
+                  />
                 </Form>
                 {message && <Message as="h4">{message}</Message>}
               </Segment>
-              <Button positive as="a" href="/admin/posts">
-                <Icon name="arrow left" />
-                Back Home
-              </Button>
+              <CustomButton
+                content="Back manage page"
+                href="/admin/posts"
+                secondary
+              />
             </GridColumn>
           </GridRow>
         </Grid>

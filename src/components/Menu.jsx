@@ -1,10 +1,9 @@
+import Cookies from "js-cookie";
 import React, { useEffect, useLayoutEffect, useState } from "react";
 import { useRouteMatch } from "react-router-dom";
 import { CSSTransition } from "react-transition-group";
-import { Breadcrumb, Divider, Icon } from "semantic-ui-react";
-import { enableDarkReader } from "../theme/dark-mode";
-import SearchBox from "./SearchBox";
-import Spacing from "./Spacing";
+import { Breadcrumb, Divider, Dropdown, Icon } from "semantic-ui-react";
+import { CustomButton } from "./Components";
 import {
   MENU_ABOUT,
   MENU_CATEGORIES,
@@ -12,19 +11,37 @@ import {
   MENU_TAGS,
   POSTS,
   SEARCH_URL,
-} from "./Vars";
-const $ = require("jquery");
+} from "./Contansts";
+import SearchBox from "./SearchBox";
+import Spacing from "./Spacing";
+const username = Cookies.get("username");
+const accessToken = Cookies.get("access_token");
+const handleLogout = () => {
+  Cookies.remove("username");
+  Cookies.remove("access_token");
+  window.location.href = "/";
+};
+const AccountDropdown = () => (
+  <>
+    <Dropdown text="admin" style={{ paddingTop: "6px" }}>
+      <Dropdown.Menu>
+        <Dropdown.Item
+          icon="settings"
+          text="Post Manage"
+          as="a"
+          href="/admin/posts"
+        />
+        <Dropdown.Item icon="log out" text="Logout" onClick={handleLogout} />
+      </Dropdown.Menu>
+    </Dropdown>
+  </>
+);
 const BreadcrumbMenu = (props) => (
   <>
     <div className="breadmenu-container">
-      <span className="title">
-        <span>
-          <a className="my-logo" href="/">
-            {/* <img src="/logo.svg" alt="logo" width={48} height={48} /> */}
-          </a>
-        </span>
-      </span>
-
+      <div className="website-title">
+        <a href="/">Canteen</a>
+      </div>
       <div className="breadmenu">
         {props.searchBoxData && props.searchBoxData.length > 0 && (
           <SearchBox
@@ -35,24 +52,13 @@ const BreadcrumbMenu = (props) => (
           />
         )}
         <span className="breadmenu-content">
-          {/* <span>
-          <input
-            placeholder="Searching ..."
-            className="desktop-menu-search"
-            onFocus={props.focusHandler}
-            onBlur={props.blurHandler}
-            onChange={props.autoCompeleteHandler}
-            id="searchbox-input"
-          />
-        </span> */}
           <Breadcrumb>
-            {/* <Breadcrumb.Divider>/</Breadcrumb.Divider> */}
             <Breadcrumb.Section href="/" active={"home" == props.active}>
               {MENU_HOME}
             </Breadcrumb.Section>
             <Breadcrumb.Divider>&nbsp;</Breadcrumb.Divider>
             <Breadcrumb.Section
-              href="/posts"
+              href="/timeline"
               active={"timeline" == props.active}
             >
               {POSTS}
@@ -72,6 +78,20 @@ const BreadcrumbMenu = (props) => (
             <Breadcrumb.Section href="/about" active={"about" === props.active}>
               {MENU_ABOUT}
             </Breadcrumb.Section>
+            <Breadcrumb.Divider>&nbsp;</Breadcrumb.Divider>
+            <Breadcrumb.Divider>&nbsp;</Breadcrumb.Divider>
+            {username && accessToken ? (
+              AccountDropdown()
+            ) : (
+              <CustomButton
+                content="Sign In"
+                href="/admin/signIn"
+                paddingTop={7}
+                width="80px"
+                border={0}
+                bold
+              />
+            )}
           </Breadcrumb>
           {/* {enableDarkReader()} */}
         </span>
@@ -108,7 +128,7 @@ const MobileMenu = (props) => {
         <div className="mobile-menu-content">
           <a href="/">Home</a>
           <Divider />
-          <a href="/posts">Posts</a>
+          <a href="/timeline">Posts</a>
           <Divider />
           <a href="/categories">Categories</a>
           <Divider />
@@ -121,9 +141,9 @@ const MobileMenu = (props) => {
     </>
   );
 };
-function getActiveItem(path) {
+function getActiveItem(router) {
+  const path = router.url;
   let name = undefined;
-  if (new String(path).indexOf("timeline") > 0) return "timeline";
   switch (path) {
     case "/":
       name = "home";
@@ -131,7 +151,7 @@ function getActiveItem(path) {
     case "/categories":
       name = "categories";
       break;
-    case "/posts/timeline":
+    case "/timeline":
       name = "timeline";
       break;
     case "/tags":
@@ -141,7 +161,7 @@ function getActiveItem(path) {
       name = "about";
       break;
     default:
-      name = "";
+      name = "timeline";
       break;
   }
   return name;
@@ -168,16 +188,14 @@ export default function BreadMenu() {
   };
   const handlerSearchBoxOnFocus = () => {
     $(".desktop-menu-search").animate({ width: "400px" }, 200);
-    handlerAutoCompelete();
   };
   const handlerSearchBoxOnBulr = () => {
     if (!enter) {
       $(".desktop-menu-search").animate({ width: "250px" }, 200);
-      setSearchDataState([]);
     }
   };
   useEffect(() => {
-    const activeItem = getActiveItem(router.path);
+    const activeItem = getActiveItem(router);
     setActiveItem(activeItem);
   }, []);
   const $ = require("jquery");
@@ -190,26 +208,7 @@ export default function BreadMenu() {
   };
   const handlerOutFocus = () => {
     $(".desktop-menu-search").animate({ width: "250px" }, 200);
-    setSearchDataState([]);
   };
-  const [searchData, setSearchDataState] = useState([]);
-  const axios = require("axios").default;
-  const handlerAutoCompelete = () => {
-    setTimeout(function () {
-      timeoutTigger.call();
-    }, 1000);
-  };
-  function timeoutTigger() {
-    const searchValue = $("#searchbox-input").val().trim();
-    if ("" == searchValue) {
-      setSearchDataState([]);
-    } else {
-      axios
-        .get(SEARCH_URL + searchValue)
-        .then((res) => setSearchDataState(res.data))
-        .catch((error) => console.error(error));
-    }
-  }
   return width < 960 ? (
     <MobileMenu handler={handlerClick} show={show} />
   ) : (
@@ -217,8 +216,6 @@ export default function BreadMenu() {
       active={activeItem}
       focusHandler={handlerSearchBoxOnFocus}
       blurHandler={handlerSearchBoxOnBulr}
-      autoCompeleteHandler={handlerAutoCompelete}
-      searchBoxData={searchData}
       enterHandler={handlerEnter}
       enterExitHandler={handlerEnterExit}
       outFocus={handlerOutFocus}

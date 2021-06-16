@@ -19,7 +19,7 @@ export default function TagsWidget() {
   return (
     <>
       <div className="widget-container widget-tags-container">
-        <span style={{ fontWeight: "900" }} className="title">
+        <span className="title">
           <Icon name="tag" style={{ color: "#169E36" }} />
           Tags
         </span>
@@ -27,8 +27,12 @@ export default function TagsWidget() {
         <div>
           {data && data.length > 0 ? (
             data.map((e, index) => (
-              <a key={index} href={"/tag/" + e.tag} className="widget-label">
-                {e.tag}
+              <a
+                key={index}
+                href={"/tag/" + e.tagName}
+                className="widget-label"
+              >
+                {e.tagName}
                 &nbsp;
                 {e.count}
               </a>

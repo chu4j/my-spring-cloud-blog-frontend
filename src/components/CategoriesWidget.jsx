@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Divider, Icon, Loader } from "semantic-ui-react";
 import API from "../data/DataUrl";
-import { ServerHost } from "./Vars";
 export default function CategoriesWidget() {
   const [data, setData] = useState([]);
   const [show, setShow] = useState(false);
@@ -20,7 +19,7 @@ export default function CategoriesWidget() {
   return (
     <>
       <div className="widget-container">
-        <span style={{ fontWeight: "900" }} className="title">
+        <span className="title">
           <Icon name="bookmark" style={{ color: "#169E36" }} />
           Categories
         </span>
@@ -30,10 +29,10 @@ export default function CategoriesWidget() {
             data.map((e, index) => (
               <a
                 key={index}
-                href={"/category/" + e.category}
+                href={"/category/" + e.categoryName}
                 className="widget-label"
               >
-                {e.category}
+                {e.categoryName}
                 &nbsp;
                 {e.count}
               </a>

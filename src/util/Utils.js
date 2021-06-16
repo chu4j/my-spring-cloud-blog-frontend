@@ -1,4 +1,4 @@
-import { BLOG_TITLE, CATEGORY, ServerHost, TAG } from "../components/Vars";
+import { BLOG_TITLE, CATEGORY, TAG } from "../components/Contansts";
 import API from "../data/DataUrl";
 import RequestBuilder from "./RequestBuilder";
 export function isNumeric(str) {
@@ -19,7 +19,7 @@ export function getHomeUrl(router, name, pageNumber) {
         .setSize(3)
         .build()
         .toUrlString();
-      pagePrefix = "/posts/page/";
+      pagePrefix = "/post/page/";
       title = BLOG_TITLE + "- home page";
       description = BLOG_TITLE + "- home page";
       break;
@@ -71,14 +71,14 @@ export function getHomeUrl(router, name, pageNumber) {
       title = TAG + "：" + name + "-" + BLOG_TITLE;
       description = TAG + "：" + name + "-" + BLOG_TITLE;
       break;
-    case "/posts/page/:pageNumber":
+    case "/post/page/:pageNumber":
       requestUrl = new RequestBuilder()
         .setUrl(API.GET_POSTS_URL)
         .setPage(pageNumber)
         .setSize(3)
         .build()
         .toUrlString();
-      pagePrefix = "/posts/page/";
+      pagePrefix = "/post/page/";
       title = BLOG_TITLE;
       description = BLOG_TITLE;
       break;

@@ -1,65 +1,143 @@
-@import url("https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap");
-
+@import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;800&display=swap");
 @font-face {
   font-family: "charter";
   font-weight: 400;
+  font-style: normal;
   src: local("charter"),
-    url(./assets/fonts/charter_regular-webfont.woff) format("woff");
+    url(./assets/fonts/charter-400-normal.woff) format("woff");
   /* other formats include: 'woff2', 'truetype, 'opentype',
                             'embedded-opentype', and 'svg' */
 }
-
+@font-face {
+  font-family: "charter";
+  font-weight: 400;
+  font-style: italic;
+  src: local("charter"),
+    url(./assets/fonts/charter-400-italic.woff) format("woff");
+  /* other formats include: 'woff2', 'truetype, 'opentype',
+                            'embedded-opentype', and 'svg' */
+}
 @font-face {
   font-family: "charter";
   font-weight: 900;
+  font-style: normal;
   src: local("charter"),
-    url(./assets/fonts/charter_bold-webfont.woff) format("woff");
+    url(./assets/fonts/charter-700-normal.woff) format("woff");
+  /* other formats include: 'woff2', 'truetype, 'opentype',
+                            'embedded-opentype', and 'svg' */
+}
+@font-face {
+  font-family: "charter";
+  font-weight: 900;
+  font-style: italic;
+  src: local("charter"),
+    url(./assets/fonts/charter-700-italic.woff) format("woff");
+  /* other formats include: 'woff2', 'truetype, 'opentype',
+                            'embedded-opentype', and 'svg' */
+}
+@font-face {
+  font-family: "sohne";
+  font-weight: 400;
+  font-style: normal;
+  src: local("sohne"), url(./assets/fonts/sohne-400-normal.woff) format("woff");
+  /* other formats include: 'woff2', 'truetype, 'opentype',
+                            'embedded-opentype', and 'svg' */
+}
+@font-face {
+  font-family: "sohne";
+  font-weight: 500;
+  font-style: normal;
+  src: local("sohne"), url(./assets/fonts/sohne-500-normal.woff) format("woff");
+  /* other formats include: 'woff2', 'truetype, 'opentype',
+                            'embedded-opentype', and 'svg' */
+}
+@font-face {
+  font-family: "sohne";
+  font-weight: 700;
+  font-style: normal;
+  src: local("sohne"), url(./assets/fonts/sohne-700-normal.woff) format("woff");
+  /* other formats include: 'woff2', 'truetype, 'opentype',
+                            'embedded-opentype', and 'svg' */
+}
+@font-face {
+  font-family: "fell";
+  font-weight: 400;
+  font-style: normal;
+  src: local("fell"), url(./assets/fonts/fell.woff) format("woff");
+  /* other formats include: 'woff2', 'truetype, 'opentype',
+                            'embedded-opentype', and 'svg' */
+}
+@font-face {
+  font-family: "fell";
+  font-weight: 700;
+  font-style: normal;
+  src: local("fell"), url(./assets/fonts/fell-blod.woff) format("woff");
+  /* other formats include: 'woff2', 'truetype, 'opentype',
+                            'embedded-opentype', and 'svg' */
+}
+@font-face {
+  font-family: "GT Super";
+  font-weight: 400;
+  font-style: normal;
+  src: local("GT Super"),
+    url(./assets/fonts/gt-super-400-normal.woff) format("woff");
+  /* other formats include: 'woff2', 'truetype, 'opentype',
+                            'embedded-opentype', and 'svg' */
+}
+@font-face {
+  font-family: "mell";
+  font-weight: 400;
+  font-style: normal;
+  src: local("mell"), url(./assets/fonts/mell.woff) format("woff");
   /* other formats include: 'woff2', 'truetype, 'opentype',
                             'embedded-opentype', and 'svg' */
 }
 body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-family: "charter", "Open Sans", -apple-system, BlinkMacSystemFont,
-    "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans",
+  /* font-family: "charter", "Open Sans", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", RobCanteen, "Helvetica Neue", Arial, "NCanteen Sans", "Liberation Sans",
     sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
-    "Noto Color Emoji";
+    "NCanteen Color Emoji"; */
+  font-family: charter, Georgia, Cambria, "Times New Roman", Times, serif;
   height: 100%;
   background: white;
   padding: 0;
   margin: 0;
   width: 100%;
+  font-size: 15px;
 }
 #root {
   height: 100%;
   padding: 0;
   margin: 0;
 }
-code {
-  font-family: source-code-pro, Consolas, Menlo, Monaco, "Courier New",
-    monospace;
-}
 .post-title {
-  color: #1a365d;
+  color: #212121;
 }
 .post-title:hover {
-  color: #1a365d;
+  color: #000;
   text-decoration: underline;
 }
 .timeline-container {
   margin-top: 14em;
-  font-family: inherit;
+  font-size: 14px;
+  font-family: Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 .categories-container {
+  font-family: Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
   margin-top: 14em;
+  font-size: 14px;
 }
 .tags-container {
+  font-family: Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
   margin-top: 14em;
+  font-size: 14px;
 }
 .widget-label {
-  font-size: 90%;
   display: inline-block;
-  margin: 2px 3px 10px 1px;
+  margin: 5px 3px 5px 1px;
   padding: 3px 5px 3px 5px;
   border-radius: 3px;
 }
@@ -67,19 +145,21 @@ code {
   text-decoration: underline;
 }
 .widget-container {
-  color: #010102;
   border-radius: 10px;
   padding: 10px 10px 10px 10px;
   margin-top: 14rem;
   box-shadow: 0px 0px 2px 1px #e2e2e5;
-  font-family: "Lato";
   background-color: whitesmoke;
+  font-size: 14px;
+  font-family: Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 .widget-tags-container {
   margin-top: 3rem;
 }
 .widget-container .title {
-  font-family: "charter";
+  font-family: sohne, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 700;
+  font-size: 14px;
 }
 .menu-container {
   margin-bottom: 5em;
@@ -89,7 +169,9 @@ code {
   color: #a9a9a9;
   display: inline-block;
   border-radius: 2px;
+  font-size: 16px;
   font-weight: 900;
+  font-family: sohne, Georgia, Cambria, "Times New Roman", Times, serif;
 }
 .post-category:hover {
   color: #a9a9a9;
@@ -100,6 +182,7 @@ code {
   display: inline-block;
   margin: 2px;
   color: #a9a9a9;
+  font-family: sohne, Georgia, Cambria, "Times New Roman", Times, serif;
 }
 .post-tag:hover {
   text-decoration: underline;
@@ -118,27 +201,45 @@ code {
   margin-top: 4rem;
 }
 .post-container {
-  border-left: 1px solid #e7ebee;
+  /* border-left: 1px solid #e7ebee; */
   border-radius: 2px;
   padding: 0.1em;
-  padding-left: 2.5em;
+  /* padding-left: 2.5em; */
   /* background-color: whitesmoke; */
   /* box-shadow: 0px 0px 2px 1px #d3d3d4; */
 }
 .post-container .catalog {
-  font-family: "charter";
+  font-family: charter, Georgia, Cambria, "Times New Roman", Times, serif;
+  font-size: 18px;
+  line-height: 1.8;
+}
+.post-card {
+  overflow: hidden;
 }
 .post-previous-next {
-  font-weight: 900;
+  /* font-family: fell, Georgia, Cambria, "Times New Roman", Times, serif; */
+  font-family: sohne, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+}
+.post-background {
+  margin: 0;
+  z-index: -100;
+  width: 100%;
+  overflow: hidden;
+  height: 700px;
+  min-height: 700px;
+}
+.post-background img {
+  min-height: 700px;
 }
 .breadmenu-container {
-  font-family: "charter";
   position: fixed;
   left: 0;
   top: 0;
   display: block;
   min-width: 100%;
-  height: 60px;
+  height: 80px;
   text-align: right;
   /* background-image: linear-gradient(
     to right,
@@ -147,7 +248,8 @@ code {
     black 100%
   ); */
   background-color: white;
-  box-shadow: 0 0 1px 1px #e4e6e7;
+  border-bottom: 1px solid #e0e0e0;
+  /* box-shadow: 0 0 1px 1px #e0e0e0; */
   z-index: 1000;
 }
 .breadmenu-container .title {
@@ -157,17 +259,59 @@ code {
   font-size: 3em;
   margin-top: -12px;
 }
+.breadmenu-container .website-title a {
+  font-family: sohne, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 700;
+  position: fixed;
+  font-size: 21px;
+  left: 22vh;
+  top: 20px;
+  color: black;
+  /* border-top: 2px solid #000;
+  border-bottom: 2px solid #000; */
+  padding-top: 8px;
+  padding-bottom: 10px;
+}
 .breadmenu {
   display: inline-block;
   right: 0;
   padding: 0;
-  width: 330px;
+  width: 440px;
   font-weight: bold;
   text-align: left;
-  background-color: inherit;
-  font-family: inherit;
+  background-color: inheyerit;
+  margin-top: 20px;
+  margin-right: 15vh;
+  height: 40px;
+  font-family: sohne, "Helvetica Neue", Helvetica, Arial, sans-serif;
   /* border-bottom: 1px solid #d0d2d6; */
   /* box-shadow: 0 0 1px 2px #e3e4e6; */
+}
+.custom-button {
+  font-family: sohne, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  display: inline-block;
+  text-align: center;
+  color: #fff;
+  font-weight: 400;
+  padding: 4px 12px;
+  margin: 5px;
+  border-radius: 3px;
+  height: 30px;
+  cursor: pointer;
+  background-color: #6b46c1;
+}
+.edit-post-container {
+  font-family: sohne, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.ui.breadcrumb a {
+  color: white;
+}
+.ui.breadcrumb a:hover {
+  color: white;
+}
+.custom-button:hover {
+  color: white;
+  background-color: #44337a;
 }
 .breadmenu-container .my-logo {
   display: inline-block;
@@ -189,37 +333,46 @@ code {
 }
 .ui.breadcrumb .section {
   /* color: #e2f6fc; */
-  font-weight: 900;
-  color: black;
+  font-family: charter;
+  font-weight: 500;
+  color: rgba(41, 41, 41, 1);
   padding: 1px 3px 1px 3px;
-  border-radius: 1px;
+  font-family: sohne, "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 .ui.breadcrumb .section.active {
-  color: yellowgreen;
+  color: #99cd32;
 }
 .ui.ui.breadcrumb .section:hover {
-  color: yellowgreen;
+  color: #99cd32;
 }
 .ui.breadcrumb .divider {
-  color: whitesmoke;
+  color: #000;
 }
 .footer-container {
-  font-family: inherit;
+  font-family: sohne, "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-align: center;
-  color: whitesmoke;
-  background: #171923;
-  background-image: linear-gradient(
-    to right,
-    black 0%,
-    #171923 50%,
-    black 100%
-  );
   position: fixed;
+  /* background-color: #fed7e2; */
+  background-color: #0f1014;
   width: 100%;
   clear: both;
   position: relative;
-  height: 220px;
-  bottom: -350px;
+  height: 170px;
+  bottom: -320px;
+}
+.footer-website-name {
+  font-family: sohne, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 21px;
+  font-weight: 700;
+  margin: 0.2em;
+}
+.footer-website-name a {
+  /* color: rgba(41, 41, 41, 1); */
+  color: white;
+}
+.footer-website-info {
+  font-size: 14px;
+  color: white;
 }
 .footer-container .logo {
   font-weight: 900;
@@ -459,6 +612,12 @@ code {
 .markdown-area {
   max-width: 100%;
   min-width: 100%;
+  border: 0px solid #e9e9e9;
+  box-shadow: 0px 0px 3px 0px rgba(41, 41, 41, 0.4);
   overflow: scroll;
-  height: 400px;
+  height: 500px;
+  background-color: whitesmoke;
+}
+.markdown-area:focus {
+  outline: none;
 }

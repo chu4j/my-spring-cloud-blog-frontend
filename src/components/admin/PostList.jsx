@@ -14,25 +14,45 @@ import {
   TableHeader,
 } from "semantic-ui-react";
 import API from "../../data/DataUrl";
-import { enableDarkReader } from "../../theme/dark-mode";
 import AnimationLayout from "../AnimationLayout";
+import { CustomButton } from "../Components";
+import Footer from "../Footer";
 import Spacing from "../Spacing";
 
 export default function AdminPostListCmp() {
   const CreateNewPostButton = () => (
     <>
-      <Button positive as="a" href="/admin/post/edit/undefined">
-        New Post...
-      </Button>
-      <Button positive as="a" href="/admin/post/upload">
-        Upload...
-      </Button>
+      <CustomButton
+        content="Back Home"
+        bold
+        paddingTop={4}
+        border={2}
+        height={30}
+        border={0}
+        href="/"
+      />
+      <CustomButton
+        content="New Post"
+        paddingTop={4}
+        height={30}
+        href="/admin/post/edit/undefined"
+        bold
+        border={0}
+      />
+      <CustomButton
+        content="Upload"
+        href="/admin/post/upload"
+        paddingTop={3}
+        height={30}
+        paddingTop={4}
+        bold
+        border={0}
+      />
     </>
   );
   const List = (props) => (
     <>
-      <Container style={{ marginTop: "1em" }}>
-        {accountUser()}
+      <Container style={{ marginTop: "100px" }} className="edit-post-container">
         <Spacing />
         {CreateNewPostButton()}
         {props.data.list && props.data.list.length > 0 && (
@@ -59,37 +79,33 @@ export default function AdminPostListCmp() {
                       <a href={"/post/" + e.id}>{e.title}</a>
                     </Table.Cell>
                     <Table.Cell key={index}>
-                      <Button
-                        positive
-                        as="a"
-                        size="tiny"
+                      <CustomButton
+                        content="Edit"
                         href={"/admin/post/edit/" + e.id}
-                      >
-                        Edit
-                      </Button>
-                      <Button
-                        positive
-                        size="tiny"
+                        height={26}
+                        paddingTop={3}
+                      />
+                      <CustomButton
+                        content="Delete"
+                        height={26}
+                        paddingTop={3}
                         onClick={(ev) => {
                           props.deletePostEvent(ev, e.id);
                         }}
-                      >
-                        Delete
-                      </Button>
+                      />
                     </Table.Cell>
                   </Table.Row>
                 ))}
             </Table.Body>
           </Table>
         )}
-        {props.totalPage > 0 && (
+        {props.data.totalPage > 1 && (
           <Grid textAlign="center" style={{ marginTop: "4em" }}>
             <Grid.Row columns={1}>
               <Pagination
                 totalPages={props.data.totalPage}
                 firstItem={null}
                 lastItem={null}
-                pointing
                 secondary
                 activePage={reqPageNum}
                 onPageChange={handlerPageChange}
@@ -103,32 +119,12 @@ export default function AdminPostListCmp() {
   const backToSignIn = () => {
     history.push("/admin/signIn");
   };
-  const signoutEvent = () => {
-    Cookies.remove("access_token");
-    Cookies.remove("username");
-    backToSignIn();
-  };
   const { pageNum } = useParams();
   const reqPageNum = pageNum ? pageNum : 1;
   const [postData, setPostData] = useState({});
   const [madalParams, setDeleteParams] = useState({});
   const history = useHistory();
-  const [signInUsername, setSignInUsername] = useState();
   const [animationShow, setAnimationShow] = useState(false);
-  const accountUser = () => (
-    <>
-      <Container textAlign="right">
-        <Header as="h3" icon>
-          <span style={{ color: "grey" }}>Welcome you，{signInUsername}</span>
-        </Header>
-        <div>
-          <Button size="tiny" onClick={signoutEvent}>
-            Sign Out
-          </Button>
-        </div>
-      </Container>
-    </>
-  );
   //Checking Cookie
   const username = Cookies.get("username");
   const accessToken = Cookies.get("access_token");
@@ -147,7 +143,6 @@ export default function AdminPostListCmp() {
       backToSignIn();
     }
     //setSignInUsername
-    setSignInUsername(username);
     axios
       .get(API.ADMIN_GET_POSTS_URL + "?page=" + reqPageNum + "&size=10", {
         withCredentials: true,
@@ -162,7 +157,7 @@ export default function AdminPostListCmp() {
       });
   }, []);
   const handlerPageChange = (e, { activePage }) => {
-    history.push("/admin/posts/page/" + activePage);
+    history.push("/admin/post/page/" + activePage);
   };
   const deletePostEvent = (e, deletePostId) => {
     setDeleteParams({ open: true, deletePostId: deletePostId });
@@ -186,23 +181,30 @@ export default function AdminPostListCmp() {
   };
   const DeleteModal = () => (
     <>
-      <Modal size="mini" open={madalParams.open}>
-        <Modal.Header>刪除確認</Modal.Header>
+      <Modal size="tiny" dimmer open={madalParams.open}>
+        <Modal.Header>Delete Confirm?</Modal.Header>
         <Modal.Content>
-          <p>確定要刪除這個 Post，同時也從服務器刪除</p>
+          <p style={{ fontSize: "16px" }}>
+            Are you sure you want to delete this post
+          </p>
         </Modal.Content>
         <Modal.Actions>
-          <Button negative onClick={closeModal}>
-            否
-          </Button>
-          <Button
-            positive
+          <CustomButton
+            content="No"
+            height={32}
+            bold
+            paddingTop={7}
+            onClick={closeModal}
+          />
+          <CustomButton
+            content="Yes"
+            bold
+            height={32}
+            paddingTop={7}
             onClick={(event) => {
               confirmDeletePostEvent(event, madalParams.deletePostId);
             }}
-          >
-            是
-          </Button>
+          />
         </Modal.Actions>
       </Modal>
     </>
@@ -212,6 +214,7 @@ export default function AdminPostListCmp() {
       <>
         <List data={postData} deletePostEvent={deletePostEvent}></List>
         <DeleteModal />
+        <Footer />
         {/* {enableDarkReader()} */}
       </>
     </AnimationLayout>

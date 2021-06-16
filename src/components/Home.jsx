@@ -1,12 +1,12 @@
 import { React, useEffect, useLayoutEffect, useState } from "react";
 import { useHistory, useParams, useRouteMatch } from "react-router-dom";
-import { getHomeUrl, isNumeric } from "../util/Utils";
+import { getHomeUrl } from "../util/Utils";
 import CategoriesWidget from "./CategoriesWidget";
+import { BLOG_TITLE } from "./Contansts";
 import DefaultLayout from "./DefaultLayout";
 import HeadMeta from "./Meta";
 import Posts from "./Posts";
 import TagsWidget from "./TagsWidget";
-import { BLOG_TITLE, NOT_FOUND_URL } from "./Vars";
 async function getArchive(path) {
   const axios = require("axios").default;
   return axios.get(path).then((res) => res.data);
@@ -30,7 +30,7 @@ export default function Home() {
   const history = useHistory();
   let activePage = 1;
   if (null != pageNumber && undefined != pageNumber) {
-    !isNumeric(pageNumber) && history.push(NOT_FOUND_URL);
+    // !isNumeric(pageNumber) && history.push(NOT_FOUND_URL);
     activePage = pageNumber;
   }
   const [response, setData] = useState({});
@@ -42,7 +42,7 @@ export default function Home() {
       })
       .catch((error) => {
         console.error(error);
-        history.push("/500");
+        history.push("/error");
       });
   }, []);
 

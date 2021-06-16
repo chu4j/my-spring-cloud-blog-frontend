@@ -1,14 +1,16 @@
 import Cookies from "js-cookie";
 import { useState } from "react";
 import { useHistory } from "react-router";
-import { Button, Form, Grid, Header, Image, Message } from "semantic-ui-react";
+import { Form, Grid, Header, Message } from "semantic-ui-react";
 import API from "../../data/DataUrl";
-import { enableDarkReader } from "../../theme/dark-mode";
+import { CustomButton } from "../Components";
+import Footer from "../Footer";
+import Spacing from "../Spacing";
 export default function AdminSignIn() {
   const history = useHistory();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [message, setMessage] = useState();
+  const [message, setMessage] = useState("");
   const cleanMessage = () => {
     setMessage("");
   };
@@ -18,40 +20,39 @@ export default function AdminSignIn() {
     params.append("username", username);
     params.append("password", password);
     if (username == "") {
-      setMessage("Username Cannot be empty");
-      return;
+      setMessage("Username Can't be empty");
+    } else if (password == "") {
+      setMessage("Password Can't be empty");
+    } else {
+      axios
+        .post(API.ADMIN_SIGN_IN, params, { withCredentials: true })
+        .then((res) => {
+          //sign in success
+          if (res.status == 200 && res.data.accessToken) {
+            //cookie set up
+            Cookies.set("access_token", res.data.accessToken, { expires: 3 });
+            Cookies.set("username", res.data.username, { expires: 3 });
+            history.push("/admin/posts");
+          } else {
+            //sign in failed
+            setMessage(res.data);
+          }
+        })
+        .catch((error) => {
+          console.error(error);
+        });
     }
-    if (password == "") {
-      setMessage("Password Cannot be empty");
-      return;
-    }
-    axios
-      .post(API.ADMIN_SIGN_IN, params, { withCredentials: true })
-      .then((res) => {
-        //sign in success
-        if (res.status == 200 && res.data.accessToken) {
-          //cookie set up
-          Cookies.set("access_token", res.data.accessToken, { expires: 3 });
-          Cookies.set("username", res.data.username, { expires: 3 });
-          history.push("/admin/posts");
-        } else {
-          //sign in failed
-          setMessage(res.data);
-        }
-      })
-      .catch((error) => {
-        console.error(error);
-      });
   };
   const LoginForm = () => (
     <Grid textAlign="center" style={{ height: "80vh" }} verticalAlign="middle">
-      <Grid.Column style={{ maxWidth: 350 }}>
-        <Header as="h1">
+      <Grid.Column style={{ maxWidth: 320 }}>
+        {/* <Header as="h3">
           <Image src="/logo.svg" />
+        </Header> */}
+        <Header as="h1" textAlign="center" style={{ fontSize: "33px" }}>
+          Canteen
         </Header>
-        <Header as="h1" textAlign="center" style={{ color: "#1a202c" }}>
-          Sign In
-        </Header>
+        <Spacing />
         <Form size="large">
           <Form.Input
             fluid
@@ -70,19 +71,36 @@ export default function AdminSignIn() {
             onChange={(e) => setPassword(e.target.value)}
             onFocus={cleanMessage}
           />
-          <Button positive fluid size="large" onClick={SignInOnClick}>
+          {/* <Button positive fluid size="large" onClick={SignInOnClick}>
             Sign In
-          </Button>
+          </Button> */}
+          <CustomButton
+            content="Sign In"
+            width={280}
+            height={35}
+            paddingTop={5}
+            onClick={SignInOnClick}
+            border={0}
+            bold
+          />
         </Form>
         {message && (
           <>
             <Message>
-              <Header as="h5" color="red">
+              <Header as="h5" color="black">
                 {message}
               </Header>
             </Message>
           </>
         )}
+        <CustomButton
+          content="Home Page"
+          style={{ paddingTop: "3px" }}
+          top="80px"
+          secondary
+          border={1}
+          href="/"
+        />
       </Grid.Column>
     </Grid>
   );
@@ -90,6 +108,7 @@ export default function AdminSignIn() {
     <>
       {LoginForm()}
       {/* {enableDarkReader()} */}
+      <Footer />
     </>
   );
 }

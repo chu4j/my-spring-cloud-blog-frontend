@@ -4,9 +4,9 @@ import { Container, Icon, Table } from "semantic-ui-react";
 import { ApiGet } from "../data/ApiGet";
 import API from "../data/DataUrl";
 import AnimationLayout from "./AnimationLayout";
+import { BLOG_TITLE, TAG } from "./Contansts";
 import DefaultLayout from "./DefaultLayout";
 import HeadMeta from "./Meta";
-import { BLOG_TITLE, TAG, TAG_STATISTICS_URL } from "./Vars";
 
 export default function Tags() {
   const [data, setDataState] = useState([]);
@@ -33,7 +33,7 @@ export default function Tags() {
               <Table className="common-table" selectable>
                 <Table.Header>
                   <Table.Row>
-                    <Table.HeaderCell>
+                    <Table.HeaderCell style={{ fontFamily: "sohne" }}>
                       <Icon name="tag" style={{ color: "#169E36" }} />
                       Tags
                     </Table.HeaderCell>
@@ -42,18 +42,16 @@ export default function Tags() {
 
                 <Table.Body>
                   {data.map((e, index) => (
-                    <>
-                      <Table.Row key={index}>
-                        <Table.Cell>
-                          <a
-                            style={{ display: "inline-block", width: "100%" }}
-                            href={"/tag/" + e.tag}
-                          >
-                            {e.tag}&nbsp;&nbsp;({e.count})
-                          </a>
-                        </Table.Cell>
-                      </Table.Row>
-                    </>
+                    <Table.Row key={index}>
+                      <Table.Cell>
+                        <a
+                          style={{ display: "inline-block", width: "100%" }}
+                          href={"/tag/" + e.tagName}
+                        >
+                          {e.tagName}&nbsp;&nbsp;({e.count})
+                        </a>
+                      </Table.Cell>
+                    </Table.Row>
                   ))}
                 </Table.Body>
               </Table>

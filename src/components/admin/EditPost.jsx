@@ -1,16 +1,9 @@
 import Cookies from "js-cookie";
 import { useEffect, useState } from "react";
 import { useHistory, useParams } from "react-router";
-import {
-  Button,
-  Container,
-  Form,
-  Grid,
-  Header,
-  TextArea,
-} from "semantic-ui-react";
+import { Container, Form, Grid, Header, TextArea } from "semantic-ui-react";
 import API from "../../data/DataUrl";
-import { enableDarkReader } from "../../theme/dark-mode";
+import { CustomButton } from "../Components";
 import Spacing from "../Spacing";
 export default function EditPost() {
   const axios = require("axios").default;
@@ -46,9 +39,19 @@ export default function EditPost() {
     tags: "",
     publishTime: "",
   });
-
+  const defaultMarkdownContent = `---
+title: markdown title
+date: 1970-01-01
+author: konchoo
+categories:
+ - category1
+ - category2
+tags:
+ - tag1
+ - tag2
+---`;
   const [title, setTitle] = useState();
-  const [content, setContent] = useState();
+  const [content, setContent] = useState(defaultMarkdownContent);
   const { postId } = useParams();
   const signInUsername = Cookies.get("username");
   const accessToken = Cookies.get("access_token");
@@ -67,11 +70,11 @@ export default function EditPost() {
           const content = res.data.content;
           const publishTime = res.data.publishTime;
           const categories = Array.from(res.data.categories)
-            .map((x) => x.category)
+            .map((x) => x.categoryName)
             .join("#")
             .toString();
           const tags = Array.from(res.data.tags)
-            .map((x) => x.tag)
+            .map((x) => x.tagName)
             .join("#")
             .toString();
           setNewPost({
@@ -109,8 +112,8 @@ export default function EditPost() {
   const saveMarkdownEvent = () => {
     const params = new URLSearchParams();
     if ("undefined" != postId) params.append("id", postId);
-    params.append("title", title);
-    params.append("content", content);
+    if (title != "") params.append("title", title);
+    if (content != "") params.append("content", content);
     axios
       .post(API.SVAE_MARKDOWN_URL, params, {
         withCredentials: true,
@@ -171,18 +174,27 @@ export default function EditPost() {
               </Header>
               <Spacing />
               {PostInfoForm()}
-              <Button positive size="tiny" onClick={previewMarkdownEvent}>
-                Format...
-              </Button>
-              <Button positive size="tiny" onClick={saveMarkdownEvent}>
-                Save...
-              </Button>
-              <Button positive size="tiny" as="a" href={"/post/" + postId}>
-                View
-              </Button>
-              <Button positive size="tiny" as="a" href="/admin/posts">
-                Back Home
-              </Button>
+              <CustomButton
+                content="preview"
+                height={32}
+                border={0}
+                onClick={previewMarkdownEvent}
+              />
+              <CustomButton
+                content="save markdown"
+                height={32}
+                onClick={saveMarkdownEvent}
+              />
+              <CustomButton
+                content="target"
+                height={32}
+                href={"/post/" + postId}
+              />
+              <CustomButton
+                content="Back manage page"
+                height={32}
+                href="/admin/posts"
+              />
               <Spacing />
             </Grid.Column>
           </Grid.Row>

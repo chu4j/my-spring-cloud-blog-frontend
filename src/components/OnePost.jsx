@@ -1,12 +1,12 @@
-import { useEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useState } from "react";
 import { Helmet } from "react-helmet";
 import { useHistory, useParams } from "react-router-dom";
 import API from "../data/DataUrl";
 import RequestBuilder from "../util/RequestBuilder";
 import { isNumeric } from "../util/Utils";
+import { BLOG_TITLE, NOT_FOUND_URL } from "./Contansts";
 import DefaultLayout from "./DefaultLayout";
 import Posts from "./Posts";
-import { BLOG_TITLE, NOT_FOUND_URL, ServerHost } from "./Vars";
 async function getPost(postId) {
   const axios = require("axios").default;
   const url = new RequestBuilder()
@@ -15,6 +15,18 @@ async function getPost(postId) {
     .build()
     .toUrlString();
   return axios.get(url).then((res) => res.data);
+}
+function useWindowSize() {
+  const [size, setSize] = useState([0, 0]);
+  useLayoutEffect(() => {
+    function updateSize() {
+      setSize([window.innerWidth, window.innerHeight]);
+    }
+    window.addEventListener("resize", updateSize);
+    updateSize();
+    return () => window.removeEventListener("resize", updateSize);
+  }, []);
+  return size;
 }
 export default function OnePost() {
   let { postId } = useParams();
@@ -44,6 +56,7 @@ export default function OnePost() {
       500
     );
   });
+  const [width, height] = useWindowSize();
   return (
     <>
       <Helmet>
@@ -51,8 +64,18 @@ export default function OnePost() {
         <title>{title + "-" + BLOG_TITLE}</title>
         <meta name="description" content={title} />
       </Helmet>
-      <DefaultLayout>
-        <Posts response={post} focus />
+
+      <DefaultLayout
+        width={width > 960 ? 8 : 16}
+        imgSrc={post.list && post.list[0].remark1}
+        background
+      >
+        <Posts
+          response={post}
+          colorTitle={post.list && post.list[0].remark1 ? true : false}
+          imgSrc={post.list && post.list[0].remark1}
+          focus
+        />
       </DefaultLayout>
     </>
   );

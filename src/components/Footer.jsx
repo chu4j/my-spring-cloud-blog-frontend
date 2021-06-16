@@ -6,8 +6,7 @@ class Footer extends Component {
   render() {
     return (
       <div className="footer-container">
-        <Spacing />
-        <p className="logo">
+        {/* <p className="logo">
           <a href="/">
             <img src="/logo.svg" alt="logo" width={48} height={48} />
           </a>
@@ -23,9 +22,27 @@ class Footer extends Component {
             <Icon color="green" name="github" size="big" />
             @zhuqigong
           </a>
-        </p>
+        </p> */}
+        {/* <Divider /> */}
         <Divider />
-        <p>Copyright &copy; zhuqigong.xyz 2021</p>
+        <div>
+          <div className="footer-website-name">
+            <a href="/">Canteen</a>
+          </div>
+          <Spacing />
+          <div className="footer-website-info">
+            <p>
+              Copyright &copy; zhuqigong.xyz 2021
+              {/* <a href="https://www.github.com/zhuqigong"> @zhuqigong</a> */}
+            </p>
+            <p>
+              build with <Icon name="react" color="teal" />
+              <a href="https://github.com/facebook/react">
+                <b>React</b>
+              </a>
+            </p>
+          </div>
+        </div>
       </div>
     );
   }
