@@ -18,7 +18,7 @@ export function CustomButton({
     marginTop: top ? top : "0px",
     backgroundColor: secondary && "white",
     color: secondary && "black",
-    borderRadius: secondary && "60px",
+    borderRadius: secondary && "1px",
     border: border ? `${border}px solid #414141` : "0px solid #414141",
     paddingTop: paddingTop && `${paddingTop}px`,
   };

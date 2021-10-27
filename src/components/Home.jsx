@@ -29,7 +29,7 @@ export default function Home() {
   const params = getHomeUrl(router, name, pageNumber);
   const history = useHistory();
   let activePage = 1;
-  if (null != pageNumber && undefined != pageNumber) {
+  if (null != pageNumber) {
     // !isNumeric(pageNumber) && history.push(NOT_FOUND_URL);
     activePage = pageNumber;
   }
@@ -62,8 +62,8 @@ export default function Home() {
             pagePrefix={params.pagePrefix}
           />
         }
-        fullWidth={width > 1200 ? false : true}
-        division={width > 1200 ? true : false}
+        fullWidth={width <= 1200}
+        division={width > 1200}
         style={{ margin: 0, padding: 0 }}
       />
     </>

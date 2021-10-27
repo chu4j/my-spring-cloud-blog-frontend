@@ -19,16 +19,16 @@ export default function AdminSignIn() {
     const params = new URLSearchParams();
     params.append("username", username);
     params.append("password", password);
-    if (username == "") {
+    if (username === "") {
       setMessage("Username Can't be empty");
-    } else if (password == "") {
+    } else if (password === "") {
       setMessage("Password Can't be empty");
     } else {
       axios
         .post(API.ADMIN_SIGN_IN, params, { withCredentials: true })
         .then((res) => {
           //sign in success
-          if (res.status == 200 && res.data.accessToken) {
+          if (res.status === 200 && res.data.accessToken) {
             //cookie set up
             Cookies.set("access_token", res.data.accessToken, { expires: 3 });
             Cookies.set("username", res.data.username, { expires: 3 });

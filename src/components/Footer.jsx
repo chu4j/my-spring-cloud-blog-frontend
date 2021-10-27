@@ -1,12 +1,13 @@
-import { Component, React } from "react";
-import { Divider, Icon } from "semantic-ui-react";
+import {Component, React} from "react";
+import {Divider, Icon} from "semantic-ui-react";
 import Spacing from "./Spacing";
+import {WEBSITE_NAME} from "./Contansts";
 
 class Footer extends Component {
-  render() {
-    return (
-      <div className="footer-container">
-        {/* <p className="logo">
+    render() {
+        return (
+            <div className="footer-container">
+                {/* <p className="logo">
           <a href="/">
             <img src="/logo.svg" alt="logo" width={48} height={48} />
           </a>
@@ -23,28 +24,29 @@ class Footer extends Component {
             @zhuqigong
           </a>
         </p> */}
-        {/* <Divider /> */}
-        <Divider />
-        <div>
-          <div className="footer-website-name">
-            <a href="/">Canteen</a>
-          </div>
-          <Spacing />
-          <div className="footer-website-info">
-            <p>
-              Copyright &copy; zhuqigong.xyz 2021
-              {/* <a href="https://www.github.com/zhuqigong"> @zhuqigong</a> */}
-            </p>
-            <p>
-              build with <Icon name="react" color="teal" />
-              <a href="https://github.com/facebook/react">
-                <b>React</b>
-              </a>
-            </p>
-          </div>
-        </div>
-      </div>
-    );
-  }
+                {/* <Divider /> */}
+                <Divider/>
+                <div>
+                    <div className="footer-website-name">
+                        <a href="/">{WEBSITE_NAME}</a>
+                    </div>
+                    <Spacing/>
+                    <div className="footer-website-info">
+                        <p>
+                            Copyright &copy; zhuqigong.xyz 2021
+                            {/* <a href="https://www.github.com/zhuqigong"> @zhuqigong</a> */}
+                        </p>
+                        <p>
+                            build with <Icon name="react" color="teal"/>
+                            <a href="https://github.com/facebook/react">
+                                <b>React</b>
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        );
+    }
 }
+
 export default Footer;

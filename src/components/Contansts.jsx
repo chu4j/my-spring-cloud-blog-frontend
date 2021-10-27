@@ -3,8 +3,8 @@ export const BLOG_TITLE = "Canteen";
 export const CATEGORY = "categories";
 export const TAG = "tags";
 export const POSTS = "Posts";
-export const CATAGORY_STATISTICS_URL =
-  ServerHost + "/v1/api/category/statistics/count";
+export const CATEGORY_STATISTICS_URL =
+    ServerHost + "/v1/api/category/statistics/count";
 export const TAG_STATISTICS_URL = ServerHost + "/v1/api/tag/statistics/count";
 export const TIMELINE_API_URL = ServerHost + "/v1/api/archive/timeline";
 export const NOT_FOUND_URL = "/404";
@@ -16,3 +16,4 @@ export const MENU_TAGS = "Tags";
 export const MENU_ABOUT = "About";
 export const TITLE_404 = "Not Found";
 export const TITLE_500 = "Internal Server Error";
+export const WEBSITE_NAME = "Somuns";

@@ -115,7 +115,7 @@ tags:
     if (title != "") params.append("title", title);
     if (content != "") params.append("content", content);
     axios
-      .post(API.SVAE_MARKDOWN_URL, params, {
+      .post(API.SAVE_MARKDOWN_URL, params, {
         withCredentials: true,
         headers: { Authorization: `Bearer ${accessToken}` },
       })
