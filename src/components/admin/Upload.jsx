@@ -1,9 +1,10 @@
 import React, {useEffect, useState} from "react";
 import Cookies from "js-cookie";
 import {useHistory} from "react-router";
-import {Container, Form, Grid, GridColumn, GridRow, Message, Segment,} from "semantic-ui-react";
+import {Button, Container, Form, Grid, GridColumn, GridRow, Message, Segment,} from "semantic-ui-react";
 import API from "../../data/DataUrl";
 import {CustomButton} from "../Components";
+import Spacing from "../Spacing";
 
 export default function Upload() {
     const history = useHistory();
@@ -83,11 +84,8 @@ export default function Upload() {
                                 </Form>
                                 {message && <Message as="h4">{message}</Message>}
                             </Segment>
-                            <CustomButton
-                                content="Back manage page"
-                                href="/admin/posts"
-                                secondary
-                            />
+                            <Spacing/>
+                            <Button secondary as="a" href="/admin/posts" content='Back Manage Page' size={"small"} icon='arrow left' labelPosition='left'/>
                         </GridColumn>
                     </GridRow>
                 </Grid>

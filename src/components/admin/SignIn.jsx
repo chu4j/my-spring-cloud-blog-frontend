@@ -1,11 +1,12 @@
 import React, {useState} from "react";
 import Cookies from "js-cookie";
 import {useHistory} from "react-router";
-import {Form, Grid, Header, Message} from "semantic-ui-react";
+import {Button, Form, Grid, Header, Message} from "semantic-ui-react";
 import API from "../../data/DataUrl";
 import {CustomButton} from "../Components";
 import Footer from "../Footer";
 import Spacing from "../Spacing";
+import {WEBSITE_NAME} from "../Contansts";
 
 export default function AdminSignIn() {
     const history = useHistory();
@@ -50,8 +51,8 @@ export default function AdminSignIn() {
                 {/* <Header as="h3">
           <Image src="/logo.svg" />
         </Header> */}
-                <Header as="h1" textAlign="center" style={{fontSize: "33px"}}>
-                    Canteen
+                <Header as="h1" textAlign="center" style={{fontSize: "33px", fontFamily: "charter"}}>
+                    {WEBSITE_NAME}
                 </Header>
                 <Spacing/>
                 <Form size="large">
@@ -94,14 +95,9 @@ export default function AdminSignIn() {
                         </Message>
                     </>
                 )}
-                <CustomButton
-                    content="Home Page"
-                    style={{paddingTop: "3px"}}
-                    top="80px"
-                    secondary
-                    border={1}
-                    href="/"
-                />
+                <Spacing/>
+                <Spacing/>
+                <Button secondary as="a" href="/" content='Home' size={"small"} icon='arrow left' labelPosition='left'/>
             </Grid.Column>
         </Grid>
     );

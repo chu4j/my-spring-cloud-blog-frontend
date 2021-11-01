@@ -62,7 +62,7 @@ export default function MySqlDict() {
                 const url = window.URL.createObjectURL(new Blob([response.data], {type: "application/vnd.openxmlformats-officedocument.wordprocessingml.document"}));
                 const link = document.createElement('a');
                 link.href = url;
-                link.setAttribute('download', name); //or any other extension
+                link.setAttribute('download', fileName + ".docx"); //or any other extension
                 document.body.appendChild(link);
                 link.click();
                 setSubmitLoading(false);
@@ -75,7 +75,7 @@ export default function MySqlDict() {
             <Spacing/>
             <Header style={{fontFamily: 'charter'}} as={"h2"}>MYSQL TABLE DICTIONARY GENERATOR V1.0</Header>
             <Spacing/>
-            <div style={{width: '650px', display: 'inline-block'}}>
+            <div style={{width: '618px', display: 'inline-block'}}>
                 <div style={{textAlign: 'left'}}>
                     <AnimatedMulti defaultOptions={defaultOptions} selectedOptions={selectedOptions}
                                    selectedOptionsHandler={setSelectedOptions2}/>

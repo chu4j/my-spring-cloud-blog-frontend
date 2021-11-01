@@ -17,7 +17,7 @@ export default function AdminPostListCmp() {
                 bold
                 paddingTop={4}
                 height={30}
-                border={0}
+                border={1}
                 href="/"
             />
             <CustomButton
@@ -25,16 +25,14 @@ export default function AdminPostListCmp() {
                 paddingTop={4}
                 height={30}
                 href="/admin/post/edit/undefined"
-                bold
-                border={0}
+                border={1}
             />
             <CustomButton
                 content="Upload"
                 href="/admin/post/upload"
                 height={30}
                 paddingTop={4}
-                bold
-                border={0}
+                border={1}
             />
         </>
     );
@@ -70,13 +68,15 @@ export default function AdminPostListCmp() {
                                         <CustomButton
                                             content="Edit"
                                             href={"/admin/post/edit/" + e.id}
-                                            height={26}
+                                            height={28}
                                             paddingTop={3}
+                                            border={1}
                                         />
                                         <CustomButton
                                             content="Delete"
-                                            height={26}
+                                            height={28}
                                             paddingTop={3}
+                                            border={1}
                                             onClick={(ev) => {
                                                 props.deletePostEvent(ev, e.id);
                                             }}
