@@ -8,7 +8,7 @@ import {
     MENU_ABOUT,
     MENU_CATEGORIES,
     MENU_HOME,
-    MENU_TAGS,
+    MENU_TAGS, MENU_MYSQL_DICT,
     POSTS, WEBSITE_NAME,
 } from "./Contansts";
 import SearchBox from "./SearchBox";
@@ -75,6 +75,10 @@ const BreadcrumbMenu = (props) => (
               {MENU_TAGS}
             </Breadcrumb.Section>
             <Breadcrumb.Divider>&nbsp;</Breadcrumb.Divider>
+                <Breadcrumb.Section href="/mysql/mysql-dict" active={"mysql-dict" === props.active}>
+              {MENU_MYSQL_DICT}
+            </Breadcrumb.Section>
+                <Breadcrumb.Divider>&nbsp;</Breadcrumb.Divider>
             <Breadcrumb.Section href="/about" active={"about" === props.active}>
               {MENU_ABOUT}
             </Breadcrumb.Section>
