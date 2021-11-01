@@ -19,7 +19,7 @@ async function getTableName() {
 async function postThenDownload(fileName, selectedTable) {
     const axios = require("axios").default
     return await axios.post(API.DOWNLOAD_MYSQL_DICT, {
-        "fileName": fileName, "tables": selectedTable
+        "fileName": fileName, "tables": selectedTable, "website": window.location.hostname
     }, {
         headers: {
             "Content-Type": "application/json"
@@ -46,6 +46,7 @@ export default function MySqlDict() {
     const [defaultOptions, setDefaultOptions] = useState([]);
     const [fileName, setFileName] = useState("");
     const [activeSubmit, setActiveSubmit] = useState(false);
+    const [submitLoading, setSubmitLoading] = useState(false);
     const handlerFileName = (e) => {
         setFileName(e.target.value)
     }
@@ -55,6 +56,7 @@ export default function MySqlDict() {
         })
     }, [])
     const submitHandler = () => {
+        setSubmitLoading(true);
         postThenDownload(fileName, selectedOptions)
             .then(response => {
                 const name = response.headers["content-disposition"].split("filename=")[1];
@@ -64,19 +66,23 @@ export default function MySqlDict() {
                 link.setAttribute('download', name); //or any other extension
                 document.body.appendChild(link);
                 link.click();
-            })
+                setSubmitLoading(false);
+            }).catch(e => {
+            setSubmitLoading(false);
+        })
     }
     return (<>
         <Container textAlign={"center"}>
             <Spacing/>
-            <Header style={{fontFamily:'charter'}} as={"h2"}>MYSQL TABLE DICTIONARY GENERATOR V1.0</Header>
+            <Header style={{fontFamily: 'charter'}} as={"h2"}>MYSQL TABLE DICTIONARY GENERATOR V1.0</Header>
             <Spacing/>
             <div style={{width: '650px', display: 'inline-block'}}>
                 <div style={{textAlign: 'left'}}>
                     <AnimatedMulti defaultOptions={defaultOptions} selectedOptions={selectedOptions}
                                    selectedOptionsHandler={setSelectedOptions2}/>
                     <Spacing/>
-                    <Input fluid labelPosition="right" type="text" placeholder='download docx file name' onChange={handlerFileName}>
+                    <Input fluid labelPosition="right" type="text" placeholder='download docx file name'
+                           onChange={handlerFileName}>
                         <Label content="File Name" basic/>
                         <input/>
                         <Label content=".docx"/>
@@ -85,9 +91,11 @@ export default function MySqlDict() {
                 </div>
                 <Spacing/>
                 <Spacing/>
-                <Button style={{fontFamily:'charter'}}  primary content={"Download..."} onClick={submitHandler} disabled={!activeSubmit}/>
+                <Button style={{fontFamily: 'charter'}} loading={submitLoading} primary content={"Download..."}
+                        onClick={submitHandler}
+                        disabled={!activeSubmit}/>
                 <Spacing/>
-                <Button icon style={{minWidth:'85px'}} as="a" href="/">
+                <Button icon style={{minWidth: '85px'}} as="a" href="/">
                     <Icon name="long arrow alternate left"/>
                 </Button>
             </div>
