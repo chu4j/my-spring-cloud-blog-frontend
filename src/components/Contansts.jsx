@@ -1,4 +1,4 @@
-export const BLOG_TITLE = "Canteen";
+export const BLOG_TITLE = "Somuns";
 export const CATEGORY = "categories";
 export const TAG = "tags";
 export const POSTS = "Posts";

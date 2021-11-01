@@ -1,11 +1,10 @@
-import {Button, Container, Header, Icon, Input, Label} from "semantic-ui-react";
+import React, {useEffect, useState} from "react";
+import {Button, Container, Header, Input, Label} from "semantic-ui-react";
 import Spacing from "./Spacing";
 import Select from "react-select";
-import {useEffect, useState} from "react";
 import RequestBuilder from "../util/RequestBuilder";
 import makeAnimated from 'react-select/animated';
 import API from "../data/DataUrl";
-import {default as axios} from "axios";
 
 async function getTableName() {
     const axios = require("axios").default;
@@ -72,7 +71,7 @@ export default function MySqlDict() {
         })
     }
     return (<>
-        <Container textAlign={"center"}>
+        <Container textAlign="justified">
             <Spacing/>
             <Header style={{fontFamily: 'charter'}} as={"h2"}>MYSQL TABLE DICTIONARY GENERATOR V1.0</Header>
             <Spacing/>
@@ -91,13 +90,10 @@ export default function MySqlDict() {
                 </div>
                 <Spacing/>
                 <Spacing/>
+                <Button secondary as="a" href="/" content='Home' icon='arrow left' labelPosition='left'/>
                 <Button style={{fontFamily: 'charter'}} loading={submitLoading} primary content={"Download..."}
                         onClick={submitHandler}
                         disabled={!activeSubmit}/>
-                <Spacing/>
-                <Button icon style={{minWidth: '85px'}} as="a" href="/">
-                    <Icon name="long arrow alternate left"/>
-                </Button>
             </div>
         </Container>
     </>);

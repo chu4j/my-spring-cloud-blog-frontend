@@ -1,3 +1,4 @@
+import React from "react";
 import {Route, Switch} from "react-router-dom";
 import NotFound from "../components/NotFount";
 import InternalError from "../components/Error";

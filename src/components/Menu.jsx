@@ -4,14 +4,7 @@ import {useRouteMatch} from "react-router-dom";
 import {CSSTransition} from "react-transition-group";
 import {Breadcrumb, Divider, Dropdown, Icon} from "semantic-ui-react";
 import {CustomButton} from "./Components";
-import {
-    MENU_ABOUT,
-    MENU_CATEGORIES,
-    MENU_HOME,
-    MENU_TAGS, MENU_MYSQL_DICT,
-    POSTS, WEBSITE_NAME,
-} from "./Contansts";
-import SearchBox from "./SearchBox";
+import {MENU_ABOUT, MENU_CATEGORIES, MENU_HOME, MENU_MYSQL_DICT, MENU_TAGS, POSTS, WEBSITE_NAME,} from "./Contansts";
 import Spacing from "./Spacing";
 
 const username = Cookies.get("username");

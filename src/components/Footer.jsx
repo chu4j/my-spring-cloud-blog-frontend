@@ -1,4 +1,4 @@
-import {Component, React} from "react";
+import React, {Component} from "react";
 import {Divider, Icon} from "semantic-ui-react";
 import Spacing from "./Spacing";
 import {WEBSITE_NAME} from "./Contansts";
