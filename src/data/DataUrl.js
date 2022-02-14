@@ -16,8 +16,8 @@ const API = {
     ADMIN_SIGN_IN: SERVER_URL + "/admin/signIn",
     ADMIN_GET_POSTS_URL: SERVER_URL + "/admin/posts",
     ADMIN_POSTS_UPLOAD_URL: SERVER_URL + "/admin/post/upload",
-    GET_TABLE_NAME: SERVER_URL + "/blog/table/tables",
-    DOWNLOAD_MYSQL_DICT: SERVER_URL + "/blog/table/download",
+    GET_TABLE_NAME: SERVER_URL + "/blog/table/tables/",
+    DOWNLOAD_MYSQL_DICT: SERVER_URL + "/blog/table/download/",
     MAX_PAGE: "10",
     MIN_PAGE: "3",
 };

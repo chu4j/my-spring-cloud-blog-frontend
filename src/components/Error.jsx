@@ -21,7 +21,6 @@ export default function InternalError() {
                         width="140px"
                         content="Back Home"
                         href="/"
-                        bold
                     />
                 </Container>
             </DefaultLayout>

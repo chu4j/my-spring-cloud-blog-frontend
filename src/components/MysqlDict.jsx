@@ -1,23 +1,24 @@
 import React, {useEffect, useState} from "react";
 import {Button, Container, Header, Input, Label} from "semantic-ui-react";
+import {Select as SelectTo} from "semantic-ui-react";
 import Spacing from "./Spacing";
-import Select from "react-select";
 import RequestBuilder from "../util/RequestBuilder";
 import makeAnimated from 'react-select/animated';
 import API from "../data/DataUrl";
+import Select from "react-select";
 
-async function getTableName() {
+async function getTableName(databaseName) {
     const axios = require("axios").default;
     const url = new RequestBuilder()
-        .setUrl(API.GET_TABLE_NAME)
+        .setUrl(API.GET_TABLE_NAME+databaseName)
         .build()
         .toUrlString();
     return axios.get(url).then((res) => res.data);
 }
 
-async function postThenDownload(fileName, selectedTable) {
+async function postThenDownload(database,fileName, selectedTable) {
     const axios = require("axios").default
-    return await axios.post(API.DOWNLOAD_MYSQL_DICT, {
+    return await axios.post(API.DOWNLOAD_MYSQL_DICT+database, {
         "fileName": fileName, "tables": selectedTable, "website": window.location.hostname
     }, {
         headers: {
@@ -46,17 +47,22 @@ export default function MySqlDict() {
     const [fileName, setFileName] = useState("");
     const [activeSubmit, setActiveSubmit] = useState(false);
     const [submitLoading, setSubmitLoading] = useState(false);
+    const [database,setDatabase]=useState("");
     const handlerFileName = (e) => {
         setFileName(e.target.value)
     }
     useEffect(() => {
-        getTableName().then(data => {
+        
+    }, [])
+    const handleSelectDatabase=(e,data)=>{
+        setDatabase(data.value);
+        getTableName(data.value).then(data => {
             setDefaultOptions(data)
         })
-    }, [])
+    }
     const submitHandler = () => {
         setSubmitLoading(true);
-        postThenDownload(fileName, selectedOptions)
+        postThenDownload(database,fileName, selectedOptions)
             .then(response => {
                 const name = response.headers["content-disposition"].split("filename=")[1];
                 const url = window.URL.createObjectURL(new Blob([response.data], {type: "application/vnd.openxmlformats-officedocument.wordprocessingml.document"}));
@@ -70,10 +76,18 @@ export default function MySqlDict() {
             setSubmitLoading(false);
         })
     }
+    const countryOptions = [
+        { key: 'ehc-saas', value: 'ehc-saas', text: 'SAAS' },
+        { key: 'storefront', value: 'storefront', text: 'STOREFRONT' }
+      ]
     return (<>
         <Container textAlign="justified">
             <Spacing/>
             <Header style={{fontFamily: 'charter'}} as={"h2"}>MYSQL TABLE DICTIONARY GENERATOR V1.0</Header>
+            <Spacing/>
+            <div style={{width: '618px', display: 'inline-block'}}>
+            <SelectTo placeholder='Select database' options={countryOptions} onChange={handleSelectDatabase}/>
+            </div>
             <Spacing/>
             <div style={{width: '618px', display: 'inline-block'}}>
                 <div style={{textAlign: 'left'}}>
