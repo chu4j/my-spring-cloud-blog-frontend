@@ -55,6 +55,7 @@ export default function MySqlDict() {
         
     }, [])
     const handleSelectDatabase=(e,data)=>{
+        setDefaultOptions([]);
         setDatabase(data.value);
         getTableName(data.value).then(data => {
             setDefaultOptions(data)
