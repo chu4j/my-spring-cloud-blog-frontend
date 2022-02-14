@@ -125,6 +125,7 @@ export function AnimatedMulti(props) {
             defaultValue={props.selectedOptions}
             onChange={props.selectedOptionsHandler}
             options={props.defaultOptions}
+            isLoading={true}
         />
     );
 }
