@@ -48,6 +48,7 @@ export default function MySqlDict() {
     const [activeSubmit, setActiveSubmit] = useState(false);
     const [submitLoading, setSubmitLoading] = useState(false);
     const [database,setDatabase]=useState("");
+    const [loading,setLoading]=useState(false);
     const handlerFileName = (e) => {
         setFileName(e.target.value)
     }
@@ -56,9 +57,11 @@ export default function MySqlDict() {
     }, [])
     const handleSelectDatabase=(e,data)=>{
         setDefaultOptions([]);
+        setLoading(true);
         setDatabase(data.value);
         getTableName(data.value).then(data => {
             setDefaultOptions(data)
+            setLoading(false);
         })
     }
     const submitHandler = () => {
@@ -93,7 +96,7 @@ export default function MySqlDict() {
             <div style={{width: '618px', display: 'inline-block'}}>
                 <div style={{textAlign: 'left'}}>
                     <AnimatedMulti defaultOptions={defaultOptions} selectedOptions={selectedOptions}
-                                   selectedOptionsHandler={setSelectedOptions2}/>
+                                   selectedOptionsHandler={setSelectedOptions2} loadingState={loading}/>
                     <Spacing/>
                     <Input fluid labelPosition="right" type="text" placeholder='download docx file name'
                            onChange={handlerFileName}>
@@ -125,7 +128,7 @@ export function AnimatedMulti(props) {
             defaultValue={props.selectedOptions}
             onChange={props.selectedOptionsHandler}
             options={props.defaultOptions}
-            isLoading={true}
+            isLoading={props.loadingState}
         />
     );
 }
