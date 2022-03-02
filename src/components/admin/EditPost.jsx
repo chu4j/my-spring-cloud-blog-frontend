@@ -19,7 +19,7 @@ export default function EditPost() {
         }
     });
     const backToSignIn = () => {
-        history.push("/admin/signIn");
+        history.push("/man/signIn");
     };
     axios.interceptors.response.use(
         (response) => {
@@ -121,7 +121,7 @@ tags:
                 headers: {Authorization: `Bearer ${accessToken}`},
             })
             .then((res) => {
-                history.push("/admin/post/edit/" + res.data.id);
+                history.push("/man/post/edit/" + res.data.id);
             })
             .catch((error) => {
                 console.error(error);
@@ -194,7 +194,7 @@ tags:
                             <CustomButton
                                 content="Back manage page"
                                 height={32}
-                                href="/admin/posts"
+                                href="/man/posts/"
                             />
                             <Spacing/>
                         </Grid.Column>

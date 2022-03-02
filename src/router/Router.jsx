@@ -1,5 +1,5 @@
 import React from "react";
-import {Route, Switch} from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import NotFound from "../components/NotFount";
 import InternalError from "../components/Error";
 import EditPost from "../components/admin/EditPost";
@@ -17,61 +17,61 @@ export default function BlogRouter() {
     return (
         <Switch>
             <Route path="/" exact>
-                <Home/>
+                <Home />
             </Route>
             <Route path="/category/:name" exact>
-                <Home/>
+                <Home />
             </Route>
             <Route path="/tag/:name" exact>
-                <Home/>
+                <Home />
             </Route>
             <Route path="/post/page/:pageNumber" exact>
-                <Home/>
+                <Home />
             </Route>
             <Route path="/category/:name/page/:pageNumber" exact>
-                <Home/>
+                <Home />
             </Route>
             <Route path="/tag/:name/page/:pageNumber" exact>
-                <Home/>
+                <Home />
             </Route>
             <Route path="/post/:postId" exact>
-                <OnePost/>
+                <OnePost />
             </Route>
             <Route path="/categories" exact>
-                <Categories/>
+                <Categories />
             </Route>
             <Route path="/tags" exact>
-                <Tags/>
+                <Tags />
             </Route>
             <Route path="/timeline" exact>
-                <Timeline/>
+                <Timeline />
             </Route>
             <Route path="/timeline/page/:pageNumber" exact>
-                <Timeline/>
+                <Timeline />
             </Route>
-            <Route path="/admin/posts" exact>
-                <AdminPostListCmp/>
+            <Route path="/man/posts/" exact>
+                <AdminPostListCmp />
             </Route>
-            <Route path="/admin/post/page/:pageNum" exact>
-                <AdminPostListCmp/>
+            <Route path="/man/post/page/:pageNum" exact>
+                <AdminPostListCmp />
             </Route>
-            <Route path="/admin/post/edit/:postId" exact>
-                <EditPost/>
+            <Route path="/man/post/edit/:postId" exact>
+                <EditPost />
             </Route>
-            <Route path="/admin/signIn" exact>
-                <AdminSignIn/>
+            <Route path="/man/signIn" exact>
+                <AdminSignIn />
             </Route>
-            <Route path="/admin/post/upload" exact>
-                <Upload/>
+            <Route path="/man/post/upload" exact>
+                <Upload />
             </Route>
             <Route path="/mysql/mysql-dict" exact>
-                <MySqlDict/>
+                <MySqlDict />
             </Route>
             <Route path="/error">
-                <InternalError/>
+                <InternalError />
             </Route>
             <Route path="*" exact={true}>
-                <NotFound/>
+                <NotFound />
             </Route>
         </Switch>
     );

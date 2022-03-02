@@ -22,7 +22,7 @@ const AccountDropdown = () => (
                     icon="settings"
                     text="Post Manage"
                     as="a"
-                    href="/admin/posts"
+                    href="/man/posts/"
                 />
                 <Dropdown.Item icon="log out" text="Logout" onClick={handleLogout}/>
             </Dropdown.Menu>
@@ -82,7 +82,7 @@ const BreadcrumbMenu = (props) => (
               ) : (
                   <CustomButton
                       content="Sign In"
-                      href="/admin/signIn"
+                      href="/man/signIn"
                       paddingTop={7}
                       width="80px"
                       border={0}

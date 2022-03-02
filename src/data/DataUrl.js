@@ -1,5 +1,5 @@
 // const SERVER_URL = "http://localhost:8084";
-const SERVER_URL = "https://www.zhuqigong.xyz:8443";
+const SERVER_URL = "https://www.chujjj.xyz";
 // const SERVER_URL = "http://localhost:8084";
 const API = {
     GET_POSTS_URL: SERVER_URL + "/blog/posts",

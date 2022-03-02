@@ -34,7 +34,7 @@ export default function AdminSignIn() {
                         //cookie set up
                         Cookies.set("access_token", res.data.accessToken, {expires: 3});
                         Cookies.set("username", res.data.username, {expires: 3});
-                        history.push("/admin/posts");
+                        history.push("/man/posts/");
                     } else {
                         //sign in failed
                         setMessage(res.data.message);

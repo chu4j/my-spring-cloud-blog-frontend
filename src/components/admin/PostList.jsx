@@ -24,12 +24,12 @@ export default function AdminPostListCmp() {
                 content="New Post"
                 paddingTop={4}
                 height={30}
-                href="/admin/post/edit/undefined"
+                href="/man/post/edit/undefined"
                 border={1}
             />
             <CustomButton
                 content="Upload"
-                href="/admin/post/upload"
+                href="/man/post/upload"
                 height={30}
                 paddingTop={4}
                 border={1}
@@ -67,7 +67,7 @@ export default function AdminPostListCmp() {
                                     <Table.Cell key={index}>
                                         <CustomButton
                                             content="Edit"
-                                            href={"/admin/post/edit/" + e.id}
+                                            href={"/man/post/edit/" + e.id}
                                             height={28}
                                             paddingTop={3}
                                             border={1}
@@ -105,7 +105,7 @@ export default function AdminPostListCmp() {
         </>
     );
     const backToSignIn = () => {
-        history.push("/admin/signIn");
+        history.push("/man/signIn");
     };
     const {pageNum} = useParams();
     const reqPageNum = pageNum ? pageNum : 1;
@@ -145,7 +145,7 @@ export default function AdminPostListCmp() {
             });
     }, []);
     const handlerPageChange = (e, {activePage}) => {
-        history.push("/admin/post/page/" + activePage);
+        history.push("/man/post/page/" + activePage);
     };
     const deletePostEvent = (e, deletePostId) => {
         setDeleteParams({open: true, deletePostId: deletePostId});
@@ -161,7 +161,7 @@ export default function AdminPostListCmp() {
                 headers: {Authorization: `Bearer ${accessToken}`},
             })
             .then((data) => {
-                history.push("/admin/posts");
+                history.push("/man/posts/");
             })
             .catch((error) => {
                 console.error(error);

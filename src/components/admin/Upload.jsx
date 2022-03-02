@@ -9,7 +9,7 @@ import Spacing from "../Spacing";
 export default function Upload() {
     const history = useHistory();
     const backToSignIn = () => {
-        history.push("/admin/signIn");
+        history.push("/man/signIn");
     };
     const axios = require("axios").default;
     axios.interceptors.response.use(
@@ -85,7 +85,7 @@ export default function Upload() {
                                 {message && <Message as="h4">{message}</Message>}
                             </Segment>
                             <Spacing/>
-                            <Button secondary as="a" href="/admin/posts" content='Back Manage Page' size={"small"} icon='arrow left' labelPosition='left'/>
+                            <Button secondary as="a" href="/man/posts/" content='Back Manage Page' size={"small"} icon='arrow left' labelPosition='left'/>
                         </GridColumn>
                     </GridRow>
                 </Grid>
